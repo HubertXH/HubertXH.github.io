@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+
+  <!-- Baidu Push -->
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+  <meta name="google-site-verification" content="lxDfCplOZbIzjhG34NuQBgu2gdyRlAtMB4utP5AgEBc"/>
+  <meta name="baidu-site-verification" content="PpzM9WxOJU"/>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="随笔小记"/>
+  <meta name="keyword" content="IT"/>
+  <link rel="shortcut icon" href="/img/avatar/02.jpg"/>
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- viewer start (Picture preview) -->
+      <link rel="stylesheet" href="/css/viewer.min.css"/>
+      <!-- viewer end -->
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- gitalk start -->
+      <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"> -->
+      <link rel="stylesheet" href="/css/gitalk.css"/>
+      <!-- gitalk end -->
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="http://yoursite-url/JVM/JVM/">
+  <title>
+    
+      JVM Architecture - null
+    
+  </title>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+		<!-- Gitter -->
+<!-- Docs:https://gitter.im/?utm_source=left-menu-logo -->
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'your-community/your-room'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">风闲小聚</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">HOME</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              ABOUT
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              TAGS
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>SEARCH</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+          
+          
+          
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/mountCloud.jpg');
+      --intro-header-background-image-url-post: url('/img/jvm/header.jpg');
+      --intro-header-background-image-url-page: url('//img/jvm/header.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/mountCloud.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/jvm/header.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/jvm/header.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/jvm/header.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#jvm" title="jvm">jvm</a>
+              
+            </div>
+            <h1>JVM Architecture</h1>
+            <h2 class="subheading">JDK8</h2>
+            <span class="meta">
+              Posted by 煦阳 on
+              2021-06-17
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">9</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">2.8k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
+
+        <h3 id="JVM-Architecture">JVM Architecture</h3>
+<p><img src="/img/jvm/HotSpotArchitecture.PNG" alt="architecture" title="arc"></p>
+<h4 id="Run-Time-Data-Areas">Run-Time Data Areas</h4>
+<!-- The Java Virtual Machine defines various run-time data areas that are used during execution of a program. Some of these data areas are created on Java Virtual Machine start-up and are destroyed only when the Java Virtual Machine exits. 
+Other data areas are per thread. Per-thread data areas are created when a thread is created and destroyed when the thread exits.-->    
+<p>虚拟机在运行的中会规划处不同类型的数据区域用于程序处理。有些区域会随着虚拟机的启动而创建，同时在虚拟机退出的是时候销毁。还有一些区域和线程相关(<br>
+Pre-thread)，在线程创建的时候该区域被创建，当线程停止运行退出的时候，该区域也会销毁。</p>
+<h5 id="Method-Area">Method Area</h5>
+<p>方法区是所有线程共享的，它存储每个类结构，如运行时常量池，字段和方法数据，以及方法和构造函数的代码，包括类和实例初始化中使用的特殊方法和接口初始化。方法区不会发生垃圾收集。也就是说,即使一个类不再被任何对象引用，它的类型信息仍然会保留在方法区中。在JAVA8中使用元空间来实现方法新-使用本地内存来存储类型信息和常量</p>
+<p>MethodArea的主要组件包括：</p>
+<ol>
+<li>存储类信息，如类名、类的父类、方法签名和字段声明。</li>
+<li>存储常量，如字符串、数字和布尔值。</li>
+<li>存储字段的值，包括静态字段和实例字段。</li>
+<li>存储方法的字节码。</li>
+<li>存储方法表，该表包含方法签名、返回类型、参数类型和方法局部变量。</li>
+</ol>
+<p>方法区与Java堆的主要区别在于：</p>
+<ul>
+<li>方法区用于存储已被虚拟机加载的类型信息，而Java堆用于存储对象实例。</li>
+<li>方法区是Java虚拟机规范中定义的，而Java堆则是Java虚拟机实现的具体细节。</li>
+<li>方法区不参与垃圾收集，而Java堆则会被垃圾收集器回收。</li>
+<li>方法区在Java虚拟机启动时创建，并且它的实际的物理内存空间可以是连续的，也可以是不连续的。方法区的大小，与Java堆空间一样，可以选择固定大小或者可扩展。</li>
+</ul>
+<!-- The Java Virtual Machine has a method area that is shared among all Java Virtual Machine threads. The method area is
+analogous to the storage area for compiled code of a conventional language or analogous to the "text" segment in an
+operating system process. It stores per-class structures such as the run-time constant pool, field and method data, and
+the code for methods and constructors, including the special methods (§2.9) used in class and instance initialization
+and interface initialization.
+
+The method area is created on virtual machine start-up. Although the method area is logically part of the heap, simple
+implementations may choose not to either garbage collect or compact it. This specification does not mandate the location
+of the method area or the policies used to manage compiled code. The method area may be of a fixed size or may be
+expanded as required by the computation and may be contracted if a larger method area becomes unnecessary. The memory
+for the method area does not need to be contiguous.
+
+A Java Virtual Machine implementation may provide the programmer or the user control over the initial size of the method
+area, as well as, in the case of a varying-size method area, control over the maximum and minimum method area size.
+
+The following exceptional condition is associated with the method area: -->
+<pre><code>If memory in the method area cannot be made available to satisfy an allocation request, the Java Virtual Machine throws an OutOfMemoryError.    
+如果方法区内存不够时会抛出：OutOfMemoryError
+</code></pre>
+<h5 id="Heap">Heap</h5>
+<!-- The Java Virtual Machine has a heap that is shared among all Java Virtual Machine threads. The heap is the run-time data area from which memory for all class instances and arrays is allocated.
+The heap is created on virtual machine start-up. Heap storage for objects is reclaimed by an automatic storage management system (known as a garbage collector); objects are never explicitly deallocated. 
+The Java Virtual Machine assumes no particular type of automatic storage management system, and the storage management technique may be chosen according to the implementor's system requirements. 
+The heap may be of a fixed size or may be expanded as required by the computation and may be contracted if a larger heap becomes unnecessary. The memory for the heap does not need to be contiguous.
+A Java Virtual Machine implementation may provide the programmer or the user control over the initial size of the heap, as well as, if the heap can be dynamically expanded or contracted, control over the maximum and minimum heap size.
+The following exceptional condition is associated with the heap:
+    If a computation requires more heap than can be made available by the automatic storage management system, the Java Virtual Machine throws an OutOfMemoryError.-->    
+<p>Java虚拟机的堆是所有Java虚拟机线程共享的。所有类的实例和所有数组都会被分配至Heap中。Heap在虚拟机启动的时候就会创建，用于存储那些没用被释放的对象。这块内存区域会被存储管理系统所管理例如：垃圾回收器。<br>
+Heap的大小可以是固定值也可以是一个范围，在虚拟机运行时根据实时计算进行内存大小的分配及回收（动态分配及回收唯一的确定是<br>
+如果内存大小频分变动则会引起频繁的FullGC）。Heap在实际中可以是不连续的一段内存。</p>
+<p>Java堆内存通常具有以下特点：</p>
+<ol>
+<li>堆是所有对象实例的存储位置。当你创建一个对象实例时，如通过使用<code>new</code>关键字创建数组或类的实例，该对象将存储在堆内存中。</li>
+<li>堆是所有线程共享的。这意味着，当一个线程创建了一个对象，其他线程也能够访问和操作该对象。</li>
+<li>堆内存的大小可以在运行时动态地改变。例如，你可以通过调整JVM参数来增加或减少堆的大小。</li>
+<li>堆内存的回收是由垃圾回收器自动管理的。当一个对象不再被引用，或者程序执行完毕后，垃圾回收器会自动回收该对象的内存空间，以供其他对象使用。</li>
+</ol>
+<p><em><strong>如果在运行过程中计算出来需要的内存大于内存管理系统所提供的内存数量，则虚拟机会抛出 OutOfMemoryError 这样的错误。</strong></em></p>
+<h5 id="Java-Threads">Java Threads</h5>
+<!-- Also call Java Virtual Machine Stacks,
+Each Java Virtual Machine thread has a private Java Virtual Machine stack, created at the same time as the thread. 
+A Java Virtual Machine stack stores frames (§2.6). A Java Virtual Machine stack is analogous to the stack of a conventional language such as C: it holds local variables and partial results, and plays a part in method invocation and return. 
+Because the Java Virtual Machine stack is never manipulated directly except to push and pop frames, frames may be heap allocated. 
+The memory for a Java Virtual Machine stack does not need to be contiguous.
+In the First Edition of The Java® Virtual Machine Specification, the Java Virtual Machine stack was known as the Java stack.
+This specification permits Java Virtual Machine stacks either to be of a fixed size or to dynamically expand and contract as required by the computation. 
+If the Java Virtual Machine stacks are of a fixed size, the size of each Java Virtual Machine stack may be chosen independently when that stack is created.
+A Java Virtual Machine implementation may provide the programmer or the user control over the initial size of Java Virtual Machine stacks, as well as, in the case of dynamically expanding or contracting Java Virtual Machine stacks, control over the maximum and minimum sizes.
+The following exceptional conditions are associated with Java Virtual Machine stacks:
+    If the computation in a thread requires a larger Java Virtual Machine stack than is permitted, the Java Virtual Machine throws a StackOverflowError.
+    If Java Virtual Machine stacks can be dynamically expanded, and expansion is attempted but insufficient memory can be made available to effect the expansion, or if insufficient memory can be made available to create the initial Java Virtual Machine stack for a new thread, the Java Virtual Machine throws an OutOfMemoryError.
+-->
+<p>每一个Java虚拟机的线程都有一个自己私有的Stack.在线程被创建的同时线程的Stack也会被创建。Stack中主要存储<br>
+本地变量表（数组），操作数栈，运行时常量池的引用。</p>
+<p>栈帧的结构如下：</p>
+<p>| 局部变量表 | 操作数栈 | 返回地址 |</p>
+<ul>
+<li>局部变量表：用于存储方法的局部变量。</li>
+<li>操作数栈：用于存储方法的操作数。</li>
+<li>返回地址：用于存储方法的返回地址。</li>
+</ul>
+<p>当方法被调用时，会在栈中创建一个栈帧，并将方法的参数、局部变量等信息保存在栈帧中。当方法返回时，会将返回地址从栈帧中弹出，并将控制权返回给调用方法。<br>
+栈是后进先出（LIFO）的数据结构，这意味着新创建的栈帧会被压入栈顶，而最先创建的栈帧会被弹出栈顶。</p>
+<ul>
+<li>当方法被调用时，创建一个栈帧，并将方法的参数、局部变量等信息保存在栈帧中。</li>
+<li>调用方法的代码执行时，从栈帧中取出方法的参数、局部变量等信息。</li>
+<li>方法执行完毕时，将返回地址从栈帧中弹出，并将控制权返回给调用方法。</li>
+<li>调用方法的代码执行完毕时，释放栈帧。</li>
+</ul>
+<p>栈的注意事项：</p>
+<ul>
+<li>
+<p>栈是有限的，因此在调用方法时，需要注意栈的大小。</p>
+</li>
+<li>
+<p>栈帧的创建和释放会消耗系统资源，因此应该避免频繁地创建和销毁栈帧。</p>
+</li>
+<li>
+<p>栈帧中保存的信息是方法的内部信息，因此不应该在方法外部访问栈帧中的信息。</p>
+</li>
+<li>
+<p>栈是Java程序运行的基础，它是方法调用和参数传递的重要机制。</p>
+<p>如果线程栈所需的大小大于栈所被允许的最大内存空间值，则会抛出：StackOverflowError<br>
+如果一个线程栈的大小可以自动伸缩，若果在扩张或者新建栈的时候，没有足够的空间使用则会抛出：OutOfMemoryError</p>
+</li>
+</ul>
+<h5 id="Program-Counter-Register">Program Counter Register</h5>
+<!-- The Java Virtual Machine can support many threads of execution at once (JLS §17). Each Java Virtual Machine thread has
+its own pc (program counter) register. At any point, each Java Virtual Machine thread is executing the code of a single
+method, namely the current method (§2.6) for that thread. If that method is not native, the pc register contains the
+address of the Java Virtual Machine instruction currently being executed. If the method currently being executed by the
+thread is native, the value of the Java Virtual Machine's pc register is undefined. The Java Virtual Machine's pc
+register is wide enough to hold a returnAddress or a native pointer on the specific platform.    -->
+<p>程序计数器：每一个运行中的线程都有一个自己私有的程序计数器。在任意时刻每个线程执行的方法称为当前虚拟机的方法。如果当方法是不本机方法，程序计算器中包含<br>
+当前正在执行的虚拟机方法的指令地址。如果方法是本地方法，那PC中的值是未定义的。</p>
+<h5 id="Native-Internal-Threads">Native Internal Threads</h5>
+<p>在Java中，Native Internal Threads是指由Java虚拟机（JVM）内部使用，但不由Java程序直接创建或管理的线程。这些线程通常用于执行JVM本身的任务，例如垃圾收集、JIT编译等。<br>
+JVM 通常使用自己常规堆栈来支持本地方法（用JAVA以外的语言编写的方法）。本地方法栈也可以由JVM指令集的解析程序例如C语言来使用。</p>
+<p>Native Internal Threads与Java程序创建的线程有以下几个区别：</p>
+<ol>
+<li>它们由JVM内部创建和管理，不由Java程序创建或管理。</li>
+<li>它们通常运行在操作系统的底层，而Java程序创建的线程通常运行在操作系统的用户空间。</li>
+<li>它们通常具有更高的优先级，因此可以抢占Java程序创建的线程的CPU时间。</li>
+<li>Native Internal Threads的使用可以提高JVM的性能和效率。例如，垃圾收集线程可以并发执行垃圾收集任务，从而缩短垃圾收集的时间。JIT编译线程可以并发执行JIT编译任务，从而提高程序的运行速度。</li>
+</ol>
+<p>以下是一些常见的Native Internal Threads：</p>
+<ul>
+<li>垃圾收集线程：用于执行垃圾收集任务。</li>
+<li>JIT编译线程：用于执行JIT编译任务。</li>
+<li>线程调度线程：用于调度Java程序创建的线程。</li>
+<li>垃圾回收线程：用于回收不再使用的对象。</li>
+<li>其他内部线程：用于执行JVM内部的其他任务，例如启动和关闭JVM等。</li>
+<li>在Java程序中，可以通过JVM的API访问Native Internal Threads。例如，可以通过ThreadMXBean类获取JVM中所有线程的信息，包括Native Internal Threads的信息。</li>
+</ul>
+<!-- An implementation of the Java Virtual Machine may use conventional stacks, colloquially called "C stacks," to support
+native methods (methods written in a language other than the Java programming language). Native method stacks may also
+be used by the implementation of an interpreter for the Java Virtual Machine's instruction set in a language such as C.
+Java Virtual Machine implementations that cannot load native methods and that do not themselves rely on conventional
+stacks need not supply native method stacks. If supplied, native method stacks are typically allocated per thread when
+each thread is created.
+
+This specification permits native method stacks either to be of a fixed size or to dynamically expand and contract as
+required by the computation. If the native method stacks are of a fixed size, the size of each native method stack may
+be chosen independently when that stack is created.
+
+A Java Virtual Machine implementation may provide the programmer or the user control over the initial size of the native
+method stacks, as well as, in the case of varying-size native method stacks, control over the maximum and minimum method
+stack sizes.
+
+The following exceptional conditions are associated with native method stacks: -->
+<p>如果一个线程需要的本地方法栈大小大于被允许的大小时（即本法方法栈计算出来的所需内存大小大于配置的最大内存），JVM会抛出StackOverflowError<br>
+错误</p>
+<!-- If the computation in a thread requires a larger native method stack than is permitted, the Java Virtual Machine throws
+a StackOverflowError. -->
+<p>如果一个本地方法栈可以动态的扩展，但是没有足够的内存可供使用则 JVM 抛出OutOfMemoryError 错误</p>
+<!-- If native method stacks can be dynamically expanded and native method stack expansion is attempted but insufficient
+memory can be made available, or if insufficient memory can be made available to create the initial native method stack
+for a new thread, the Java Virtual Machine throws an OutOfMemoryError. -->
+<h5 id="Run-Time-Constant-Pool">Run-Time Constant Pool</h5>
+<p>运行时常量池</p>
+<!-- A run-time constant pool is a per-class or per-interface run-time representation of the constant_pool table in a class
+file (§4.4). It contains several kinds of constants, ranging from numeric literals known at compile-time to method and
+field references that must be resolved at run-time. The run-time constant pool serves a function similar to that of a
+symbol table for a conventional programming language, although it contains a wider range of data than a typical symbol
+table. -->
+<p>运行时常量池是类文件中的constant_pool表在每个类或每个接口的运行时表示。它包含多种类型的常量，从编译时已知的数值字面量到运行时必须解析的方法和字段引用。运行时常量池的功能类似于传统编程语言的符号表，但它包含的数据范围更广。</p>
+<!-- Each run-time constant pool is allocated from the Java Virtual Machine's method area (§2.5.4). The run-time constant
+pool for a class or interface is constructed when the class or interface is created (§5.3) by the Java Virtual Machine. -->
+<p>每个运行时常量池都从Java虚拟机的方法区分配。类或接口的运行时常量池在类或接口被创建时由Java虚拟机构建。</p>
+<!-- The following exceptional condition is associated with the construction of the run-time constant pool for a class or
+interface:
+
+When creating a class or interface, if the construction of the run-time constant pool requires more memory than can be
+made available in the method area of the Java Virtual Machine, the Java Virtual Machine throws an OutOfMemoryError.
+
+See §5 (Loading, Linking, and Initializing) for information about the construction of the run-time constant pool. -->
+<p>与构建类或接口的运行时常量池相关的一个例外情况是：当创建类或接口时，如果构建运行时常量池所需的内存在Java虚拟机的方法区中无法提供，Java虚拟机将抛出OutOfMemoryError。</p>
+<p>运行时常量池中包含的一些常量类型</p>
+<ol>
+<li>字面量（Literal）：字面量是Java代码中直接或间接表示特定值的表达式。例如，字符串字面量（“Hello World”）和整数字面量（123）等。</li>
+<li>符号引用（Symbolic References）：符号引用是指在Java代码中表示类、接口、字段和方法的名称和描述符。这些引用需要在运行时解析并转换为实际的对象引用。</li>
+<li>类引用（Class References）：类引用是指向Java类或接口的引用。它们用于加载类或接口，并在运行时创建对象。</li>
+<li>方法引用（Method References）：方法引用是指向Java类或接口中的方法的引用。它们用于调用方法，并在运行时执行特定的操作。</li>
+<li>字段引用（Field References）：字段引用是指向Java类或接口中的字段的引用。它们用于读取或修改字段的值。</li>
+</ol>
+<p>作用：</p>
+<ol>
+<li>为提高效率,将常量放到常量池中,避免每次用到时重新创建。</li>
+<li>字符串 CACHE 来减少对相同字符串的重复创建,节省内存。</li>
+<li>常量池中内容可以被共享访问,避免重复创建开销。</li>
+<li>类加载检查时用到全限定名,提高效率。</li>
+<li>反射时可以根据类名访问类,提高效率。</li>
+<li>提高代码安全性,字符串文字等不能随意改变。</li>
+</ol>
+<h4 id="参考文献">参考文献</h4>
+<p><a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html#jvms-2.5.2">Java® Virtual Machine Specification</a></p>
+
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/Linux/NFS/" data-toggle="tooltip" data-placement="top" title="Linux Command of NFS">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/RocketMQ/BestConfig/" data-toggle="tooltip" data-placement="top" title="The Best Practice">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=JVM Architecture&body=Hi,I found this website and thought you might like it http://yoursite-url/JVM/JVM/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+  <!-- gitalk start -->
+  <!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+  <div id="gitalk-container"></div>
+
+  
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+    <script src="/js/comment/gitalk.js"></script>
+  
+
+  <script>
+    var gitalk = new Gitalk({
+      clientID: '',
+      clientSecret: '',
+      repo: '',
+      owner: '',
+      admin: '',
+      id: 'Thu Jun 17 2021 13:56:01 GMT+0800', // Ensure uniqueness and length less than 50
+      distractionFreeMode: false, // Facebook-like distraction free mode
+      perPage: 10,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      language: 'en',
+      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
+    });
+    gitalk.render('gitalk-container');
+
+    var gtFolded = () => {
+      setTimeout(function () {
+        let markdownBody = document.getElementsByClassName("markdown-body");
+        let list = Array.from(markdownBody);
+        list.forEach(item => {
+          if (item.clientHeight > 250) {
+            item.classList.add('gt-comment-body-folded');
+            item.style.maxHeight = '250px';
+            item.title = 'Click to Expand';
+            item.onclick = function () {
+              item.classList.remove('gt-comment-body-folded');
+              item.style.maxHeight = '';
+              item.title = '';
+              item.onclick = null;
+            };
+          }
+        })
+      }, 800);
+    }
+  </script>
+
+  <!-- gitalk end -->
+
+
+<!-- 2. gitment comment -->
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#JVM-Architecture"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">JVM Architecture</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Run-Time-Data-Areas"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">Run-Time Data Areas</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#Method-Area"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">Method Area</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#Heap"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">Heap</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#Java-Threads"><span class="toc-nav-number">1.1.3.</span> <span class="toc-nav-text">Java Threads</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#Program-Counter-Register"><span class="toc-nav-number">1.1.4.</span> <span class="toc-nav-text">Program Counter Register</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#Native-Internal-Threads"><span class="toc-nav-number">1.1.5.</span> <span class="toc-nav-text">Native Internal Threads</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#Run-Time-Constant-Pool"><span class="toc-nav-number">1.1.6.</span> <span class="toc-nav-text">Run-Time Constant Pool</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">参考文献</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#jvm" title="jvm">jvm</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>FRIENDS</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://v-vincen.life/" target="_blank">HubertXH</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+
+          
+            <li>
+              <a target="_blank" href="https://github.com/HubertXH">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy;
+          煦阳
+          2023
+          <br>
+          Theme by
+          <a target="_blank" rel="noopener" href="http://beantech.org">BeanTech</a>
+          <span style="display: inline-block; margin: 0 5px;">
+            <i class="fa fa-heart"></i>
+          </span>
+          <!--
+          re-Ported by
+          <a target="_blank" rel="noopener" href="https://v-vincen.life/">Live My Life</a>
+          |
+          <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="91px" height="20px" src="https://ghbtns.com/github-btn.html?user=V-Vincen&repo=V-Vincen.github.io&type=star&count=true"></iframe> -->
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+    <!-- LangSelect start -->
+    <script type="text/javascript" src="/js/langselect.js"></script>
+    <!-- LangSelect end -->
+  
+
+  
+    <!-- Mouseclick -->
+    <script type="text/javascript" src="/js/mouseclick.js" content='' color='#9933CC,#339933,#66CCCC,#FF99CC,#CCCCFF,#6666CC,#663399,#66CC99,#FF0033'></script>
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+  <!-- viewer start -->
+  <!-- viewer start (Picture preview) -->
+  
+    <script async="async" type="text/javascript" src="/js/viewer/viewer.min.js"></script>
+    <script async="async" type="text/javascript" src="/js/viewer/pic-viewer.js"></script>
+  
+
+  <!-- viewer end -->
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  async ("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("http://yoursite-url/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col-md-9 col-md-offset-1"> -->
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="SEARCH..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.flv'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

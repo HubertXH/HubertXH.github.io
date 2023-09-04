@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+
+  <!-- Baidu Push -->
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+  <meta name="google-site-verification" content="lxDfCplOZbIzjhG34NuQBgu2gdyRlAtMB4utP5AgEBc"/>
+  <meta name="baidu-site-verification" content="PpzM9WxOJU"/>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="随笔小记"/>
+  <meta name="keyword" content="IT"/>
+  <link rel="shortcut icon" href="/img/avatar/02.jpg"/>
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- viewer start (Picture preview) -->
+      <link rel="stylesheet" href="/css/viewer.min.css"/>
+      <!-- viewer end -->
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- gitalk start -->
+      <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"> -->
+      <link rel="stylesheet" href="/css/gitalk.css"/>
+      <!-- gitalk end -->
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="http://yoursite-url/RocketMQ/Consumer/">
+  <title>
+    
+      Explain Common Consumer - null
+    
+  </title>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+		<!-- Gitter -->
+<!-- Docs:https://gitter.im/?utm_source=left-menu-logo -->
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'your-community/your-room'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">风闲小聚</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">HOME</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              ABOUT
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              TAGS
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>SEARCH</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+          
+          
+          
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/mountCloud.jpg');
+      --intro-header-background-image-url-post: url('/img/header_img/rocketmq.jpg');
+      --intro-header-background-image-url-page: url('//img/header_img/rocketmq.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/mountCloud.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/rocketmq.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/header_img/rocketmq.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/header_img/rocketmq.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#RocketMQ" title="RocketMQ">RocketMQ</a>
+              
+            </div>
+            <h1>Explain Common Consumer</h1>
+            <h2 class="subheading">How the consumer to work and some advise of config</h2>
+            <span class="meta">
+              Posted by 煦阳 on
+              2022-09-12
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">14</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">3.2k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
+
+        <h3 id="Basic-Simple">Basic Simple</h3>
+<p>以PushConsumer官网消费者代码为例，代码如下所示:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Consumer</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException, MQClientException </span>&#123;</span><br><span class="line">    <span class="comment">// 1.Instantiate with specified consumer group name</span></span><br><span class="line">    DefaultMQPushConsumer consumer = <span class="keyword">new</span> DefaultMQPushConsumer(<span class="string">&quot;please_rename_unique_group_name&quot;</span>);</span><br><span class="line">  </span><br><span class="line">    <span class="comment">// 2.Specify name server addresses</span></span><br><span class="line">    consumer.setNamesrvAddr(<span class="string">&quot;localhost:9876&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3.Subscribe one or more topics and tags for finding those messages need to be consumed</span></span><br><span class="line">    consumer.subscribe(<span class="string">&quot;TopicTest&quot;</span>, <span class="string">&quot;*&quot;</span>);</span><br><span class="line">    <span class="comment">// 4.Register callback to execute on arrival of messages fetched from brokers</span></span><br><span class="line">    consumer.registerMessageListener(<span class="keyword">new</span> MessageListenerConcurrently() &#123;</span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">public</span> ConsumeConcurrentlyStatus <span class="title">consumeMessage</span><span class="params">(List&lt;MessageExt&gt; msgs, ConsumeConcurrentlyContext context)</span> </span>&#123;</span><br><span class="line">        System.out.printf(<span class="string">&quot;%s Receive New Messages: %s %n&quot;</span>, Thread.currentThread().getName(), msgs);</span><br><span class="line">        <span class="comment">// Mark the message that have been consumed successfully</span></span><br><span class="line">        <span class="keyword">return</span> ConsumeConcurrentlyStatus.CONSUME_SUCCESS;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// 5.Launch the consumer instance</span></span><br><span class="line">    consumer.start();</span><br><span class="line">    System.out.printf(<span class="string">&quot;Consumer Started.%n&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="Consumer-init">Consumer init</h5>
+<ul>
+<li>标记点1，初始化MQ实例其调用的方法如下所示：<br>
+设置ConsumerGroup,<br>
+AllocateMessageQueueStrategy赋默认值-即在Consumer进行rebalance 时采取的策略，默认为平均策略(根据整个Consumer组中consumer的实例数量与所订阅的TOPIC的队列数量金进行平均分配)<br>
+这个策略在后续的流程中会用到，RocketMQ提供了几种默认的策略，包含平均策略，HASH值策略，同一机房策略等可以查看 org.apache.rocketmq.client.consumer.AllocateMessageQueueStrategy的实现类，<br>
+同时若以上均不能满足，可以自己写一个在，实例化消费者对象时注入即可。<br>
+在调用构造函数的同时，初始化DefaultMQPushConsumerImpl，同时将consumer注入至IMPL类中。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DefaultMQPushConsumer</span> <span class="keyword">extends</span> <span class="title">ClientConfig</span> <span class="keyword">implements</span> <span class="title">MQPushConsumer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DefaultMQPushConsumer</span><span class="params">(<span class="keyword">final</span> String consumerGroup)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(<span class="keyword">null</span>, consumerGroup, <span class="keyword">null</span>, <span class="keyword">new</span> AllocateMessageQueueAveragely());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DefaultMQPushConsumer</span><span class="params">(<span class="keyword">final</span> String namespace, <span class="keyword">final</span> String consumerGroup, RPCHook rpcHook,</span></span></span><br><span class="line"><span class="function"><span class="params">        AllocateMessageQueueStrategy allocateMessageQueueStrategy)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.consumerGroup = consumerGroup;</span><br><span class="line">        <span class="keyword">this</span>.namespace = namespace;</span><br><span class="line">        <span class="keyword">this</span>.allocateMessageQueueStrategy = allocateMessageQueueStrategy;</span><br><span class="line">        defaultMQPushConsumerImpl = <span class="keyword">new</span> DefaultMQPushConsumerImpl(<span class="keyword">this</span>, rpcHook);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>标记点2，设置NameServer的地址</li>
+<li>标记点3，设置订阅TOPIC和TAGS;TAGS可以是多个，使用&quot;||&quot;进行分隔。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DefaultMQPushConsumer</span> <span class="keyword">extends</span> <span class="title">ClientConfig</span> <span class="keyword">implements</span> <span class="title">MQPushConsumer</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">subscribe</span><span class="params">(String topic, String subExpression)</span> <span class="keyword">throws</span> MQClientException </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.defaultMQPushConsumerImpl.subscribe(withNamespace(topic), subExpression);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DefaultMQPushConsumerImpl</span> <span class="keyword">implements</span> <span class="title">MQConsumerInner</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">subscribe</span><span class="params">(String topic, String subExpression)</span> <span class="keyword">throws</span> MQClientException </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            SubscriptionData subscriptionData = FilterAPI.buildSubscriptionData(topic, subExpression);</span><br><span class="line">            <span class="keyword">this</span>.rebalanceImpl.getSubscriptionInner().put(topic, subscriptionData);</span><br><span class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.mQClientFactory != <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">this</span>.mQClientFactory.sendHeartbeatToAllBrokerWithLock();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> MQClientException(<span class="string">&quot;subscription exception&quot;</span>, e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FilterAPI</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> SubscriptionData <span class="title">buildSubscriptionData</span><span class="params">(String topic, String subString)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        SubscriptionData subscriptionData = <span class="keyword">new</span> SubscriptionData();</span><br><span class="line">        subscriptionData.setTopic(topic);</span><br><span class="line">        subscriptionData.setSubString(subString);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> == subString || subString.equals(SubscriptionData.SUB_ALL) || subString.length() == <span class="number">0</span>) &#123;</span><br><span class="line">            subscriptionData.setSubString(SubscriptionData.SUB_ALL);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            String[] tags = subString.split(<span class="string">&quot;\\|\\|&quot;</span>);</span><br><span class="line">            <span class="keyword">if</span> (tags.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">for</span> (String tag : tags) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (tag.length() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                        String trimString = tag.trim();</span><br><span class="line">                        <span class="keyword">if</span> (trimString.length() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                            subscriptionData.getTagsSet().add(trimString);</span><br><span class="line">                            subscriptionData.getCodeSet().add(trimString.hashCode());</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> Exception(<span class="string">&quot;subString split error&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> subscriptionData;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="Consumer-Subscribe">Consumer Subscribe</h5>
+<p>如上代码所示，DefaultMQPushConsumer.subscribe调用了DefaultMQPushConsumerImpl的subscribe方法，<br>
+首先根据TOPIC及TAG构建出SubscriptionData对象，然后将其放入rebalance的实现类的中变量subscriptionInner中。<br>
+subscriptionInner变量是一个ConcurrentMap如下所示:</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="keyword">final</span> ConcurrentMap&lt;<span class="keyword">String</span> <span class="comment">/* topic */</span>, SubscriptionData&gt; subscriptionInner = <span class="keyword">new</span> ConcurrentHashMap&lt;<span class="keyword">String</span>, SubscriptionData&gt;();</span><br></pre></td></tr></table></figure>
+<p>从这个方法buildSubscriptionData中可以看到消费者的订阅信息中也对TAG进行了哈希计算并存储起来了。<br>
+<em><strong>顺便说以下，如果在消费者集群中使用TAG进行消息过滤，那么整个消费者集群的实例中配置的TAG应该是相同的</strong></em>，<br>
+RocketMQ的TAG过滤是发生在Broker端的，即被过滤调的消息一定不会被其实例所消费(详请可以查看消息的存储设计及消息拉取机制)。<br>
+<em><strong>同时建议在消费者中使用TAG进行二次过滤，Broker端过虑消息是根据TAG的HASH值进行的过滤，为了防止出现HASH碰撞，所以需要在消费者实例里使用TAG进行过滤</strong></em></p>
+<ul>
+<li>标记点4，注册并发消费回调函数</li>
+<li>标记点5，启动消费者。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DefaultMQPushConsumer</span> <span class="keyword">extends</span> <span class="title">ClientConfig</span> <span class="keyword">implements</span> <span class="title">MQPushConsumer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> <span class="keyword">throws</span> MQClientException </span>&#123;</span><br><span class="line">        setConsumerGroup(NamespaceUtil.wrapNamespace(<span class="keyword">this</span>.getNamespace(), <span class="keyword">this</span>.consumerGroup));</span><br><span class="line">        <span class="keyword">this</span>.defaultMQPushConsumerImpl.start();</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> != traceDispatcher) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                traceDispatcher.start(<span class="keyword">this</span>.getNamesrvAddr(), <span class="keyword">this</span>.getAccessChannel());</span><br><span class="line">            &#125; <span class="keyword">catch</span> (MQClientException e) &#123;</span><br><span class="line">                log.warn(<span class="string">&quot;trace dispatcher start failed &quot;</span>, e);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第一行setConsumerGroup就是将NameSpace和Group组装起来重新赋值给consumerGroup,但起始的时候我们并没有设置NameSpace会直接赋值consumerGroup原值<br>
+第二行开始正式启动consumer,consumer的启动工作都是在这个类defaultMQPushConsumerImpl里面进行的。下面看下这个类的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DefaultMQPushConsumerImpl</span> <span class="keyword">implements</span> <span class="title">MQConsumerInner</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> <span class="keyword">throws</span> MQClientException </span>&#123;</span><br><span class="line">        <span class="keyword">switch</span> (<span class="keyword">this</span>.serviceState) &#123;</span><br><span class="line">            <span class="keyword">case</span> CREATE_JUST:</span><br><span class="line">                log.info(<span class="string">&quot;the consumer [&#123;&#125;] start beginning. messageModel=&#123;&#125;, isUnitMode=&#123;&#125;&quot;</span>, <span class="keyword">this</span>.defaultMQPushConsumer.getConsumerGroup(),</span><br><span class="line">                    <span class="keyword">this</span>.defaultMQPushConsumer.getMessageModel(), <span class="keyword">this</span>.defaultMQPushConsumer.isUnitMode());</span><br><span class="line">                <span class="keyword">this</span>.serviceState = ServiceState.START_FAILED;</span><br><span class="line">                <span class="comment">// 6.配置检查</span></span><br><span class="line">                <span class="keyword">this</span>.checkConfig();</span><br><span class="line">                <span class="comment">// 7.存储订阅关系</span></span><br><span class="line">                <span class="keyword">this</span>.copySubscription();</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 8.修改实例名称为具体部署机器的IP相关连上，方便问查问题</span></span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">this</span>.defaultMQPushConsumer.getMessageModel() == MessageModel.CLUSTERING) &#123;</span><br><span class="line">                    <span class="keyword">this</span>.defaultMQPushConsumer.changeInstanceNameToPID();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 9.实例化MQClientInstance</span></span><br><span class="line">                <span class="keyword">this</span>.mQClientFactory = MQClientManager.getInstance().getOrCreateMQClientInstance(<span class="keyword">this</span>.defaultMQPushConsumer, <span class="keyword">this</span>.rpcHook);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 10.设置消费者Rebalance相关属性</span></span><br><span class="line">                <span class="keyword">this</span>.rebalanceImpl.setConsumerGroup(<span class="keyword">this</span>.defaultMQPushConsumer.getConsumerGroup());</span><br><span class="line">                <span class="keyword">this</span>.rebalanceImpl.setMessageModel(<span class="keyword">this</span>.defaultMQPushConsumer.getMessageModel());</span><br><span class="line">                <span class="keyword">this</span>.rebalanceImpl.setAllocateMessageQueueStrategy(<span class="keyword">this</span>.defaultMQPushConsumer.getAllocateMessageQueueStrategy());</span><br><span class="line">                <span class="keyword">this</span>.rebalanceImpl.setmQClientFactory(<span class="keyword">this</span>.mQClientFactory);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">this</span>.pullAPIWrapper = <span class="keyword">new</span> PullAPIWrapper(</span><br><span class="line">                    mQClientFactory,</span><br><span class="line">                    <span class="keyword">this</span>.defaultMQPushConsumer.getConsumerGroup(), isUnitMode());</span><br><span class="line">                <span class="keyword">this</span>.pullAPIWrapper.registerFilterMessageHook(filterMessageHookList);</span><br><span class="line">                <span class="comment">// 11.获取消费的消费位点</span></span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">this</span>.defaultMQPushConsumer.getOffsetStore() != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    <span class="keyword">this</span>.offsetStore = <span class="keyword">this</span>.defaultMQPushConsumer.getOffsetStore();</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">switch</span> (<span class="keyword">this</span>.defaultMQPushConsumer.getMessageModel()) &#123;</span><br><span class="line">                        <span class="keyword">case</span> BROADCASTING:</span><br><span class="line">                            <span class="keyword">this</span>.offsetStore = <span class="keyword">new</span> LocalFileOffsetStore(<span class="keyword">this</span>.mQClientFactory, <span class="keyword">this</span>.defaultMQPushConsumer.getConsumerGroup());</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        <span class="keyword">case</span> CLUSTERING:</span><br><span class="line">                            <span class="keyword">this</span>.offsetStore = <span class="keyword">new</span> RemoteBrokerOffsetStore(<span class="keyword">this</span>.mQClientFactory, <span class="keyword">this</span>.defaultMQPushConsumer.getConsumerGroup());</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                        <span class="keyword">default</span>:</span><br><span class="line">                            <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">this</span>.defaultMQPushConsumer.setOffsetStore(<span class="keyword">this</span>.offsetStore);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">this</span>.offsetStore.load();</span><br><span class="line">                <span class="comment">// 12.设置具体的消费逻辑-业务逻辑执行方法</span></span><br><span class="line">                <span class="keyword">if</span> (<span class="keyword">this</span>.getMessageListenerInner() <span class="keyword">instanceof</span> MessageListenerOrderly) &#123;</span><br><span class="line">                    <span class="keyword">this</span>.consumeOrderly = <span class="keyword">true</span>;</span><br><span class="line">                    <span class="keyword">this</span>.consumeMessageService =</span><br><span class="line">                        <span class="keyword">new</span> ConsumeMessageOrderlyService(<span class="keyword">this</span>, (MessageListenerOrderly) <span class="keyword">this</span>.getMessageListenerInner());</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>.getMessageListenerInner() <span class="keyword">instanceof</span> MessageListenerConcurrently) &#123;</span><br><span class="line">                    <span class="keyword">this</span>.consumeOrderly = <span class="keyword">false</span>;</span><br><span class="line">                    <span class="keyword">this</span>.consumeMessageService =</span><br><span class="line">                        <span class="keyword">new</span> ConsumeMessageConcurrentlyService(<span class="keyword">this</span>, (MessageListenerConcurrently) <span class="keyword">this</span>.getMessageListenerInner());</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 13.修改消费者状态为开始消费</span></span><br><span class="line">                <span class="keyword">this</span>.consumeMessageService.start();</span><br><span class="line">                <span class="comment">// 14.注册</span></span><br><span class="line">                <span class="keyword">boolean</span> registerOK = mQClientFactory.registerConsumer(<span class="keyword">this</span>.defaultMQPushConsumer.getConsumerGroup(), <span class="keyword">this</span>);</span><br><span class="line">                <span class="keyword">if</span> (!registerOK) &#123;</span><br><span class="line">                    <span class="keyword">this</span>.serviceState = ServiceState.CREATE_JUST;</span><br><span class="line">                    <span class="keyword">this</span>.consumeMessageService.shutdown(defaultMQPushConsumer.getAwaitTerminationMillisWhenShutdown());</span><br><span class="line">                    <span class="keyword">throw</span> <span class="keyword">new</span> MQClientException(<span class="string">&quot;The consumer group[&quot;</span> + <span class="keyword">this</span>.defaultMQPushConsumer.getConsumerGroup()</span><br><span class="line">                        + <span class="string">&quot;] has been created before, specify another name please.&quot;</span> + FAQUrl.suggestTodo(FAQUrl.GROUP_NAME_DUPLICATE_URL),</span><br><span class="line">                        <span class="keyword">null</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 15.</span></span><br><span class="line">                mQClientFactory.start();</span><br><span class="line">                log.info(<span class="string">&quot;the consumer [&#123;&#125;] start OK.&quot;</span>, <span class="keyword">this</span>.defaultMQPushConsumer.getConsumerGroup());</span><br><span class="line">                <span class="keyword">this</span>.serviceState = ServiceState.RUNNING;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">case</span> RUNNING:</span><br><span class="line">            <span class="keyword">case</span> START_FAILED:</span><br><span class="line">            <span class="keyword">case</span> SHUTDOWN_ALREADY:</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> MQClientException(<span class="string">&quot;The PushConsumer service state not OK, maybe started once, &quot;</span></span><br><span class="line">                    + <span class="keyword">this</span>.serviceState</span><br><span class="line">                    + FAQUrl.suggestTodo(FAQUrl.CLIENT_SERVICE_NOT_OK),</span><br><span class="line">                    <span class="keyword">null</span>);</span><br><span class="line">            <span class="keyword">default</span>:</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 16.更新订阅消息同时更新消费位点</span></span><br><span class="line">        <span class="keyword">this</span>.updateTopicSubscribeInfoWhenSubscriptionChanged();</span><br><span class="line">        <span class="comment">// 17.检测</span></span><br><span class="line">        <span class="keyword">this</span>.mQClientFactory.checkClientInBroker();</span><br><span class="line">        <span class="comment">// 18.心跳检测</span></span><br><span class="line">        <span class="keyword">this</span>.mQClientFactory.sendHeartbeatToAllBrokerWithLock();</span><br><span class="line">        <span class="comment">// 19.立即进行消费者Rebalance重新分消费队列</span></span><br><span class="line">        <span class="keyword">this</span>.mQClientFactory.rebalanceImmediately();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>DefaultMQPushConsumerImpl类是在DefaultMQPushConsumer中进行实例化的，在初始化时默认设置其ServiceState为CREATE_JUST。</p>
+<ul>
+<li>标记点6:配置验证，检测consumer的配饰是否都正确，异常则报错。</li>
+<li>标记点7:1、复制通过DefaultMQPushConsumer.setSubscription方法设置的订阅关系给DefaultMQPushConsumerImpl的RebalanceImpl字段中。2、增加重试队列的订阅关系到Consumer中。</li>
+<li>标记点8:如果消费模式为集群消费则，将当前实例的名称修改为具体的IP和进程号</li>
+<li>标记点9:实例化MQClientManager对象，先从缓存中获取，如果缓存中没有则new出一个新的对象，并放入缓存中。</li>
+<li>标记点10:设置消费者Rebalance相关属性,同时创建PullAPIWrapper对象，后期从broker拉取消息就是通过这个类来获取的。</li>
+<li>标记点11:获取消费位点，集群消费模式从Broker获取，广播消费模式则读取本地文件</li>
+<li>标记点12:创建消息的消费服务，后面消息的业务逻辑执行依赖此服务</li>
+<li>标记点13:设置消息消费服务状态为开始即在后台开启一个固定频率的线程定时清理过滤的消息(即消费超时的消息，当前时间减去消费开始时间大于消费超时时间的消息)</li>
+<li>标记点14:将ConsumerImpl放入到MQClientInstance的缓存中。</li>
+</ul>
+<h5 id="Pull-Message">Pull Message</h5>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PullMessageService</span> <span class="keyword">extends</span> <span class="title">ServiceThread</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> LinkedBlockingQueue&lt;PullRequest&gt; pullRequestQueue = <span class="keyword">new</span> LinkedBlockingQueue&lt;PullRequest&gt;();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>标记点15:设置MQClientInstance状态为起始状态，1、获取NameServer地址，2、初始化Netty客户端，3、启动一系列的定时服务包含(NameServer地址查找，更新TOPIC订阅关系，<br>
+清理下线的Broker，给Broker发送心跳信息，将消费位点持久化至Broker,调整并发消费的线程池中的线程数量参数)。<br>
+4、启动消息拉取服务-修改状态为启动，消息拉取服务的线程启动,<br>
+启动后线程处于阻塞状态，等待获取PullRequest，如上代码所示,PullRequest是存放在一个阻塞队列里面的，队列里面没有数据的情况下会会一直等待获取。该类的Run方法如下所示,<br>
+启动后会循环的从队列中获取PullRequest，然后从Broker拉取消息。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PullMessageService</span> <span class="keyword">extends</span> <span class="title">ServiceThread</span> </span>&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            log.info(<span class="keyword">this</span>.getServiceName() + <span class="string">&quot; service started&quot;</span>);</span><br><span class="line">  </span><br><span class="line">            <span class="keyword">while</span> (!<span class="keyword">this</span>.isStopped()) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    PullRequest pullRequest = <span class="keyword">this</span>.pullRequestQueue.take();</span><br><span class="line">                    <span class="keyword">this</span>.pullMessage(pullRequest);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException ignored) &#123;</span><br><span class="line">                &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                    log.error(<span class="string">&quot;Pull Message Service Run Method exception&quot;</span>, e);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">  </span><br><span class="line">            log.info(<span class="keyword">this</span>.getServiceName() + <span class="string">&quot; service end&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="Relalance">Relalance</h5>
+<p>5、启动消费者Rebalance服务，修改服务状态为运行中，启动一个线程线程执行Rebalance任务(每隔20秒执行一次)或者当该类的CountDown为0是执行。代码如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RebalanceService</span> <span class="keyword">extends</span> <span class="title">ServiceThread</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        log.info(<span class="keyword">this</span>.getServiceName() + <span class="string">&quot; service started&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (!<span class="keyword">this</span>.isStopped()) &#123;</span><br><span class="line">            <span class="keyword">this</span>.waitForRunning(waitInterval);</span><br><span class="line">            <span class="keyword">this</span>.mqClientFactory.doRebalance();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        log.info(<span class="keyword">this</span>.getServiceName() + <span class="string">&quot; service end&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>标记点16-18:从Broker更新订阅关系，检测通信状态，给所有的Broker发送心跳信息。</li>
+<li>标记点19:立即进行Consumer的rebalance,通过将CountDown减为0，通知Rebalance立即执行，会调用MQClientInstance的doRebalance方法。<br>
+这个方法循环遍历consumerTable的所有值，执行rebalance。consumerTable这个Map的值在14标记位的时候放入，key位消费者Group,Value为DefaultMQPushConsumerImpl。</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="built_in">void</span> <span class="function"><span class="title">doRebalance</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">Map</span>.Entry&lt;<span class="built_in">String</span>, MQConsumerInner&gt; entry : <span class="built_in">this</span>.consumerTable.entrySet()) &#123;</span><br><span class="line">        MQConsumerInner impl = entry.getValue();</span><br><span class="line">        <span class="keyword">if</span> (impl != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                impl.doRebalance();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (Throwable e) &#123;</span><br><span class="line">                log.error(<span class="string">&quot;doRebalance exception&quot;</span>, e);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Value为DefaultMQPushConsumerImpl的doRebalance方法如下所示,调用RebalanceImpl的doRebalance方法</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> void doRebalance() &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">this</span>.pause) &#123;</span><br><span class="line">        <span class="keyword">this</span>.rebalanceImpl.doRebalance(<span class="keyword">this</span>.isConsumeOrderly());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>RebalanceImpl的doRebalance方法如下所示，rebalanceByTopic方法中，<br>
+先获取该TOPIC下所有的消息队列，再获取所有的消费者ID，然后根据设置的均衡策略重新分配消息队列与消费者的对应关系，并更新本地缓存。<br>
+更新完缓存后，构造PullRequest对象，并将构建的对象放入到PullMessageService的pullRequestQueue队列中去，<br>
+放入后PullMessageService就可以从中获取到对象，执行pullMessage方法，该方法又调用了DefaultMQPushConsumerImpl的pullMessage方法</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doRebalance</span><span class="params">(<span class="keyword">final</span> <span class="keyword">boolean</span> isOrder)</span> </span>&#123;</span><br><span class="line">    Map&lt;<span class="keyword">String</span>, SubscriptionData&gt; subTable = <span class="keyword">this</span>.<span class="built_in">getSubscriptionInner</span>();</span><br><span class="line">    <span class="keyword">if</span> (subTable != null) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">final</span> Map.Entry&lt;<span class="keyword">String</span>, SubscriptionData&gt; entry : subTable.<span class="built_in">entrySet</span>()) &#123;</span><br><span class="line">            <span class="keyword">final</span> <span class="keyword">String</span> topic = entry.<span class="built_in">getKey</span>();</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">this</span>.<span class="built_in">rebalanceByTopic</span>(topic, isOrder);</span><br><span class="line">            &#125; <span class="built_in"><span class="keyword">catch</span></span> (Throwable e) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!topic.<span class="built_in">startsWith</span>(MixAll.RETRY_GROUP_TOPIC_PREFIX)) &#123;</span><br><span class="line">                    log.<span class="built_in">warn</span>(<span class="string">&quot;rebalanceByTopic Exception&quot;</span>, e);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>.<span class="built_in">truncateMessageQueueNotMyTopic</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>DefaultMQPushConsumerImpl的pullMessage方法，在该方法中首先会对本地拉取回来缓存的，未消费的消息的数量及大小进行判断，如果超过上限则不进行拉取，等待一段时间后再拉取。<br>
+从Broker拉取消息成功后，会执行CallBack方法，在回调函数中执行消息的消费以及将新的PullRequest对象放入到PullMessageService的pullRequestQueue队列中去。这样就会进行持续的拉取消费，<br>
+下面为并发消费的代码：<br>
+先判断每次消费的数量如果大于待消费的消息，则直接放入线程池进行消费。如果小于则将消息按消费数量分批次提交给线程池进行消费。<br>
+消费完成后会更新当前的消费者的Offset,同时更新PullRequest的信息，并将其压入队列，在PullMessageService拿到该对象后就会重新拉取消息，然后继续消费。</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> submitConsumeRequest(</span><br><span class="line">    <span class="keyword">final</span> List&lt;MessageExt&gt; msgs,</span><br><span class="line">    <span class="keyword">final</span> ProcessQueue processQueue,</span><br><span class="line">    <span class="keyword">final</span> MessageQueue messageQueue,</span><br><span class="line">    <span class="keyword">final</span> <span class="built_in">boolean</span> dispatchToConsume) &#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="built_in">int</span> consumeBatchSize = <span class="keyword">this</span>.defaultMQPushConsumer.getConsumeMessageBatchMaxSize();</span><br><span class="line">    <span class="keyword">if</span> (msgs.<span class="built_in">size</span>() &lt;= consumeBatchSize) &#123;</span><br><span class="line">        ConsumeRequest consumeRequest = <span class="keyword">new</span> ConsumeRequest(msgs, processQueue, messageQueue);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">this</span>.consumeExecutor.submit(consumeRequest);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (RejectedExecutionException e) &#123;</span><br><span class="line">            <span class="keyword">this</span>.submitConsumeRequestLater(consumeRequest);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> total = <span class="number">0</span>; total &lt; msgs.<span class="built_in">size</span>(); ) &#123;</span><br><span class="line">            List&lt;MessageExt&gt; msgThis = <span class="keyword">new</span> ArrayList&lt;MessageExt&gt;(consumeBatchSize);</span><br><span class="line">            <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; consumeBatchSize; i++, total++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (total &lt; msgs.<span class="built_in">size</span>()) &#123;</span><br><span class="line">                    msgThis.<span class="built_in">add</span>(msgs.<span class="built_in">get</span>(total));</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            ConsumeRequest consumeRequest = <span class="keyword">new</span> ConsumeRequest(msgThis, processQueue, messageQueue);</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">this</span>.consumeExecutor.submit(consumeRequest);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (RejectedExecutionException e) &#123;</span><br><span class="line">                <span class="keyword">for</span> (; total &lt; msgs.<span class="built_in">size</span>(); total++) &#123;</span><br><span class="line">                    msgThis.<span class="built_in">add</span>(msgs.<span class="built_in">get</span>(total));</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">this</span>.submitConsumeRequestLater(consumeRequest);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="注意事项：">注意事项：</h4>
+<ol>
+<li>集群消费时，Broker上消息队列都有唯一的对象的消费者实例。所以，在集群消费模式下，同一个消费者集群内一条消息只会被一个消费者所消费。</li>
+<li>一个消费者集群内，消费者的实例数不应该大于TOPIC在Broker上的消息队列数量，如果大于则有部分消费者实例是会空闲的，造成资源浪费。如果小于一个消费者实例可以对应多个消息队列。</li>
+<li>同一个消费者集群中每个实例配置的TAG应该保持统一，防止漏掉消息</li>
+<li>如果需要时使用TAG对消息进行过滤，则需要在业务的consumerListener对消息TAG进行二次比较过滤(具体原因可以参见消息拉取流程分析)。</li>
+</ol>
+
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/RocketMQ/Producer/" data-toggle="tooltip" data-placement="top" title="Explain Producer">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/Linux/System-IO-Monitor/" data-toggle="tooltip" data-placement="top" title="IO Monitor">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=Explain Common Consumer&body=Hi,I found this website and thought you might like it http://yoursite-url/RocketMQ/Consumer/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+  <!-- gitalk start -->
+  <!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+  <div id="gitalk-container"></div>
+
+  
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+    <script src="/js/comment/gitalk.js"></script>
+  
+
+  <script>
+    var gitalk = new Gitalk({
+      clientID: '',
+      clientSecret: '',
+      repo: '',
+      owner: '',
+      admin: '',
+      id: 'Mon Sep 12 2022 20:21:08 GMT+0800', // Ensure uniqueness and length less than 50
+      distractionFreeMode: false, // Facebook-like distraction free mode
+      perPage: 10,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      language: 'en',
+      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
+    });
+    gitalk.render('gitalk-container');
+
+    var gtFolded = () => {
+      setTimeout(function () {
+        let markdownBody = document.getElementsByClassName("markdown-body");
+        let list = Array.from(markdownBody);
+        list.forEach(item => {
+          if (item.clientHeight > 250) {
+            item.classList.add('gt-comment-body-folded');
+            item.style.maxHeight = '250px';
+            item.title = 'Click to Expand';
+            item.onclick = function () {
+              item.classList.remove('gt-comment-body-folded');
+              item.style.maxHeight = '';
+              item.title = '';
+              item.onclick = null;
+            };
+          }
+        })
+      }, 800);
+    }
+  </script>
+
+  <!-- gitalk end -->
+
+
+<!-- 2. gitment comment -->
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Basic-Simple"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Basic Simple</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#Consumer-init"><span class="toc-nav-number">1.0.1.</span> <span class="toc-nav-text">Consumer init</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#Consumer-Subscribe"><span class="toc-nav-number">1.0.2.</span> <span class="toc-nav-text">Consumer Subscribe</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#Pull-Message"><span class="toc-nav-number">1.0.3.</span> <span class="toc-nav-text">Pull Message</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#Relalance"><span class="toc-nav-number">1.0.4.</span> <span class="toc-nav-text">Relalance</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%EF%BC%9A"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">注意事项：</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#RocketMQ" title="RocketMQ">RocketMQ</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>FRIENDS</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://v-vincen.life/" target="_blank">HubertXH</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+
+          
+            <li>
+              <a target="_blank" href="https://github.com/HubertXH">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy;
+          煦阳
+          2023
+          <br>
+          Theme by
+          <a target="_blank" rel="noopener" href="http://beantech.org">BeanTech</a>
+          <span style="display: inline-block; margin: 0 5px;">
+            <i class="fa fa-heart"></i>
+          </span>
+          <!--
+          re-Ported by
+          <a target="_blank" rel="noopener" href="https://v-vincen.life/">Live My Life</a>
+          |
+          <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="91px" height="20px" src="https://ghbtns.com/github-btn.html?user=V-Vincen&repo=V-Vincen.github.io&type=star&count=true"></iframe> -->
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+    <!-- LangSelect start -->
+    <script type="text/javascript" src="/js/langselect.js"></script>
+    <!-- LangSelect end -->
+  
+
+  
+    <!-- Mouseclick -->
+    <script type="text/javascript" src="/js/mouseclick.js" content='' color='#9933CC,#339933,#66CCCC,#FF99CC,#CCCCFF,#6666CC,#663399,#66CC99,#FF0033'></script>
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+  <!-- viewer start -->
+  <!-- viewer start (Picture preview) -->
+  
+    <script async="async" type="text/javascript" src="/js/viewer/viewer.min.js"></script>
+    <script async="async" type="text/javascript" src="/js/viewer/pic-viewer.js"></script>
+  
+
+  <!-- viewer end -->
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  async ("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("http://yoursite-url/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col-md-9 col-md-offset-1"> -->
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="SEARCH..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.flv'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

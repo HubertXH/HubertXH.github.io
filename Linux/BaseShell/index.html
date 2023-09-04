@@ -1,0 +1,2248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+
+  <!-- Baidu Push -->
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+  <meta name="google-site-verification" content="lxDfCplOZbIzjhG34NuQBgu2gdyRlAtMB4utP5AgEBc"/>
+  <meta name="baidu-site-verification" content="PpzM9WxOJU"/>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="随笔小记"/>
+  <meta name="keyword" content="IT"/>
+  <link rel="shortcut icon" href="/img/avatar/02.jpg"/>
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- viewer start (Picture preview) -->
+      <link rel="stylesheet" href="/css/viewer.min.css"/>
+      <!-- viewer end -->
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- gitalk start -->
+      <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"> -->
+      <link rel="stylesheet" href="/css/gitalk.css"/>
+      <!-- gitalk end -->
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="http://yoursite-url/Linux/BaseShell/">
+  <title>
+    
+      BaseShell - null
+    
+  </title>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+		<!-- Gitter -->
+<!-- Docs:https://gitter.im/?utm_source=left-menu-logo -->
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'your-community/your-room'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">风闲小聚</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">HOME</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              ABOUT
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              TAGS
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>SEARCH</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+          
+          
+          
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/mountCloud.jpg');
+      --intro-header-background-image-url-post: url('/img/header_img/Linux.jpg');
+      --intro-header-background-image-url-page: url('//img/header_img/Linux.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/mountCloud.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/Linux.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/header_img/Linux.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/header_img/Linux.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+            </div>
+            <h1>BaseShell</h1>
+            <h2 class="subheading">basic command of linux</h2>
+            <span class="meta">
+              Posted by 煦阳 on
+              2020-03-24
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">29</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">7.2k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
+
+        <h3 id="man-命令">man 命令</h3>
+<h4 id="常用指令对应的数值：">常用指令对应的数值：</h4>
+<ul>
+<li>1：用户在shell环境种可以操作的指令或可执行的文件</li>
+<li>5：配置文件或者是某些文件的各式</li>
+<li>8：系统管理员可用指令</li>
+</ul>
+<hr>
+<h3 id="常用关机指令：">常用关机指令：</h3>
+<ul>
+<li>sync:将内存中的数据写入磁盘</li>
+<li>shutdown:关机。格式：shutdwom [-rhkc] [time][告警信息]；常用参数：-r 将系统服务停掉之后立即重新启动，-h 将系统服务停掉之后立即关机，</li>
+<li>reboot 重启,</li>
+<li>poweroff</li>
+<li>who : 查看在线用户信息</li>
+<li>netstat -a :查看联网情况</li>
+<li>ps -aux : 查看后台运行的程序</li>
+</ul>
+<hr>
+<h3 id="Linux-文件属性：">Linux 文件属性：</h3>
+<blockquote>
+<p>-rw-r–r-- 1 root root 0 Jun 1 18:34 test</p>
+</blockquote>
+<ol>
+<li>
+<p>第一个位置代表文件类型：</p>
+<ul>
+<li>d 代表目录</li>
+<li>“-” 代表文件</li>
+<li>i 代表链接文档</li>
+<li>b 代表装置文件里面的可存储的接口设备</li>
+<li>c 代表装置文件里面的穿行接口设备，例如：键盘，鼠标等等。</li>
+</ul>
+</li>
+<li>
+<p>接下里的字符，三个一组，组成三组不同的权限</p>
+<ul>
+<li>第一组：文件拥有者具有的权限</li>
+<li>第二组：群组账号的权限</li>
+<li>第三组：非拥有这且非群组的其他账号的权限
+<ul>
+<li>r:read 可读性权限</li>
+<li>w：write 可写权限</li>
+<li>x：execute 可执行权限</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>接下来的 数字代表有多少个文档名链接到该节点</p>
+</li>
+<li>
+<p>root 代表文件的拥有者</p>
+</li>
+<li>
+<p>root 代表文件所属的群组</p>
+</li>
+<li>
+<p>代表该文件的大小，单位为byte</p>
+</li>
+<li>
+<p>代表该文件的创建时间或这最近的修改时间</p>
+</li>
+<li>
+<p>为该文件的名称</p>
+<ul>
+<li>若该文档名称前有“.”则说明给文档为隐藏文件</li>
+</ul>
+</li>
+</ol>
+<p>例：</p>
+<blockquote>
+<p>-rw-r–r-- 1 root root 0 Jun 1 18:34 test</p>
+</blockquote>
+<p>为普通文件，文件的拥有这拥有<br>
+读写权限，没有执行权限，该文件的用有者为root用户，该文件所属的群组为root该文件群组拥有读权限没有写和执行权限，其他用户也只有读的权限，该文件的大小为0bytes,时间为6月1日18：34，名称为test</p>
+<hr>
+<h3 id="改变文件权限和属性的命令：">改变文件权限和属性的命令：</h3>
+<ul>
+<li>chgrp:改变文件所有群组</li>
+<li>chown:改变文件拥有这</li>
+<li>chmod：改变文件的权限</li>
+</ul>
+<h4 id="1、chgrp：">1、chgrp：</h4>
+<p>格式：chgrp [-R] dirname/filename …<br>
+参数R意味着可以递归的持续变更，变更该文件或目录下的所有文件。<br>
+dirname文件所在目录，filename文件名称<br>
+==可以在此处添加群组的创建等笔记==</p>
+<h4 id="2、chown">2、chown:</h4>
+<p>格式：chown [-R] 账号名称 文件或目录 或者 chown [-R] 账号名称：组名 文件或目录</p>
+<blockquote>
+<p>chown hubert test 将拥有这更改为Hubert<br>
+chown hubert:guest test 将拥有这该外Hubert，群组改为 guest<br>
+chown .guest test 修改群组为guest .+群组名</p>
+</blockquote>
+<h4 id="3、chmod">3、chmod:</h4>
+<p>格式：chmod [-R] xyz filename/dirname;</p>
+<table>
+<thead>
+<tr>
+<th>权限名称</th>
+<th>对应数值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r</td>
+<td>4</td>
+</tr>
+<tr>
+<td>w</td>
+<td>2</td>
+</tr>
+<tr>
+<td>x</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>使用数字来改变权限：<br>
+chmod 777 test</li>
+</ul>
+<blockquote>
+<p>-rwxrwxrwx 1 root root 0 Jun 1 18:34 test</p>
+</blockquote>
+<p>解读：三个777分别代表了，拥有者，群组，其他账号的权限数字。<br>
+r+w+x=4+2+1=7</p>
+<ul>
+<li>使用符号类型改变权限：<br>
+u=user,g=group,o=others,a=all;</li>
+</ul>
+<blockquote>
+<p>chmod u=rwx,go=rx test<br>
+-rwxr-xr-x 1 root root 0 Jun 1 18:34 test</p>
+</blockquote>
+<blockquote>
+<p>chmod g+w test<br>
+chmod r-w test<br>
+-r-xrwxr-x 1 root root 0 Jun 1 18:34 test</p>
+</blockquote>
+<hr>
+<h4 id="用户及用户组显示为数子的情况">用户及用户组显示为数子的情况</h4>
+<p>在Linux系统中,如果使用ls -l命令查看文件信息,发现用户(user)或组(group)的ID显示为纯数字,这通常代表的是该用户或组无法解析的情况。</p>
+<p>在Linux中,用户和组都对应一个数字ID:</p>
+<ul>
+<li>普通用户ID范围从500或1000开始</li>
+<li>系统用户和组的ID通常是低编号如0,1等</li>
+</ul>
+<p>当系统无法解析对应的用户名或组名时,就会显示数字ID。</p>
+<p>出现纯数字的情况有以下几种原因:</p>
+<ol>
+<li>
+<p>对应的用户名或组名不存在,已经被删除。</p>
+</li>
+<li>
+<p>用户数据库文件/etc/passwd或/etc/group损坏,无法解析。</p>
+</li>
+<li>
+<p>NFS挂载的远程文件,客户端无法读取服务器的用户数据库。</p>
+</li>
+<li>
+<p>用户或组的UID/GID被手动修改为48,而非原始编号。</p>
+</li>
+<li>
+<p>SELinux重定义了用户和组的映射,导致ID无法解析。</p>
+</li>
+</ol>
+<p>针对这种情况,我们可以根据实际情况进行检查和处理:</p>
+<ol>
+<li>
+<p>尝试恢复或重建相关用户数据库文件。</p>
+</li>
+<li>
+<p>在NFS的挂载配置中增加用户映射选项。</p>
+</li>
+<li>
+<p>查看和修改用户或组的实际UID/GID。</p>
+</li>
+<li>
+<p>检查SELinux的安全策略。</p>
+</li>
+<li>
+<p>也可以简单Ignore,如果不影响访问文件本身。</p>
+</li>
+</ol>
+<p>所以纯数字这个无法解析的UID/GID值往往意味着某处的用户或组信息被破坏或失效了。需要检查并修复用户管理配置才能恢复正常显示。</p>
+<h3 id="目录相关操作">目录相关操作</h3>
+<table>
+<thead>
+<tr>
+<th>Commond</th>
+<th>explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.</td>
+<td>当前目录</td>
+</tr>
+<tr>
+<td>…</td>
+<td>上层目录</td>
+</tr>
+<tr>
+<td>-</td>
+<td>前一个工作目录</td>
+</tr>
+<tr>
+<td>~</td>
+<td>用户所在的家目录</td>
+</tr>
+<tr>
+<td>cd</td>
+<td>变换目录</td>
+</tr>
+<tr>
+<td>pwd</td>
+<td>显示当前目录</td>
+</tr>
+<tr>
+<td>mkdir</td>
+<td>创建目录</td>
+</tr>
+<tr>
+<td>rmdir</td>
+<td>删除目录</td>
+</tr>
+</tbody>
+</table>
+<h4 id="cd-change-directory">cd (change directory)</h4>
+<p>cd [路径]</p>
+<h4 id="pwd-Print-Woking-Directory">pwd (Print Woking Directory)</h4>
+<p>pwd [option]</p>
+<blockquote>
+<p>-p:显示正确的完整路径而非链接文档的路劲即显示元路劲</p>
+</blockquote>
+<h4 id="mkdir-make-directory">mkdir (make directory)</h4>
+<p>mkdir [-mp]</p>
+<blockquote>
+<p>-p:循环建立目录。创建所有目录;预设情况下目录是一层一层建立的，不能一次性建立多层目录，而-p参数可以实现一次建立多层目录<br>
+-m:在创建目录的时候直接配置目录的权限</p>
+</blockquote>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">mkdir</span> -m <span class="number">744</span> test<span class="number">2</span></span><br><span class="line"><span class="attribute">ll</span></span><br><span class="line"><span class="attribute">drwxr</span>-xr-- <span class="number">2</span> root root <span class="number">4096</span> Jun  <span class="number">2</span> <span class="number">15</span>:<span class="number">06</span> test<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h4 id="rmdir-remove-directory">rmdir (remove directory)</h4>
+<p>rmdir [-p] dirName</p>
+<blockquote>
+<p>-p:连同上层目录，空目录一起移除（慎用）</p>
+</blockquote>
+<h4 id="执行路劲变量PATH">执行路劲变量PATH</h4>
+<blockquote>
+<p>echo $PATH 查看path变量的定义</p>
+</blockquote>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/usr/</span>lib64<span class="regexp">/qt-3.3/</span>bin:<span class="regexp">/usr/</span>local<span class="regexp">/sbin:/u</span>sr<span class="regexp">/local/</span>bin:<span class="regexp">/usr/</span>sbin:<span class="regexp">/usr/</span>bin:<span class="regexp">/root/</span>bin</span><br></pre></td></tr></table></figure>
+<p>PATH=“${PATH}:/dirName”<br>
+将路径加入的path的搜索范围</p>
+<h3 id="文件与目录的管理">文件与目录的管理</h3>
+<h4 id="ls">ls</h4>
+<p>ls [option] fileNam/dirName</p>
+<blockquote>
+<p>-a:列出全部文件，包含隐藏文件<br>
+-d:仅列出目录本身，而不是列出目录内的文件数据<br>
+-l:列出文件的所有属性数据</p>
+</blockquote>
+<h4 id="cp-copy">cp (copy)</h4>
+<p>cp [option] source1 source2 … destination</p>
+<blockquote>
+<p>-a:<br>
+-i:若destination 已经存在则在覆盖是会询问是否需要覆盖<br>
+-p:连同文件的属性（权限，用户，时间）一起复制过去<br>
+-r:递归持续复制，用于复制整个目录</p>
+</blockquote>
+<h4 id="rm-remove">rm (remove)</h4>
+<p>rm [option]</p>
+<blockquote>
+<p>-f:强制删除<br>
+-i:删除时候会询问<br>
+-r:递归删除，用于删除目录，非常危险</p>
+</blockquote>
+<h4 id="mv-move">mv (move)</h4>
+<p>mv [option] source desctination</p>
+<blockquote>
+<p>-f:强制移动，若目标已经存在则会覆盖<br>
+-i:交互模式，若目标已经存在则会询问是否覆盖<br>
+-u:若目标已经存在而且source比较新才会更新</p>
+</blockquote>
+<hr>
+<h3 id="文件内容操作">文件内容操作</h3>
+<table>
+<thead>
+<tr>
+<th>Commond</th>
+<th>explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cat</td>
+<td>由第一行开始显示文件内容</td>
+</tr>
+<tr>
+<td>tac</td>
+<td>由最后一行开始显示文件内容</td>
+</tr>
+<tr>
+<td>nl</td>
+<td>显示时同时显示行号</td>
+</tr>
+<tr>
+<td>more</td>
+<td>一页一页的显示文件内容</td>
+</tr>
+<tr>
+<td>head</td>
+<td>只查看头几页</td>
+</tr>
+<tr>
+<td>tail</td>
+<td>只查看尾部数据</td>
+</tr>
+<tr>
+<td>od</td>
+<td>以二进制的方式读取文件</td>
+</tr>
+</tbody>
+</table>
+<h4 id="cat-concatenate">cat (concatenate)</h4>
+<p>cat [option] filename</p>
+<blockquote>
+<p>-n:显示出行号，空白行也有行号</p>
+</blockquote>
+<p>head [option] filename</p>
+<blockquote>
+<p>-n : 显示的行数(取出文件头几行)</p>
+</blockquote>
+<p>tail [option] filename</p>
+<blockquote>
+<p>-n: 显示的行数(取出文件最后几行)</p>
+</blockquote>
+<hr>
+<h4 id="AWK过滤排序">AWK过滤排序</h4>
+<p>对文件第二列进行去重并输出<br>
+awk ‘{print $2}’ access_log.2020-<em>.txt | awk ‘!a[$1]++{print}’ &gt; accesslog-0512.txt<br>
+统计出第二列出现的次数并按从大到小的顺序输出<br>
+awk ‘{print $2}’ access_log.2020-04-15.</em>.txt | sort | uniq -c | sort -nr</p>
+<h3 id="打包指令：tar">打包指令：tar</h3>
+<p>tar</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- <span class="selector-attr">[-z|-j|-J]</span><span class="selector-attr">[cv]</span><span class="selector-attr">[-f 需要新建的文档名称]</span> filename  打包与压缩</span><br><span class="line">- <span class="selector-attr">[-z|-j|-J]</span><span class="selector-attr">[tv]</span><span class="selector-attr">[-f 现有文档名称]</span>                 查看文档</span><br><span class="line">- <span class="selector-attr">[-z|-j|-J]</span><span class="selector-attr">[xv]</span><span class="selector-attr">[-f 现有文档名称]</span> <span class="selector-attr">[-C 目录]</span>       解压缩    </span><br></pre></td></tr></table></figure>
+<p>-c:建立打包文件<br>
+-t:查看打包文件含有那些文档名<br>
+-x:解压打包或解压缩<br>
+-z:进行gzip压缩或解压缩<br>
+-j:进行bzip2压缩或者解压缩<br>
+-J:进行xz压缩或者解压缩<br>
+-C:指定解压是的路历<br>
+-p:保留备份数据的原本权限与属性<br>
+-P:保留绝对路劲<br>
+–exclude:打包或者解压时排除某些特定的目录或文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 得到test.tar备份文件</span></span><br><span class="line">tar -cvf test.tar <span class="built_in">test</span> </span><br><span class="line"><span class="comment"># 得到test.tar.gz备份文件</span></span><br><span class="line">tar -zcvf test.tar.gz <span class="built_in">test</span> </span><br><span class="line"><span class="comment"># 得到test.tar.bz2备份文件  </span></span><br><span class="line">tar -jcvf test.tar.bz2 <span class="built_in">test</span> </span><br><span class="line"><span class="comment"># 解压文件</span></span><br><span class="line">tar -xzvf test.tar.gz </span><br><span class="line"><span class="comment"># 解压tar文件</span></span><br><span class="line">tar -xvf test.tar </span><br><span class="line"><span class="comment"># 解压tar包文件至指定目录且不覆盖指定目录的文件</span></span><br><span class="line">tar -xvf test.tar -C /target/dri --exclude=/target/dri/exclude_file --exclude=/target/dri/exclude_file2</span><br><span class="line"><span class="comment"># 打包目录/source/dir为archive.tar,打包时排除 /source/dir/tmp 和/source/dir/cache子目录</span></span><br><span class="line">tar -cvf archive.tar /<span class="built_in">source</span>/dir --exclude=/<span class="built_in">source</span>/dir/tmp --exclude=/<span class="built_in">source</span>/dir/cache</span><br><span class="line"><span class="comment"># 打包目录/source/dir为archive.tar 指定一个排除文件,里面每行包含一个要排除的文件或目录。</span></span><br><span class="line">tar -cvf archive.tar /<span class="built_in">source</span>/dir --exclude-from=/path/to/exclude.list</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="vi">vi</h3>
+<h4 id="三种模式">三种模式</h4>
+<ul>
+<li>command mode : 一般指令模式，使用vi进入后的默认模式,实现删除，粘贴，复制功能</li>
+<li>insert mode  : 编辑模式，实现编辑功能，i-插入，o-新增一行,-r替换</li>
+<li>command-line mode : 指令行模式，[:/?]进入该模式，保存，离开，读取，搜索等功能<br>
+<strong>一般指令模式和 指令和模式不可直接转换</strong>。<br>
+<strong>一般指令模式下快捷键</strong>：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>h</td>
+<td>左</td>
+</tr>
+<tr>
+<td>j</td>
+<td>下</td>
+</tr>
+<tr>
+<td>k</td>
+<td>上</td>
+</tr>
+<tr>
+<td>l</td>
+<td>右</td>
+</tr>
+<tr>
+<td>ctrl + f</td>
+<td>下一页</td>
+</tr>
+<tr>
+<td>ctrl + b</td>
+<td>上一页</td>
+</tr>
+<tr>
+<td>0</td>
+<td>该行的首字母</td>
+</tr>
+<tr>
+<td>$</td>
+<td>该行的尾字母</td>
+</tr>
+<tr>
+<td>G</td>
+<td>该文档的最后一行</td>
+</tr>
+<tr>
+<td>gg</td>
+<td>该文档的第一行</td>
+</tr>
+<tr>
+<td>nG</td>
+<td>该文档的第N行</td>
+</tr>
+<tr>
+<td>n<Enter></td>
+<td>光标向下移动N行</td>
+</tr>
+<tr>
+<td>/word</td>
+<td>在文档中向下搜索word字</td>
+</tr>
+<tr>
+<td>?word</td>
+<td>在文档中向上搜索word字</td>
+</tr>
+<tr>
+<td>:n1,n2s/word/word1/g</td>
+<td>在第n1行与n2行之间搜索word并使用word1进行替换</td>
+</tr>
+<tr>
+<td>:n1,$s/word/word1/gc</td>
+<td>在全文中搜索word字段并使用word1替换，并在替换时进行询问</td>
+</tr>
+<tr>
+<td>:n1,$s/word/word1/gc</td>
+<td>在全文中搜索word字段并使用word1替换</td>
+</tr>
+<tr>
+<td>x,X</td>
+<td>x-一行中向后删除一个字符，-X一行中向前删除一个字符</td>
+</tr>
+<tr>
+<td>dd</td>
+<td>删除一整行</td>
+</tr>
+<tr>
+<td>yy</td>
+<td>复制一整行</td>
+</tr>
+<tr>
+<td>ndd</td>
+<td>删除下面的N行数据</td>
+</tr>
+<tr>
+<td>nyy</td>
+<td>复制下面的N行数据</td>
+</tr>
+<tr>
+<td>p,P</td>
+<td>p 为将已复制的数据在光标下一列贴上，P 则为贴在游标上一列</td>
+</tr>
+<tr>
+<td>u</td>
+<td>复原前一个动作</td>
+</tr>
+<tr>
+<td>ctrl + r</td>
+<td>重做上一个动作</td>
+</tr>
+<tr>
+<td>.</td>
+<td>重复前一个动作</td>
+</tr>
+</tbody>
+</table>
+<h5 id="指令列模式">指令列模式</h5>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>：w</td>
+<td>将编辑的数据写入硬盘</td>
+</tr>
+<tr>
+<td>：q</td>
+<td>离开vi编辑模式</td>
+</tr>
+<tr>
+<td>：w!</td>
+<td>强制将数据写入硬盘</td>
+</tr>
+<tr>
+<td>：q!</td>
+<td>强制离开</td>
+</tr>
+<tr>
+<td>：wq</td>
+<td>存储后离开</td>
+</tr>
+<tr>
+<td>：set nu</td>
+<td>显示行号</td>
+</tr>
+<tr>
+<td>：set nonu</td>
+<td>不显示行号</td>
+</tr>
+</tbody>
+</table>
+<h5 id="区块编辑">区块编辑</h5>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v</td>
+<td>字符选择，会将光标经过的地方反白选择</td>
+</tr>
+<tr>
+<td>V</td>
+<td>列选择，会将光标经过的列反白选择</td>
+</tr>
+<tr>
+<td>[ctrl + v]</td>
+<td>区块选择，可以用长方形的方式选择资料</td>
+</tr>
+<tr>
+<td>y,p,d</td>
+<td>复制，粘贴，删除</td>
+</tr>
+</tbody>
+</table>
+<h5 id="多文件编辑">多文件编辑</h5>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>：n</td>
+<td>编辑下一个文件</td>
+</tr>
+<tr>
+<td>：N</td>
+<td>编辑上一个文件</td>
+</tr>
+<tr>
+<td>：files</td>
+<td>列出目前该vim所开启的文件</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="变量的设定：">变量的设定：</h3>
+<ul>
+<li>echo ${variable} / $variable 查看变量的内容</li>
+<li>variable=content 变量赋值(注意等号左右不可又空格)</li>
+<li>当变量的内容中有空格或特殊字符时可以使用[&quot;]或者[']来修饰整个内容：</li>
+<li>[&quot;]中的特殊字符保持其原有的特性，而[']中的特殊字符则为字符串失去其原有特性</li>
+<li>在赋值的过程中如果赋值的内容来源于执行其它指令得到信息，则可以使用[<code>指令</code>]或者[$(指令)]来实现</li>
+<li><strong>变量添加内容时可以使用以下格式来完成:[“$variable”]或[${variable}]，例如：PATH=“$PATH”:/local/bin 或 PATH=${PATH}:<br>
+/local/bin</strong></li>
+<li>变量取消的指令（删除）:unset–&gt; unset varibale</li>
+<li>修改PATH变量：PATH=$PATH:/home/;对PATH变量的修改只能维持在退出或者系统重新启动前。且只对当前的shell生效，如果需要子shell也生效则需要进行EXPORT到处。</li>
+</ul>
+<h4 id="环境变量功能">环境变量功能</h4>
+<p>env:envirnoment 查看所有的环境变量<br>
+set: 观察所有的变量(环境变量和自定义变量)<br>
+export:将自定义变量转换成环境变量<br>
+unset:删除环境变量</p>
+<h4 id="默认常用环境变量：">默认常用环境变量：</h4>
+<ul>
+<li>HOME:当前用户的主目录</li>
+<li>IFS：shell用来将文本字符串分割成字段的一系列字符</li>
+<li><strong>PATH:shell查找命令的目录列表，由冒号分隔</strong>。</li>
+</ul>
+<h4 id="定位系统环境变量">定位系统环境变量</h4>
+<h5 id="启动bash-shell的三种方式">启动bash shell的三种方式</h5>
+<ol>
+<li>登陆时作为默认登陆shell</li>
+<li>作为非登录shell的交互式shell</li>
+<li>作为运行脚本的非交互式shell</li>
+</ol>
+<ul>
+<li>登录shell： 登陆时会从5个不同的启动文件中读取命令。</li>
+</ul>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/etc/profile; <span class="comment">//系统默认的主启动文件，系统上每个用户登录时都会执行这个启动文件。</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">$HOME</span>/.bash_profile;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">$HOME</span>/.baserc;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">$HOME</span>/.bash_login;</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">$HOME</span>/.profile</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>交互式shell登录。交互式shell不用访问/ect/profile，而回直接检查用户的主目录$HOME/.bashrc文件<br>
+<em>（1、用来查来/etc目录下通用bashrc问价，2、为用户提供一个定制自己的命名别名和私有脚本函数的地方）。</em></li>
+<li>非交互式shell。</li>
+</ul>
+<h5 id="子shell">子shell</h5>
+<p>bash 命令创建一个新的子shell，子shell继承父shell 的部分环境变量</p>
+<h5 id="后台模式">后台模式</h5>
+<ul>
+<li>在命令的后面加“<strong>&amp;</strong>”符即可将命令置入后台运行。</li>
+<li>当使用&amp;符号将命令置入后台进行运行的时候系统会返回命令在后台的作业号，和命令的进程号。</li>
+<li>使用<strong>jobs</strong>命令可以将在后台的所有作显示出来（所有用户的进程）</li>
+</ul>
+<h5 id="环境变量持久化">环境变量持久化</h5>
+<ol>
+<li>可以将改变的环境变量写进/ect/profile中（若更新系统的版本则，该文件很可能会本更新，修改过的环境变量将会丢失）</li>
+<li>推荐将在/etc/profile.d的目录中创建一个以.sh结尾的文件，把所有新的或修改的全局环境变量放于该文件中。</li>
+</ol>
+<h4 id="读取键盘变量，数组和宣称">读取键盘变量，数组和宣称</h4>
+<p>read [-pt] variable : 读取来自键盘的输入值赋予变量,参数p:后加提示语,参数t:等待的时间[秒]</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">read</span> -p <span class="string">&quot;Please input your name:&quot;</span> -t <span class="number">30</span> <span class="built_in">name</span></span><br></pre></td></tr></table></figure>
+<h5 id="declare-typeset-宣告变量的类型">declare/typeset 宣告变量的类型</h5>
+<p>declare [-aixr] variable : a将变量申明为一个数组,i将变量声明为一个int值,x将变量转为环境变量,r将变量声明为只读变量，不可更改，不可nuset</p>
+<h5 id="array-数组型变量">array 数组型变量</h5>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">var[1]=<span class="string">&quot;small&quot;</span></span><br><span class="line">var[2]=<span class="string">&quot;middle&quot;</span></span><br><span class="line">var[3]=<span class="string">&quot;large&quot;</span></span><br><span class="line">echo <span class="string">&quot;$&#123;var[1]&#125;,$&#123;var[2]&#125;,$&#123;var[3]&#125;&quot;</span></span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line"><span class="comment">##### 变量内容的编辑</span></span><br><span class="line"></span><br><span class="line">|<span class="string"> 变量设定方式               </span>|<span class="string"> 说明                              </span>|</span><br><span class="line">|<span class="string">----------------------</span>|<span class="string">---------------------------------</span>|</span><br><span class="line">|<span class="string"> $&#123;variable#关键词&#125;      </span>|<span class="string"> 若变量内容从头开始的数据符合『关键词』，则将符合的最短数据删除 </span>|</span><br><span class="line">|<span class="string"> $&#123;variable##管检测&#125;     </span>|<span class="string"> 若变量内容从头开始的数据符合『关键词』，则将符合的最长数据删除 </span>|</span><br><span class="line">|<span class="string"> $&#123;variable%关键词&#125;      </span>|<span class="string"> 若变量内容从尾向前的数据符合『关键词』，则将符合的最短数据删除 </span>|</span><br><span class="line">|<span class="string"> $&#123;variable%%关键词&#125;     </span>|<span class="string"> 若变量内容从尾向前的数据符合『关键词』，则将符合的最长数据删除 </span>|</span><br><span class="line">|<span class="string"> $&#123;variable/旧字符/新字符&#125;  </span>|<span class="string"> 若变量内容符合『旧字符串』则『第一个旧字符串会被新字符串取代』 </span>|</span><br><span class="line">|<span class="string"> $&#123;variable//旧字符/新字符&#125; </span>|<span class="string"> 若变量内容符合『旧字符串』则『全部的旧字符串会被新字符串取代』 </span>|</span><br><span class="line"></span><br><span class="line"><span class="comment">##### 变量的测试、替换</span></span><br><span class="line"></span><br><span class="line">|<span class="string"> 设定方式             </span>|<span class="string"> str 没有设定          </span>|<span class="string"> str 为空字符串         </span>|<span class="string"> str 已设定为非空字符串  </span>|</span><br><span class="line">|<span class="string">------------------</span>|<span class="string">-------------------</span>|<span class="string">-------------------</span>|<span class="string">----------------</span>|</span><br><span class="line">|<span class="string"> var=$&#123;str-expr&#125;  </span>|<span class="string"> var=expr          </span>|<span class="string"> var=              </span>|<span class="string"> var=$str       </span>|</span><br><span class="line">|<span class="string"> var=$&#123;str:-expr&#125; </span>|<span class="string"> var=expr          </span>|<span class="string"> var=expr          </span>|<span class="string"> var=$str       </span>|</span><br><span class="line">|<span class="string"> var=$&#123;str+expr&#125;  </span>|<span class="string"> var=              </span>|<span class="string"> var=expr          </span>|<span class="string"> var=$str       </span>|</span><br><span class="line">|<span class="string"> var=$&#123;str:+expr&#125; </span>|<span class="string"> var=              </span>|<span class="string"> var=              </span>|<span class="string"> var=$str       </span>|</span><br><span class="line">|<span class="string"> var=$&#123;str=expr&#125;  </span>|<span class="string"> var=expr,str=expr </span>|<span class="string"> var=expr,str不变    </span>|<span class="string"> var=$str,str不变 </span>|</span><br><span class="line">|<span class="string"> var=$&#123;str:=expr&#125; </span>|<span class="string"> var=expr,str=expr </span>|<span class="string"> var=expr,srt=expr </span>|<span class="string"> var=$str,str不变 </span>|</span><br><span class="line"></span><br><span class="line"><span class="comment">##### 查看应用程序使用的环境变量：</span></span><br><span class="line"></span><br><span class="line">cat /proc/pid/environ</span><br><span class="line"></span><br><span class="line"><span class="comment">#### Linux设置编码格式</span></span><br><span class="line"></span><br><span class="line">当前会话设置：export LANG=en_US.UTF-8    </span><br><span class="line">文件路径：/etc/sysconfig/i18n</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>LANG=en_US.UTF-8<br>
+SUPPORTED=“zh_CN.GBK:zh_CN.UTF-8:zh_CN:zh:en_US.UTF-8:en_US:en”<br>
+SYSFONT=“latarcyrheb-sun16”</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">|<span class="string"> 变量        </span>|<span class="string"> 含义                   </span>|</span><br><span class="line">|<span class="string">-----------</span>|<span class="string">----------------------</span>|</span><br><span class="line">|<span class="string"> LANG      </span>|<span class="string"> 当前系统的编码              </span>|</span><br><span class="line">|<span class="string"> SUPPORTED </span>|<span class="string"> 支持的编码格式最多两种(其中一种必为英文 </span>|</span><br><span class="line">|<span class="string"> SYSFONT   </span>|<span class="string"> 所使用的字体               </span>|</span><br><span class="line"></span><br><span class="line"><span class="comment">### 指令别名</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>alias 列出所有指令别名<br>
+alias lm=‘ls -al | more’  定义一个指令的别名<br>
+unalias 指令，取消指令别名</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">### linux 终端锁定</span></span><br><span class="line"></span><br><span class="line"><span class="string">ctrl+s</span> <span class="string">锁住终端，终端无任何反映</span></span><br><span class="line"><span class="string">ctrl+q</span> <span class="string">解锁终端</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### centos 下防火墙的使用</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> <span class="string">firewall-cmd</span> <span class="string">--state</span> <span class="string">:查看防火墙的状态</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">firewall-cmd</span> <span class="string">--list-ports</span> <span class="string">:查看已经开放的端口</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">firewall-cmd</span> <span class="string">--reload</span> <span class="string">:重新启动防火墙</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">firewall-cmd</span> <span class="string">--zone=public</span> <span class="string">--add-port=80/tcp</span> <span class="string">--permanent</span> <span class="string">:开启端口</span>    </span><br><span class="line">  <span class="string">---zone</span> <span class="string">作用域</span>    </span><br><span class="line">  <span class="string">--add-port=80/tcp</span> <span class="string">开放的端口及协议</span>    </span><br><span class="line">  <span class="string">--permanent</span> <span class="string">永久生效</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">systemctl</span> <span class="string">stop</span> <span class="string">firewalld.service：禁止防火墙</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">systemctl</span> <span class="string">disable</span> <span class="string">firewalld.service：禁止防火墙开机启动</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> <span class="string">service</span> <span class="string">iptables</span> <span class="string">status</span> <span class="string">:查看防火墙的状态</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">service</span> <span class="string">iptables</span> <span class="string">stop：停止防火墙</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">service</span> <span class="string">iptables</span> <span class="string">start：启动防火墙</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">service</span> <span class="string">iptables</span> <span class="string">restart：重启防火墙</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">chkconfig</span> <span class="string">iptables</span> <span class="string">off：永久关闭防火墙</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">chkconfig</span> <span class="string">iptables</span> <span class="string">on：</span> <span class="string">永久关闭后重启</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">vim</span> <span class="string">/etc/sysconfig/iptables：开启端口</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">-A</span> <span class="string">INPUT</span> <span class="string">-m</span> <span class="string">state</span> <span class="string">--state</span> <span class="string">NEW</span> <span class="string">-m</span> <span class="string">tcp</span> <span class="string">-p</span> <span class="string">tcp</span> <span class="string">--dport</span> <span class="number">80</span> <span class="string">-j</span> <span class="string">ACCEPT</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### LINUX 用户各项限制查看：ulimit -a</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#### 修改用户最大线成数：</span></span><br><span class="line"></span><br><span class="line"><span class="string">在文件</span> <span class="string">/etc/security/limits.conf</span> <span class="string">文件末添加</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>username   hard   nproc  num<br>
+username   soft   nproc  num</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">username-账户名称    </span><br><span class="line">num-修改后的线程数</span><br><span class="line"></span><br><span class="line">#### 修改用户最大文件数：</span><br><span class="line"></span><br><span class="line">在文件 /etc/security/limits.conf 文件末添加</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>username   hard   nofile  num<br>
+username   soft   nofile  num</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">username-账户名称    </span><br><span class="line">num-最大文件数</span><br><span class="line"></span><br><span class="line"><span class="comment">#### 设置当前环境下最大虚拟内存使用情况</span></span><br><span class="line"></span><br><span class="line">sysctl -w vm.<span class="attribute">max_map_count</span>=262144</span><br><span class="line"></span><br><span class="line">**问题：linux :Can<span class="string">&#x27;t locate Switch.pm**</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
+<p>方案：yum install perl-Switch</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="strong">**当前代理机上已经还有指纹则需要去下面的文件删除指纹：**</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>vim /root/.ssh/known_hosts</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="strong">**找出N天前的问题件并删除**</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>find /usr/local/app/ -mtime +7 -type f -exec rm -f {} \;</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">分隔，<span class="built_in">gsub</span>全部替换</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>awk -F “productId=” ‘{print $2}’ 641.txt |awk ‘{gsub(/shopId=/,“”); print $0}’ | awk ‘{gsub(/，/,“,”); print $0}’ | sort | uniq &gt; 642-result.txt</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">根据分割符分割文本，使用分割后的第2列进行求和并输出结果</span><br><span class="line"></span><br><span class="line">```<span class="keyword">shell</span></span><br><span class="line">awk -F <span class="string">&quot;total num:&quot;</span> &#x27;&#123;<span class="keyword">sum</span> +=<span class="variable">$2&#125;</span>;END &#123;<span class="keyword">print</span> <span class="keyword">sum</span>&#125;&#x27; stdout.<span class="keyword">log</span></span><br></pre></td></tr></table></figure>
+<p>通过排序，去重完成文件内内容的去重</p>
+<p>sort | uniq</p>
+<h3 id="LINUX系统时间校准">LINUX系统时间校准</h3>
+<p>ntpdate -u x.x.x.x(ipAddress)</p>
+<p>ntp常用服务器地址：</p>
+<ul>
+<li>中国国家授时中心：210.72.145.44</li>
+<li>NTP服务器(上海) ：<a target="_blank" rel="noopener" href="http://ntp.api.bz">ntp.api.bz</a></li>
+<li>美国： <a target="_blank" rel="noopener" href="http://time.nist.gov">time.nist.gov</a></li>
+<li>复旦： <a target="_blank" rel="noopener" href="http://ntp.fudan.edu.cn">ntp.fudan.edu.cn</a></li>
+<li>微软公司授时主机(美国) ：<a target="_blank" rel="noopener" href="http://time.windows.com">time.windows.com</a></li>
+<li>北京邮电大学 : <a target="_blank" rel="noopener" href="http://s1a.time.edu.cn">s1a.time.edu.cn</a></li>
+<li>清华大学 : <a target="_blank" rel="noopener" href="http://s1b.time.edu.cn">s1b.time.edu.cn</a></li>
+<li>北京大学 : <a target="_blank" rel="noopener" href="http://s1c.time.edu.cn">s1c.time.edu.cn</a></li>
+<li>台警大授时中心(台湾)：<a target="_blank" rel="noopener" href="http://asia.pool.ntp.org">asia.pool.ntp.org</a></li>
+</ul>
+<p>ps -ef | grep apache | awk ‘{ print $2 }’ | sudo xargs kill -9</p>
+<h3 id="windows和Linux之间传输文件">windows和Linux之间传输文件</h3>
+<p>windows和Linux之间传输文件，在安装有Xshell或者SecureCRT的工具上，可以直接使用rz或sz</p>
+<ul>
+<li>rz 从windows向Linux传输文件</li>
+<li>sz 从Linux向windows出传输文件</li>
+</ul>
+<p>ln -sf /direct /vritual direct</p>
+<p>vritual direct -&gt; direct</p>
+<p>netstat -atnp | grep 22673 | grep “10.5.11.25” | wc -l</p>
+<h3 id="网络相关">网络相关</h3>
+<h4 id="执行DNS搜索（域信息搜索器）">执行DNS搜索（域信息搜索器）</h4>
+<h2 id="dig-8-8-8-8-域名地址-tracenslookup-域名地址">dig @8.8.8.8 域名地址 +trace<br>
+nslookup 域名地址</h2>
+<h4 id="Linux-抓包">Linux 抓包</h4>
+<h5 id="tcpdump">tcpdump</h5>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">tcpdump</span> tcp port <span class="number">3306</span> and host <span class="number">10.5.11.43</span> -w ./ddpim_<span class="number">09</span>.cap</span><br></pre></td></tr></table></figure>
+<ul>
+<li>tcp:只抓取TCP协议的数据包</li>
+<li>port: 根据端口号过滤</li>
+<li>host: 根据主机IP过滤</li>
+<li>-w: 将抓取的数据以文件的格式存储到后面的文件中</li>
+</ul>
+<hr>
+<h4 id="LINUX-DNS刷新">LINUX DNS刷新</h4>
+<h5 id="查看是否可用：">查看是否可用：</h5>
+<p>systemctl is-active systemd- resolved<br>
+返回 active则表示可用</p>
+<h5 id="刷新DNS">刷新DNS</h5>
+<p>systemd-resolve --statistics<br>
+systemd-resolve --flush-caches<br>
+systemd-resolve --statistics</p>
+<hr>
+<h3 id="LINUX-磁盘相关">LINUX 磁盘相关</h3>
+<h4 id="查看磁盘容量">查看磁盘容量</h4>
+<p>df -h<br>
+du -h --max-depth=1</p>
+<h4 id="清理文件内容">清理文件内容</h4>
+<p>true &gt; assce.log | echo &gt; assce.log| cat /dev/null &gt; assce.log</p>
+<p>文件删除后，文件句柄没有被释放的问题。</p>
+<p>描述：<br>
+在linux上删除文件后，如果有进程一直在查看或者使用该文件则该空间并不会被真正的释放所以需要先停止使用的线程后改空间在会被释放。使用lsof |<br>
+grep &quot;delete&quot;可以找到已删除但并未真正释放的线程及文件。<br>
+lsof director/filename</p>
+<p>查看文件删除后因为程序继续运行而为释放的磁盘空间：<br>
+<strong>lsof | grep delete</strong></p>
+<h3 id="系统进程相关">系统进程相关</h3>
+<h4 id="lsof-常用命令说明">lsof-常用命令说明</h4>
+<p>lsof filename 显示打开指定文件的所有进程<br>
+lsof -g gid 显示归属gid的进程情况<br>
+lsof +d /DIR/ 显示目录下被进程打开的文件<br>
+lsof +D /DIR/ 同上，但是会搜索目录下的所有目录，时间相对较长</p>
+<hr>
+<p>lsof -i 用以显示符合条件的进程情况<br>
+lsof -i[46] [protocol][@hostname|hostaddr][:service|port]<br>
+46 --&gt; IPv4 or IPv6<br>
+protocol --&gt; TCP or UDP<br>
+hostname --&gt; Internet host name<br>
+hostaddr --&gt; IPv4地址<br>
+service --&gt; /etc/service中的 service name (可以不只一个)<br>
+port --&gt; 端口号 (可以不只一个)</p>
+<h4 id="进程停止">进程停止</h4>
+<p>kill -[signal] [pid/GPID]<br>
+当PID位负数的时候则表示位组ID,可以杀死一组进程<br>
+常用的singal有1,9,15,18,19,20</p>
+<ul>
+<li>1-重新加载系统配置文件</li>
+<li>9-强制性杀死一个进程</li>
+<li>15-正常停止一个进程(可被拒绝)</li>
+<li>18-重新运行被暂停的进程</li>
+<li>19-暂停（不会被阻塞，拒绝）</li>
+<li>20-暂停（但会被阻塞）</li>
+</ul>
+<h3 id="系统信息查看">系统信息查看</h3>
+<ul>
+<li>查看系统的发行版本</li>
+</ul>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>. lsb_release -a</span><br><span class="line"><span class="number">2</span>. 查看<span class="regexp">/etc/</span>目录下 *-release 文件。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查看系统CPU相关信息</li>
+</ul>
+<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看物理CPU个数</span></span><br><span class="line">cat /proc/cpuinfo| <span class="keyword">grep</span> <span class="string">&quot;physical id&quot;</span>| <span class="keyword">sort</span>| uni<span class="string">q| wc -l</span></span><br><span class="line"><span class="string"># 查看每个物理CPU的核数</span></span><br><span class="line"><span class="string">cat /proc/cpuinfo|</span> <span class="keyword">grep</span> <span class="string">&quot;cpu cores&quot;</span>| uniq</span><br><span class="line"><span class="comment"># 查看逻辑CPU的个数</span></span><br><span class="line">cat /proc/cpuinfo| <span class="keyword">grep</span> <span class="string">&quot;processor&quot;</span>| wc -l</span><br></pre></td></tr></table></figure>
+<p>总核数 = 物理CPU个数 X 每颗物理CPU的核数<br>
+总逻辑CPU数 = 物理CPU个数 X 每颗物理CPU的核数 X 超线程数<br>
+/proc/cpuinfo 文件中记录来的本机的CPU相关信息</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">- processor：逻辑处理器的编号，从0开始。</span></span><br><span class="line"><span class="deletion">- vendor_id：CPU制造商的标识符。</span></span><br><span class="line"><span class="deletion">- cpu family：CPU所属的系列。</span></span><br><span class="line"><span class="deletion">- model：CPU所属的型号。</span></span><br><span class="line"><span class="deletion">- model name：CPU的型号名称。</span></span><br><span class="line"><span class="deletion">- stepping：CPU的修订版本号。</span></span><br><span class="line"><span class="deletion">- microcode：CPU的微代码版本号。</span></span><br><span class="line"><span class="deletion">- cpu MHz：CPU的时钟频率。</span></span><br><span class="line"><span class="deletion">- cache size：CPU的缓存大小。</span></span><br><span class="line"><span class="deletion">- physical id：物理处理器的编号，如果有多个物理CPU，则这个编号可以区分它们。</span></span><br><span class="line"><span class="deletion">- siblings：在同一物理处理器上运行的逻辑处理器的数量，如果支持超线程技术，则可能大于核心数。</span></span><br><span class="line"><span class="deletion">- core id：在同一物理处理器上运行的核心的编号，这个编号不一定连续。</span></span><br><span class="line"><span class="deletion">- cpu cores：物理处理器上的核心数量。</span></span><br><span class="line"><span class="deletion">- apicid：用来区分不同逻辑处理器的编号，系统中每个逻辑处理器的此编号必然不同，此编号不一定连续。</span></span><br><span class="line"><span class="deletion">- fpu：是否具有浮点运算单元（Floating Point Unit）。</span></span><br><span class="line"><span class="deletion">- fpu_exception：是否支持浮点计算异常。</span></span><br><span class="line"><span class="deletion">- cpuid level：执行cpuid指令前，eax寄存器中的值，根据不同的值cpuid指令会返回不同的内容。</span></span><br><span class="line"><span class="deletion">- wp：表明当前CPU是否在内核态支持对用户空间的写保护（Write Protection）。</span></span><br><span class="line"><span class="deletion">- flags：当前CPU支持的功能和指令集。</span></span><br><span class="line"><span class="deletion">- bogomips：在系统内核启动时粗略测算的CPU速度（Million Instructions Per Second）。</span></span><br><span class="line"><span class="deletion">- clflush size：每次刷新缓存的大小单位。</span></span><br><span class="line"><span class="deletion">- cache_alignment：缓存地址对齐单位。</span></span><br><span class="line"><span class="deletion">- address sizes：可访问地址空间位数。</span></span><br><span class="line"><span class="deletion">- power management：对能源管理的支持。</span></span><br></pre></td></tr></table></figure>
+<h3 id="lsof">lsof</h3>
+<h4 id="参数：">参数：</h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p pid</td>
+<td>只显示指定进程pid打开的文件</td>
+</tr>
+<tr>
+<td>-u username</td>
+<td>只显示指定用户名打开的文件</td>
+</tr>
+<tr>
+<td>-c process</td>
+<td>只显示指定进程名打开的文件</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>只显示与终端相关的文件</td>
+</tr>
+<tr>
+<td>+d /path</td>
+<td>只显示指定目录下被打开的文件</td>
+</tr>
+<tr>
+<td>+D /path</td>
+<td>递归显示指定目录被打开的文件</td>
+</tr>
+<tr>
+<td>-i [46][protocol][@hostname|hostaddr]:[service|port]</td>
+<td>显示符合条件的网络连接,可以指定ip版本,协议,host,端口等</td>
+</tr>
+<tr>
+<td>-i6</td>
+<td>显示ipv6网络连接</td>
+</tr>
+<tr>
+<td>-i4</td>
+<td>显示ipv4网络连接</td>
+</tr>
+<tr>
+<td>-i tcp</td>
+<td>显示tcp网络连接</td>
+</tr>
+<tr>
+<td>-i udp</td>
+<td>显示udp网络连接</td>
+</tr>
+<tr>
+<td>-i :80</td>
+<td>显示80端口的网络连接</td>
+</tr>
+<tr>
+<td>-g gid</td>
+<td>显示归属gid的打开文件</td>
+</tr>
+<tr>
+<td>-d FD</td>
+<td>显示指定文件描述符FD的文件</td>
+</tr>
+<tr>
+<td>–</td>
+<td>后面参数不作为lsof选项</td>
+</tr>
+</tbody>
+</table>
+<h4 id="lsof命令用于列出当前系统打开的文件-它的输出包含多列信息-代表的意义如下">lsof命令用于列出当前系统打开的文件,它的输出包含多列信息,代表的意义如下:</h4>
+<ul>
+<li>
+<p>COMMAND:打开文件进程的名称</p>
+</li>
+<li>
+<p>PID:进程ID</p>
+</li>
+<li>
+<p>USER:进程所有者</p>
+</li>
+<li>
+<p>FD:文件描述符,表示打开文件的方式(r为读,w为写)</p>
+</li>
+<li>
+<p>TYPE:文件类型(REG, DIR,CHR, BlK, UNIX, FIFO等)</p>
+</li>
+<li>
+<p>DEVICE:索引节点(inode)信息所在的设备(硬盘、分区等)</p>
+</li>
+<li>
+<p>SIZE/OFF:文件大小及偏移量</p>
+</li>
+<li>
+<p>NODE:索引节点号</p>
+</li>
+<li>
+<p>NAME:打开文件的确切名称</p>
+</li>
+</ul>
+<p>举个例子:</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">COMMAND</span>     PID USER   FD   TYPE DEVICE  SIZE/<span class="literal">OFF</span> NODE NAME</span><br><span class="line"><span class="attribute">mysqld</span>    <span class="number">5673</span> mysql    <span class="number">6</span>u  IPv<span class="number">4</span> <span class="number">11552</span>      <span class="number">0</span>t<span class="number">0</span> TCP localhost:<span class="number">3306</span> (LISTEN)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>mysqld进程ID为5673</li>
+<li>打开类型为IPv4网络连接</li>
+<li>监听端口3306</li>
+</ul>
+<p>所以通过解析lsof各列信息,可以判断打开文件的属性、方式、类型、<strong>进程等相关细节</strong>。</p>
+<h4 id="lsof的一些主要用法包括">lsof的一些主要用法包括:</h4>
+<ul>
+<li>
+<p>lsof:列出当前系统打开的所有文件</p>
+</li>
+<li>
+<p>lsof -p 1234:列出进程号为1234的进程打开的文件</p>
+</li>
+<li>
+<p>lsof /home:列出目录/home下被打开的文件</p>
+</li>
+<li>
+<p>lsof -i :4001:列出打开端口4001的进程</p>
+</li>
+<li>
+<p>lsof -u username:列出属于username用户打开的文件</p>
+</li>
+<li>
+<p>lsof +d /dev/sda1:列出打开磁盘/dev/sda1的文件</p>
+</li>
+</ul>
+<h4 id="主要使用场景包括">主要使用场景包括:</h4>
+<ul>
+<li>
+<p>查看进程打开的文件和网络连接</p>
+</li>
+<li>
+<p>确定进程是否仍在运行</p>
+</li>
+<li>
+<p>调试进程问题并确认打开的端口</p>
+</li>
+<li>
+<p>确定文件是否被进程占用而无法卸载</p>
+</li>
+<li>
+<p>确定打开某目录下文件的进程</p>
+</li>
+</ul>
+<h3 id="rpcbind-portmap">rpcbind&amp;portmap</h3>
+<h4 id="区别">区别</h4>
+<ol>
+<li>portmap是早期UNIX系统中提供RPC服务注册与查询的程序,大多数Linux发行版现在使用更先进的rpcbind取代了portmap。</li>
+<li>rpcbid与portmap作用基本相同,都是RPC服务管理工具,可以查看当前主机注册的RPC服务。</li>
+<li>portmap只能管理RPC服务,而rpcbind还可以管理TCP Wrappers等其他服务。</li>
+<li>rpcbind是独立服务,而portmap需要inetd启动。</li>
+<li>rpcbind默认监听UDP 111 和 TCP 111两个端口,portmap只监听111端口。</li>
+<li>配置文件不同,rpcbind使用/etc/rpcbind.conf,portmap使用/etc/hosts.deny和/etc/hosts.allow。</li>
+<li>查看命令不同,rpcbind使用rpcinfo,portmap使用nmap等。</li>
+</ol>
+<h4 id="rpcbind"><strong>rpcbind</strong></h4>
+<h5 id="参数">参数:</h5>
+<ul>
+<li>-h:显示帮助信息</li>
+<li>-w:将所有调用写入日志文件</li>
+<li>-l:打印监听的地址</li>
+<li>-d:启动调试模式</li>
+<li>-L:仅监听本地地址,不监听网络地址</li>
+</ul>
+<h5 id="示例">示例:</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动rpcbind</span></span><br><span class="line">sudo rpcbind</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看注册的RPC服务</span></span><br><span class="line">rpcinfo -p localhost</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查端口监听</span></span><br><span class="line">rpcbind -l</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定配置文件启动</span></span><br><span class="line">rpcbind -w -d -f /etc/rpcbind.conf</span><br></pre></td></tr></table></figure>
+<h4 id="portmap"><strong>portmap</strong></h4>
+<h5 id="参数-2">参数:</h5>
+<ul>
+<li>-d:启动调试模式</li>
+<li>-v:输出执行过程信息</li>
+<li>-u:使用UDP作为传输协议</li>
+<li>-t:使用TCP作为传输协议</li>
+</ul>
+<h5 id="示例-2">示例:</h5>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动portmap</span></span><br><span class="line">sudo portmap</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看注册的RPC服务</span></span><br><span class="line">nmap -sRPC -p 111 localhost</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定端口启动</span></span><br><span class="line">portmap -d -v -p 9999</span><br></pre></td></tr></table></figure>
+<h3 id="rsync命令参数总结">rsync命令参数总结</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-r/–recursive</td>
+<td>递归复制目录</td>
+</tr>
+<tr>
+<td>-a</td>
+<td>归档复制模式,相当于-rlptgoD</td>
+</tr>
+<tr>
+<td>-v/–verbose</td>
+<td>详细模式,显示复制过程</td>
+</tr>
+<tr>
+<td>-z/–compress</td>
+<td>开启压缩</td>
+</tr>
+<tr>
+<td>–delete</td>
+<td>删除失效文件</td>
+</tr>
+<tr>
+<td>–delete-after</td>
+<td>传输后删除源文件</td>
+</tr>
+<tr>
+<td>–ignore-existing</td>
+<td>不覆盖已存在的文件</td>
+</tr>
+<tr>
+<td>–progress</td>
+<td>显示传输进度</td>
+</tr>
+<tr>
+<td>–append</td>
+<td>追加写文件</td>
+</tr>
+<tr>
+<td>–append-verify</td>
+<td>追加写并校验文件</td>
+</tr>
+<tr>
+<td>–partial</td>
+<td>保留不完整文件</td>
+</tr>
+<tr>
+<td>–inplace</td>
+<td>就地修改文件</td>
+</tr>
+<tr>
+<td>–backup</td>
+<td>覆盖前备份原文件</td>
+</tr>
+<tr>
+<td>–backup-dir</td>
+<td>设置备份文件存放目录</td>
+</tr>
+<tr>
+<td>–suffix</td>
+<td>设置备份文件后缀</td>
+</tr>
+<tr>
+<td>-u/–update</td>
+<td>更新更新过的文件</td>
+</tr>
+<tr>
+<td>-l/–links</td>
+<td>复制软链接</td>
+</tr>
+<tr>
+<td>-p/–perms</td>
+<td>保留权限</td>
+</tr>
+<tr>
+<td>-t/–times</td>
+<td>保留时间戳</td>
+</tr>
+<tr>
+<td>-g/–group</td>
+<td>保留组属性</td>
+</tr>
+<tr>
+<td>-o/–owner</td>
+<td>保留属主属性</td>
+</tr>
+<tr>
+<td>–devices</td>
+<td>保留设备文件属性</td>
+</tr>
+<tr>
+<td>–specials</td>
+<td>保留特殊文件属性</td>
+</tr>
+<tr>
+<td>–exclude</td>
+<td>排除指定文件/目录</td>
+</tr>
+<tr>
+<td>–exclude-from</td>
+<td>从文件读取排除模式</td>
+</tr>
+<tr>
+<td>–include</td>
+<td>不排除匹配的文件/目录</td>
+</tr>
+<tr>
+<td>–files-from</td>
+<td>从文件读取传输列表</td>
+</tr>
+<tr>
+<td>–bwlimit</td>
+<td>限制I/O带宽</td>
+</tr>
+</tbody>
+</table>
+<h4 id="rsync使用场景示例">rsync使用场景示例</h4>
+<ol>
+<li>同步目录</li>
+</ol>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync -r <span class="regexp">/source/</span>dir<span class="regexp">/ /</span>dest/dir</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>镜像备份</li>
+</ol>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync -aAXv --<span class="keyword">delete</span> <span class="regexp">/source/</span>dir<span class="regexp">/ /</span>backup/dir</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>增量备份</li>
+</ol>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync -u <span class="regexp">/source/</span>dir<span class="regexp">/ /</span>backup/dir</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>排除目录备份</li>
+</ol>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync -a --<span class="keyword">exclude</span>=<span class="string">&#x27;dir1&#x27;</span> <span class="regexp">/source/</span>dir<span class="regexp">/ /</span>backup/dir </span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>远程同步</li>
+</ol>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync -avz /local/dir user<span class="variable">@remote</span><span class="symbol">:/remote/dir</span></span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>限速备份</li>
+</ol>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync --bwlimit=<span class="number">1000</span> <span class="regexp">/source/</span>dir <span class="regexp">/backup/</span>dir</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>追加到文件</li>
+</ol>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsync --append-<span class="built_in">verify</span> /<span class="keyword">file</span>.<span class="built_in">log</span> remote:/backup/<span class="keyword">file</span>.<span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+<h3 id="常见错误">常见错误</h3>
+<h5 id="使用yum安装软件报fastest-mirrors错误">使用yum安装软件报fastest mirrors错误</h5>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Loaded plugins: fastestmirror, security</span><br><span class="line">Determining fastest mirrors</span><br><span class="line"><span class="keyword">Error: </span>Cannot retrieve metalink for repository: epel. Please verify its path and try again</span><br></pre></td></tr></table></figure>
+<ul>
+<li>可以修改 /etc/yum.repos.d/epel.repo 文件将其中mirrorlist配置的https修改成http再次尝试</li>
+</ul>
+
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/Linux/Curl/" data-toggle="tooltip" data-placement="top" title="Explain 'Curl'">&larr; Previous Post</a>
+          </li>
+          
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=BaseShell&body=Hi,I found this website and thought you might like it http://yoursite-url/Linux/BaseShell/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+  <!-- gitalk start -->
+  <!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+  <div id="gitalk-container"></div>
+
+  
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+    <script src="/js/comment/gitalk.js"></script>
+  
+
+  <script>
+    var gitalk = new Gitalk({
+      clientID: '',
+      clientSecret: '',
+      repo: '',
+      owner: '',
+      admin: '',
+      id: 'Tue Mar 24 2020 10:50:02 GMT+0800', // Ensure uniqueness and length less than 50
+      distractionFreeMode: false, // Facebook-like distraction free mode
+      perPage: 10,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      language: 'en',
+      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
+    });
+    gitalk.render('gitalk-container');
+
+    var gtFolded = () => {
+      setTimeout(function () {
+        let markdownBody = document.getElementsByClassName("markdown-body");
+        let list = Array.from(markdownBody);
+        list.forEach(item => {
+          if (item.clientHeight > 250) {
+            item.classList.add('gt-comment-body-folded');
+            item.style.maxHeight = '250px';
+            item.title = 'Click to Expand';
+            item.onclick = function () {
+              item.classList.remove('gt-comment-body-folded');
+              item.style.maxHeight = '';
+              item.title = '';
+              item.onclick = null;
+            };
+          }
+        })
+      }, 800);
+    }
+  </script>
+
+  <!-- gitalk end -->
+
+
+<!-- 2. gitment comment -->
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#man-%E5%91%BD%E4%BB%A4"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">man 命令</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4%E5%AF%B9%E5%BA%94%E7%9A%84%E6%95%B0%E5%80%BC%EF%BC%9A"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">常用指令对应的数值：</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%B8%B8%E7%94%A8%E5%85%B3%E6%9C%BA%E6%8C%87%E4%BB%A4%EF%BC%9A"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">常用关机指令：</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#Linux-%E6%96%87%E4%BB%B6%E5%B1%9E%E6%80%A7%EF%BC%9A"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Linux 文件属性：</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%94%B9%E5%8F%98%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E5%92%8C%E5%B1%9E%E6%80%A7%E7%9A%84%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">改变文件权限和属性的命令：</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#1%E3%80%81chgrp%EF%BC%9A"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">1、chgrp：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#2%E3%80%81chown"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">2、chown:</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#3%E3%80%81chmod"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">3、chmod:</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%94%A8%E6%88%B7%E5%8F%8A%E7%94%A8%E6%88%B7%E7%BB%84%E6%98%BE%E7%A4%BA%E4%B8%BA%E6%95%B0%E5%AD%90%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">用户及用户组显示为数子的情况</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%9B%AE%E5%BD%95%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">目录相关操作</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#cd-change-directory"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">cd (change directory)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#pwd-Print-Woking-Directory"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">pwd (Print Woking Directory)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#mkdir-make-directory"><span class="toc-nav-number">5.3.</span> <span class="toc-nav-text">mkdir (make directory)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#rmdir-remove-directory"><span class="toc-nav-number">5.4.</span> <span class="toc-nav-text">rmdir (remove directory)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%89%A7%E8%A1%8C%E8%B7%AF%E5%8A%B2%E5%8F%98%E9%87%8FPATH"><span class="toc-nav-number">5.5.</span> <span class="toc-nav-text">执行路劲变量PATH</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%9A%84%E7%AE%A1%E7%90%86"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">文件与目录的管理</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#ls"><span class="toc-nav-number">6.1.</span> <span class="toc-nav-text">ls</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#cp-copy"><span class="toc-nav-number">6.2.</span> <span class="toc-nav-text">cp (copy)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#rm-remove"><span class="toc-nav-number">6.3.</span> <span class="toc-nav-text">rm (remove)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#mv-move"><span class="toc-nav-number">6.4.</span> <span class="toc-nav-text">mv (move)</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E6%93%8D%E4%BD%9C"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">文件内容操作</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#cat-concatenate"><span class="toc-nav-number">7.1.</span> <span class="toc-nav-text">cat (concatenate)</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#AWK%E8%BF%87%E6%BB%A4%E6%8E%92%E5%BA%8F"><span class="toc-nav-number">7.2.</span> <span class="toc-nav-text">AWK过滤排序</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E6%89%93%E5%8C%85%E6%8C%87%E4%BB%A4%EF%BC%9Atar"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">打包指令：tar</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#vi"><span class="toc-nav-number">9.</span> <span class="toc-nav-text">vi</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E4%B8%89%E7%A7%8D%E6%A8%A1%E5%BC%8F"><span class="toc-nav-number">9.1.</span> <span class="toc-nav-text">三种模式</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E6%8C%87%E4%BB%A4%E5%88%97%E6%A8%A1%E5%BC%8F"><span class="toc-nav-number">9.1.1.</span> <span class="toc-nav-text">指令列模式</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E5%8C%BA%E5%9D%97%E7%BC%96%E8%BE%91"><span class="toc-nav-number">9.1.2.</span> <span class="toc-nav-text">区块编辑</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E5%A4%9A%E6%96%87%E4%BB%B6%E7%BC%96%E8%BE%91"><span class="toc-nav-number">9.1.3.</span> <span class="toc-nav-text">多文件编辑</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E8%AE%BE%E5%AE%9A%EF%BC%9A"><span class="toc-nav-number">10.</span> <span class="toc-nav-text">变量的设定：</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%8A%9F%E8%83%BD"><span class="toc-nav-number">10.1.</span> <span class="toc-nav-text">环境变量功能</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E9%BB%98%E8%AE%A4%E5%B8%B8%E7%94%A8%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%EF%BC%9A"><span class="toc-nav-number">10.2.</span> <span class="toc-nav-text">默认常用环境变量：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%AE%9A%E4%BD%8D%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-nav-number">10.3.</span> <span class="toc-nav-text">定位系统环境变量</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E5%90%AF%E5%8A%A8bash-shell%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="toc-nav-number">10.3.1.</span> <span class="toc-nav-text">启动bash shell的三种方式</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E5%AD%90shell"><span class="toc-nav-number">10.3.2.</span> <span class="toc-nav-text">子shell</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E5%90%8E%E5%8F%B0%E6%A8%A1%E5%BC%8F"><span class="toc-nav-number">10.3.3.</span> <span class="toc-nav-text">后台模式</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E6%8C%81%E4%B9%85%E5%8C%96"><span class="toc-nav-number">10.3.4.</span> <span class="toc-nav-text">环境变量持久化</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%AF%BB%E5%8F%96%E9%94%AE%E7%9B%98%E5%8F%98%E9%87%8F%EF%BC%8C%E6%95%B0%E7%BB%84%E5%92%8C%E5%AE%A3%E7%A7%B0"><span class="toc-nav-number">10.4.</span> <span class="toc-nav-text">读取键盘变量，数组和宣称</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#declare-typeset-%E5%AE%A3%E5%91%8A%E5%8F%98%E9%87%8F%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-nav-number">10.4.1.</span> <span class="toc-nav-text">declare&#x2F;typeset 宣告变量的类型</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#array-%E6%95%B0%E7%BB%84%E5%9E%8B%E5%8F%98%E9%87%8F"><span class="toc-nav-number">10.4.2.</span> <span class="toc-nav-text">array 数组型变量</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#LINUX%E7%B3%BB%E7%BB%9F%E6%97%B6%E9%97%B4%E6%A0%A1%E5%87%86"><span class="toc-nav-number">11.</span> <span class="toc-nav-text">LINUX系统时间校准</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#windows%E5%92%8CLinux%E4%B9%8B%E9%97%B4%E4%BC%A0%E8%BE%93%E6%96%87%E4%BB%B6"><span class="toc-nav-number">12.</span> <span class="toc-nav-text">windows和Linux之间传输文件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3"><span class="toc-nav-number">13.</span> <span class="toc-nav-text">网络相关</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%89%A7%E8%A1%8CDNS%E6%90%9C%E7%B4%A2%EF%BC%88%E5%9F%9F%E4%BF%A1%E6%81%AF%E6%90%9C%E7%B4%A2%E5%99%A8%EF%BC%89"><span class="toc-nav-number">13.1.</span> <span class="toc-nav-text">执行DNS搜索（域信息搜索器）</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#dig-8-8-8-8-%E5%9F%9F%E5%90%8D%E5%9C%B0%E5%9D%80-tracenslookup-%E5%9F%9F%E5%90%8D%E5%9C%B0%E5%9D%80"><span class="toc-nav-number"></span> <span class="toc-nav-text">dig @8.8.8.8 域名地址 +trace
+
+nslookup 域名地址</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#Linux-%E6%8A%93%E5%8C%85"><span class="toc-nav-number">0.1.</span> <span class="toc-nav-text">Linux 抓包</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#tcpdump"><span class="toc-nav-number">0.1.1.</span> <span class="toc-nav-text">tcpdump</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#LINUX-DNS%E5%88%B7%E6%96%B0"><span class="toc-nav-number">0.2.</span> <span class="toc-nav-text">LINUX DNS刷新</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%98%AF%E5%90%A6%E5%8F%AF%E7%94%A8%EF%BC%9A"><span class="toc-nav-number">0.2.1.</span> <span class="toc-nav-text">查看是否可用：</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E5%88%B7%E6%96%B0DNS"><span class="toc-nav-number">0.2.2.</span> <span class="toc-nav-text">刷新DNS</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#LINUX-%E7%A3%81%E7%9B%98%E7%9B%B8%E5%85%B3"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">LINUX 磁盘相关</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%9F%A5%E7%9C%8B%E7%A3%81%E7%9B%98%E5%AE%B9%E9%87%8F"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">查看磁盘容量</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E6%B8%85%E7%90%86%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">清理文件内容</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%B3%BB%E7%BB%9F%E8%BF%9B%E7%A8%8B%E7%9B%B8%E5%85%B3"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">系统进程相关</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#lsof-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E8%AF%B4%E6%98%8E"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">lsof-常用命令说明</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%BF%9B%E7%A8%8B%E5%81%9C%E6%AD%A2"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">进程停止</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E7%B3%BB%E7%BB%9F%E4%BF%A1%E6%81%AF%E6%9F%A5%E7%9C%8B"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">系统信息查看</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#lsof"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">lsof</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%8F%82%E6%95%B0%EF%BC%9A"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">参数：</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#lsof%E5%91%BD%E4%BB%A4%E7%94%A8%E4%BA%8E%E5%88%97%E5%87%BA%E5%BD%93%E5%89%8D%E7%B3%BB%E7%BB%9F%E6%89%93%E5%BC%80%E7%9A%84%E6%96%87%E4%BB%B6-%E5%AE%83%E7%9A%84%E8%BE%93%E5%87%BA%E5%8C%85%E5%90%AB%E5%A4%9A%E5%88%97%E4%BF%A1%E6%81%AF-%E4%BB%A3%E8%A1%A8%E7%9A%84%E6%84%8F%E4%B9%89%E5%A6%82%E4%B8%8B"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">lsof命令用于列出当前系统打开的文件,它的输出包含多列信息,代表的意义如下:</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#lsof%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%BB%E8%A6%81%E7%94%A8%E6%B3%95%E5%8C%85%E6%8B%AC"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">lsof的一些主要用法包括:</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E4%B8%BB%E8%A6%81%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E5%8C%85%E6%8B%AC"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">主要使用场景包括:</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#rpcbind-portmap"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">rpcbind&amp;portmap</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E5%8C%BA%E5%88%AB"><span class="toc-nav-number">5.1.</span> <span class="toc-nav-text">区别</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#rpcbind"><span class="toc-nav-number">5.2.</span> <span class="toc-nav-text">rpcbind</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E5%8F%82%E6%95%B0"><span class="toc-nav-number">5.2.1.</span> <span class="toc-nav-text">参数:</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-nav-number">5.2.2.</span> <span class="toc-nav-text">示例:</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#portmap"><span class="toc-nav-number">5.3.</span> <span class="toc-nav-text">portmap</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E5%8F%82%E6%95%B0-2"><span class="toc-nav-number">5.3.1.</span> <span class="toc-nav-text">参数:</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E7%A4%BA%E4%BE%8B-2"><span class="toc-nav-number">5.3.2.</span> <span class="toc-nav-text">示例:</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#rsync%E5%91%BD%E4%BB%A4%E5%8F%82%E6%95%B0%E6%80%BB%E7%BB%93"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">rsync命令参数总结</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#rsync%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E7%A4%BA%E4%BE%8B"><span class="toc-nav-number">6.1.</span> <span class="toc-nav-text">rsync使用场景示例</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">常见错误</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E4%BD%BF%E7%94%A8yum%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E6%8A%A5fastest-mirrors%E9%94%99%E8%AF%AF"><span class="toc-nav-number">7.0.1.</span> <span class="toc-nav-text">使用yum安装软件报fastest mirrors错误</span></a></li></ol></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>FRIENDS</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://v-vincen.life/" target="_blank">HubertXH</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+
+          
+            <li>
+              <a target="_blank" href="https://github.com/HubertXH">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy;
+          煦阳
+          2023
+          <br>
+          Theme by
+          <a target="_blank" rel="noopener" href="http://beantech.org">BeanTech</a>
+          <span style="display: inline-block; margin: 0 5px;">
+            <i class="fa fa-heart"></i>
+          </span>
+          <!--
+          re-Ported by
+          <a target="_blank" rel="noopener" href="https://v-vincen.life/">Live My Life</a>
+          |
+          <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="91px" height="20px" src="https://ghbtns.com/github-btn.html?user=V-Vincen&repo=V-Vincen.github.io&type=star&count=true"></iframe> -->
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+    <!-- LangSelect start -->
+    <script type="text/javascript" src="/js/langselect.js"></script>
+    <!-- LangSelect end -->
+  
+
+  
+    <!-- Mouseclick -->
+    <script type="text/javascript" src="/js/mouseclick.js" content='' color='#9933CC,#339933,#66CCCC,#FF99CC,#CCCCFF,#6666CC,#663399,#66CC99,#FF0033'></script>
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+  <!-- viewer start -->
+  <!-- viewer start (Picture preview) -->
+  
+    <script async="async" type="text/javascript" src="/js/viewer/viewer.min.js"></script>
+    <script async="async" type="text/javascript" src="/js/viewer/pic-viewer.js"></script>
+  
+
+  <!-- viewer end -->
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  async ("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("http://yoursite-url/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col-md-9 col-md-offset-1"> -->
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="SEARCH..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.flv'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
