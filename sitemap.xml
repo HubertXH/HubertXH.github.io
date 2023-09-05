@@ -158,7 +158,7 @@
 
   
   <url>
-    <loc>http://yoursite-url/tags/jvm/</loc>
+    <loc>http://yoursite-url/tags/Canal/</loc>
     <lastmod>2023-09-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -172,13 +172,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite-url/tags/IO-Monitor-Index/</loc>
-    <lastmod>2023-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://yoursite-url/tags/Shell/</loc>
     <lastmod>2023-09-05</lastmod>
     <changefreq>daily</changefreq>
@@ -186,7 +179,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite-url/tags/RocketMQ-Config/</loc>
+    <loc>http://yoursite-url/tags/jvm/</loc>
     <lastmod>2023-09-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -200,13 +193,27 @@
   </url>
   
   <url>
-    <loc>http://yoursite-url/tags/Canal/</loc>
+    <loc>http://yoursite-url/tags/IO-Monitor-Index/</loc>
+    <lastmod>2023-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/tags/RocketMQ-Config/</loc>
     <lastmod>2023-09-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
 
+  
+  <url>
+    <loc>http://yoursite-url/categories/Canal/</loc>
+    <lastmod>2023-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
   
   <url>
     <loc>http://yoursite-url/categories/Linux/</loc>
@@ -216,14 +223,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite-url/categories/Computer-technology/</loc>
+    <loc>http://yoursite-url/categories/Linux/Shell/</loc>
     <lastmod>2023-09-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://yoursite-url/categories/Linux/Shell/</loc>
+    <loc>http://yoursite-url/categories/Computer-technology/</loc>
     <lastmod>2023-09-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -238,13 +245,6 @@
   
   <url>
     <loc>http://yoursite-url/categories/RocketMQ/Message-Queue/</loc>
-    <lastmod>2023-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite-url/categories/Canal/</loc>
     <lastmod>2023-09-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

@@ -206,6 +206,8 @@
 
           
           
+          
+          
           <li>
             <a href="/categories/">
               
@@ -218,9 +220,9 @@
           
           
           <li>
-            <a href="/tags/">
+            <a href="/archive/">
               
-              TAGS
+              ARCHIVES
               
               
             </a>
@@ -228,12 +230,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/archive/">
+            <a href="/tags/">
               
-              ARCHIVES
+              TAGS
               
               
             </a>
@@ -421,21 +421,82 @@
       <!-- 标签云 -->
       <div id='tag_cloud' class="tags">
         
+        <a href="#Canal" title="Canal" rel="3">Canal</a>
+        
         <a href="#Linux" title="Linux" rel="7">Linux</a>
         
-        <a href="#Computer technology" title="Computer technology" rel="1">Computer technology</a>
-        
         <a href="#Shell" title="Shell" rel="4">Shell</a>
+        
+        <a href="#Computer technology" title="Computer technology" rel="1">Computer technology</a>
         
         <a href="#RocketMQ" title="RocketMQ" rel="5">RocketMQ</a>
         
         <a href="#Message Queue" title="Message Queue" rel="3">Message Queue</a>
         
-        <a href="#Canal" title="Canal" rel="3">Canal</a>
-        
       </div>
 
       <!-- 标签列表 -->
+      
+      <div class="one-tag-list">
+        <span class="fa fa-tag listing-seperator" id="Canal">
+          <span class="tag-text">Canal</span>
+        </span>
+        
+        <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+        <div class="post-preview">
+          <a href="/Canal/Canal配置说明/">
+            <h2 class="post-title">
+              Canal配置说明
+              
+              -- Canal
+              
+            </h2>
+            
+          </a>
+          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </div>
+        <hr>
+        
+        <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+        <div class="post-preview">
+          <a href="/Canal/Instance配置说明/">
+            <h2 class="post-title">
+              Instance配置说明
+              
+              -- Canal
+              
+            </h2>
+            
+          </a>
+          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </div>
+        <hr>
+        
+        <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+        <div class="post-preview">
+          <a href="/Canal/运维处理/">
+            <h2 class="post-title">
+              运维处理
+              
+              -- Canal
+              
+            </h2>
+            
+          </a>
+          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </div>
+        <hr>
+        
+      </div>
       
       <div class="one-tag-list">
         <span class="fa fa-tag listing-seperator" id="Linux">
@@ -454,28 +515,6 @@
               -- Linux
               
             </h2>
-            
-          </a>
-          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </div>
-        <hr>
-        
-        <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-        <div class="post-preview">
-          <a href="/Linux/NFS/">
-            <h2 class="post-title">
-              Linux Command of NFS
-              
-              -- Linux
-              
-            </h2>
-            
-            <h3 class="post-subtitle">
-              command of NFS Server and Clients
-            </h3>
             
           </a>
           <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
@@ -527,16 +566,16 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
         <div class="post-preview">
-          <a href="/Linux/System-IO-Monitor/">
+          <a href="/Linux/SpringBootShell/">
             <h2 class="post-title">
-              IO Monitor
+              Spring Boot Shell Example
               
               -- Linux
               
             </h2>
             
             <h3 class="post-subtitle">
-              Linux系统IO性能监控指标
+              Some examples for Spring boot Application
             </h3>
             
           </a>
@@ -571,16 +610,16 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
         <div class="post-preview">
-          <a href="/Linux/SpringBootShell/">
+          <a href="/Linux/NFS/">
             <h2 class="post-title">
-              Spring Boot Shell Example
+              Linux Command of NFS
               
               -- Linux
               
             </h2>
             
             <h3 class="post-subtitle">
-              Some examples for Spring boot Application
+              command of NFS Server and Clients
             </h3>
             
           </a>
@@ -588,28 +627,21 @@
         </div>
         <hr>
         
-      </div>
-      
-      <div class="one-tag-list">
-        <span class="fa fa-tag listing-seperator" id="Computer technology">
-          <span class="tag-text">Computer technology</span>
-        </span>
-        
         <!-- <li class="listing-item">
                   <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
         <div class="post-preview">
-          <a href="/JVM/JVM/">
+          <a href="/Linux/System-IO-Monitor/">
             <h2 class="post-title">
-              JVM Architecture
+              IO Monitor
               
-              -- JVM
+              -- Linux
               
             </h2>
             
             <h3 class="post-subtitle">
-              JDK8
+              Linux系统IO性能监控指标
             </h3>
             
           </a>
@@ -669,28 +701,6 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
         <div class="post-preview">
-          <a href="/Linux/CommonShell/">
-            <h2 class="post-title">
-              Some Common shell of Linux
-              
-              -- Linux
-              
-            </h2>
-            
-            <h3 class="post-subtitle">
-              Some Common shell Examples
-            </h3>
-            
-          </a>
-          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </div>
-        <hr>
-        
-        <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-        <div class="post-preview">
           <a href="/Linux/SpringBootShell/">
             <h2 class="post-title">
               Spring Boot Shell Example
@@ -708,11 +718,33 @@
         </div>
         <hr>
         
+        <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+        <div class="post-preview">
+          <a href="/Linux/CommonShell/">
+            <h2 class="post-title">
+              Some Common shell of Linux
+              
+              -- Linux
+              
+            </h2>
+            
+            <h3 class="post-subtitle">
+              Some Common shell Examples
+            </h3>
+            
+          </a>
+          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </div>
+        <hr>
+        
       </div>
       
       <div class="one-tag-list">
-        <span class="fa fa-tag listing-seperator" id="RocketMQ">
-          <span class="tag-text">RocketMQ</span>
+        <span class="fa fa-tag listing-seperator" id="Computer technology">
+          <span class="tag-text">Computer technology</span>
         </span>
         
         <!-- <li class="listing-item">
@@ -720,16 +752,16 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
         <div class="post-preview">
-          <a href="/RocketMQ/BestConfig/">
+          <a href="/JVM/JVM/">
             <h2 class="post-title">
-              The Best Practice
+              JVM Architecture
               
-              -- RocketMQ
+              -- JVM
               
             </h2>
             
             <h3 class="post-subtitle">
-              Rocket MQ config
+              JDK8
             </h3>
             
           </a>
@@ -737,49 +769,12 @@
         </div>
         <hr>
         
-        <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-        <div class="post-preview">
-          <a href="/RocketMQ/Producer/">
-            <h2 class="post-title">
-              Explain Producer
-              
-              -- RocketMQ
-              
-            </h2>
-            
-            <h3 class="post-subtitle">
-              How the producer to work
-            </h3>
-            
-          </a>
-          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </div>
-        <hr>
-        
-        <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-        <div class="post-preview">
-          <a href="/RocketMQ/MessageProces/">
-            <h2 class="post-title">
-              Message Process
-              
-              -- RocketMQ
-              
-            </h2>
-            
-            <h3 class="post-subtitle">
-              消息发送处理
-            </h3>
-            
-          </a>
-          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </div>
-        <hr>
+      </div>
+      
+      <div class="one-tag-list">
+        <span class="fa fa-tag listing-seperator" id="RocketMQ">
+          <span class="tag-text">RocketMQ</span>
+        </span>
         
         <!-- <li class="listing-item">
                   <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
@@ -825,12 +820,27 @@
         </div>
         <hr>
         
-      </div>
-      
-      <div class="one-tag-list">
-        <span class="fa fa-tag listing-seperator" id="Message Queue">
-          <span class="tag-text">Message Queue</span>
-        </span>
+        <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+        <div class="post-preview">
+          <a href="/RocketMQ/Producer/">
+            <h2 class="post-title">
+              Explain Producer
+              
+              -- RocketMQ
+              
+            </h2>
+            
+            <h3 class="post-subtitle">
+              How the producer to work
+            </h3>
+            
+          </a>
+          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </div>
+        <hr>
         
         <!-- <li class="listing-item">
                   <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
@@ -847,6 +857,57 @@
             
             <h3 class="post-subtitle">
               Rocket MQ config
+            </h3>
+            
+          </a>
+          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </div>
+        <hr>
+        
+        <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+        <div class="post-preview">
+          <a href="/RocketMQ/MessageProces/">
+            <h2 class="post-title">
+              Message Process
+              
+              -- RocketMQ
+              
+            </h2>
+            
+            <h3 class="post-subtitle">
+              消息发送处理
+            </h3>
+            
+          </a>
+          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+        </div>
+        <hr>
+        
+      </div>
+      
+      <div class="one-tag-list">
+        <span class="fa fa-tag listing-seperator" id="Message Queue">
+          <span class="tag-text">Message Queue</span>
+        </span>
+        
+        <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+        <div class="post-preview">
+          <a href="/RocketMQ/Consumer/">
+            <h2 class="post-title">
+              Explain Common Consumer
+              
+              -- RocketMQ
+              
+            </h2>
+            
+            <h3 class="post-subtitle">
+              How the consumer to work and some advise of config
             </h3>
             
           </a>
@@ -881,78 +942,17 @@
                   <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
                   </li> -->
         <div class="post-preview">
-          <a href="/RocketMQ/Consumer/">
+          <a href="/RocketMQ/BestConfig/">
             <h2 class="post-title">
-              Explain Common Consumer
+              The Best Practice
               
               -- RocketMQ
               
             </h2>
             
             <h3 class="post-subtitle">
-              How the consumer to work and some advise of config
+              Rocket MQ config
             </h3>
-            
-          </a>
-          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </div>
-        <hr>
-        
-      </div>
-      
-      <div class="one-tag-list">
-        <span class="fa fa-tag listing-seperator" id="Canal">
-          <span class="tag-text">Canal</span>
-        </span>
-        
-        <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-        <div class="post-preview">
-          <a href="/Canal/Instance配置说明/">
-            <h2 class="post-title">
-              Instance配置说明
-              
-              -- Canal
-              
-            </h2>
-            
-          </a>
-          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </div>
-        <hr>
-        
-        <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-        <div class="post-preview">
-          <a href="/Canal/运维处理/">
-            <h2 class="post-title">
-              运维处理
-              
-              -- Canal
-              
-            </h2>
-            
-          </a>
-          <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-        </div>
-        <hr>
-        
-        <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-        <div class="post-preview">
-          <a href="/Canal/Canal配置说明/">
-            <h2 class="post-title">
-              Canal配置说明
-              
-              -- Canal
-              
-            </h2>
             
           </a>
           <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
