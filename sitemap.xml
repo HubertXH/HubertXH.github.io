@@ -172,6 +172,13 @@
   </url>
   
   <url>
+    <loc>http://yoursite-url/tags/jvm/</loc>
+    <lastmod>2023-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://yoursite-url/tags/RocketMQ-Config/</loc>
     <lastmod>2023-09-05</lastmod>
     <changefreq>daily</changefreq>
@@ -187,13 +194,6 @@
   
   <url>
     <loc>http://yoursite-url/tags/Read/</loc>
-    <lastmod>2023-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite-url/tags/jvm/</loc>
     <lastmod>2023-09-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -223,6 +223,13 @@
   </url>
   
   <url>
+    <loc>http://yoursite-url/categories/Computer-technology/</loc>
+    <lastmod>2023-09-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://yoursite-url/categories/Linux/</loc>
     <lastmod>2023-09-05</lastmod>
     <changefreq>daily</changefreq>
@@ -238,13 +245,6 @@
   
   <url>
     <loc>http://yoursite-url/categories/Linux/Shell/</loc>
-    <lastmod>2023-09-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite-url/categories/Computer-technology/</loc>
     <lastmod>2023-09-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
