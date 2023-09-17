@@ -158,6 +158,13 @@
 
   
   <url>
+    <loc>http://yoursite-url/tags/RocketMQ-Config/</loc>
+    <lastmod>2023-09-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://yoursite-url/tags/Canal/</loc>
     <lastmod>2023-09-17</lastmod>
     <changefreq>daily</changefreq>
@@ -165,7 +172,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite-url/tags/Shell/</loc>
+    <loc>http://yoursite-url/tags/RocketMQ/</loc>
     <lastmod>2023-09-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -179,14 +186,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite-url/tags/jvm/</loc>
-    <lastmod>2023-09-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite-url/tags/RocketMQ-Config/</loc>
+    <loc>http://yoursite-url/tags/Shell/</loc>
     <lastmod>2023-09-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -200,7 +200,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite-url/tags/RocketMQ/</loc>
+    <loc>http://yoursite-url/tags/jvm/</loc>
     <lastmod>2023-09-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -216,21 +216,21 @@
   </url>
   
   <url>
-    <loc>http://yoursite-url/categories/Linux/</loc>
-    <lastmod>2023-09-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite-url/categories/Computer-technology/</loc>
-    <lastmod>2023-09-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://yoursite-url/categories/RocketMQ/</loc>
+    <lastmod>2023-09-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/categories/RocketMQ/Message-Queue/</loc>
+    <lastmod>2023-09-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/categories/Linux/</loc>
     <lastmod>2023-09-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -244,7 +244,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite-url/categories/RocketMQ/Message-Queue/</loc>
+    <loc>http://yoursite-url/categories/Computer-technology/</loc>
     <lastmod>2023-09-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
