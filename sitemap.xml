@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite-url/Code/ImageUtils/</loc>
+    
+    <lastmod>2024-06-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/Code/ChinaURL/</loc>
+    
+    <lastmod>2023-12-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/Nginx/NgConfig/</loc>
+    
+    <lastmod>2023-09-07</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/Code/HugeFile/</loc>
+    
+    <lastmod>2023-09-07</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite-url/404.html</loc>
     
     <lastmod>2023-07-30</lastmod>
@@ -100,6 +128,20 @@
   </url>
   
   <url>
+    <loc>http://yoursite-url/JVM/G1LOG/</loc>
+    
+    <lastmod>2021-06-28</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/JVM/G1/</loc>
+    
+    <lastmod>2021-06-25</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite-url/JVM/JVM/</loc>
     
     <lastmod>2021-06-17</lastmod>
@@ -110,6 +152,13 @@
     <loc>http://yoursite-url/RocketMQ/BestConfig/</loc>
     
     <lastmod>2020-05-30</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/Code/EncrDecr/</loc>
+    
+    <lastmod>2020-05-06</lastmod>
     
   </url>
   
@@ -135,6 +184,20 @@
   </url>
   
   <url>
+    <loc>http://yoursite-url/DesignPattern/BridgePattern/</loc>
+    
+    <lastmod>2018-03-01</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/DesignPattern/AdapterPattern/</loc>
+    
+    <lastmod>2018-03-01</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite-url/archive/index.html</loc>
     
     <lastmod>2017-03-20</lastmod>
@@ -151,57 +214,64 @@
 
   <url>
     <loc>http://yoursite-url/</loc>
-    <lastmod>2023-09-17</lastmod>
+    <lastmod>2024-11-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>http://yoursite-url/tags/RocketMQ-Config/</loc>
-    <lastmod>2023-09-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://yoursite-url/tags/Canal/</loc>
-    <lastmod>2023-09-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite-url/tags/RocketMQ/</loc>
-    <lastmod>2023-09-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite-url/tags/Read/</loc>
-    <lastmod>2023-09-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite-url/tags/Shell/</loc>
-    <lastmod>2023-09-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite-url/tags/IO-Monitor-Index/</loc>
-    <lastmod>2023-09-17</lastmod>
+    <lastmod>2024-11-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite-url/tags/jvm/</loc>
-    <lastmod>2023-09-17</lastmod>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/tags/Shell/</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/tags/Read/</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/tags/IO-Monitor-Index/</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/tags/RocketMQ-Config/</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/tags/RocketMQ/</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/tags/IMAGE/</loc>
+    <lastmod>2024-11-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -210,42 +280,70 @@
   
   <url>
     <loc>http://yoursite-url/categories/Canal/</loc>
-    <lastmod>2023-09-17</lastmod>
+    <lastmod>2024-11-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://yoursite-url/categories/RocketMQ/</loc>
-    <lastmod>2023-09-17</lastmod>
+    <loc>http://yoursite-url/categories/DesignPattern/</loc>
+    <lastmod>2024-11-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://yoursite-url/categories/RocketMQ/Message-Queue/</loc>
-    <lastmod>2023-09-17</lastmod>
+    <loc>http://yoursite-url/categories/JAVA/</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/categories/NGINX/</loc>
+    <lastmod>2024-11-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite-url/categories/Linux/</loc>
-    <lastmod>2023-09-17</lastmod>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/categories/RocketMQ/</loc>
+    <lastmod>2024-11-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://yoursite-url/categories/Linux/Shell/</loc>
-    <lastmod>2023-09-17</lastmod>
+    <lastmod>2024-11-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://yoursite-url/categories/Computer-technology/</loc>
-    <lastmod>2023-09-17</lastmod>
+    <loc>http://yoursite-url/categories/RocketMQ/Message-Queue/</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/categories/CODE/</loc>
+    <lastmod>2024-11-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite-url/categories/Code/</loc>
+    <lastmod>2024-11-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

@@ -209,20 +209,9 @@
           
           
           <li>
-            <a href="/categories/">
+            <a href="/about/">
               
-              CATEGORIES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
-            <a href="/archive/">
-              
-              ARCHIVES
+              ABOUT
               
               
             </a>
@@ -242,9 +231,20 @@
           
           
           <li>
-            <a href="/about/">
+            <a href="/archive/">
               
-              ABOUT
+              ARCHIVES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              CATEGORIES
               
               
             </a>
@@ -360,11 +360,11 @@
             <!-- WordCount start -->
             <div class="blank_box"></div>
             <span class="meta">
-              Estimated Reading Time <span class="post-count">2</span> Minutes
+              Estimated Reading Time <span class="post-count">3</span> Minutes
             </span>
             <div class="blank_box"></div>
             <span class="meta">
-              Words <span class="post-count">479</span> In Total
+              Words <span class="post-count">659</span> In Total
             </span>
             <div class="blank_box"></div>
             <!-- WordCount end -->
@@ -420,9 +420,23 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h5 id="记录一些应用启动脚本样例">记录一些应用启动脚本样例</h5>
+        <h4 id="记录一些应用启动脚本样例">记录一些应用启动脚本样例</h4>
+<p>一些Springboot应用在Linux上的启动脚本，方便备用。</p>
 <h5 id="start-bases-sh">start_bases.sh</h5>
 <p>启动脚本基础shell</p>
+<ol>
+<li><strong>初始化:</strong> 设置脚本运行路径，配置文件路径等。</li>
+<li><strong>检查进程:</strong> 查找同名Java进程，防止重复启动。</li>
+<li><strong>构建启动命令:</strong>
+<ul>
+<li>设置类路径：根据配置文件和目录结构，确定要加载的jar包。</li>
+<li>设置JVM参数：根据配置文件和命令行参数，设置堆内存大小、垃圾回收器等。</li>
+<li>设置调试参数：如果指定了调试模式，则添加调试参数。</li>
+<li>设置JMX参数：如果指定了JMX模式，则添加JMX参数。</li>
+</ul>
+</li>
+<li><strong>输出启动信息:</strong> 在控制台输出启动信息，包括服务器名称、运行模式等。</li>
+</ol>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/bin/bash</span></span><br><span class="line"><span class="attribute">BIN_DIR</span>=`pwd`</span><br><span class="line">cd <span class="built_in">..</span></span><br><span class="line"><span class="attribute">DEPLOY_DIR</span>=`pwd`</span><br><span class="line"><span class="attribute">PROP_DIR</span>=<span class="variable">$DEPLOY_DIR</span>/bin/properties</span><br><span class="line">source <span class="variable">$PROP_DIR</span>/debug.properties</span><br><span class="line">source <span class="variable">$PROP_DIR</span>/jvm.properties</span><br><span class="line"></span><br><span class="line"><span class="attribute">SERVER_NAME</span>=servername</span><br><span class="line"></span><br><span class="line"><span class="comment">#LOG LOCATION</span></span><br><span class="line"><span class="attribute">LOGS_DIR</span>=<span class="variable">$DEPLOY_DIR</span>/logs</span><br><span class="line"><span class="keyword">if</span> [ ! -d <span class="variable">$LOGS_DIR</span> ]; then</span><br><span class="line">    mkdir <span class="variable">$LOGS_DIR</span></span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"><span class="attribute">PIDS</span>=`ps -ef | grep java | grep <span class="string">&quot;<span class="variable">$DEPLOY_DIR</span>&quot;</span> |awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>`</span><br><span class="line"><span class="keyword">if</span> [ -n <span class="string">&quot;<span class="variable">$PIDS</span>&quot;</span> ]; then</span><br><span class="line">    echo <span class="string">&quot;ERROR: The <span class="variable">$SERVER_NAME</span> already started!&quot;</span></span><br><span class="line">    echo <span class="string">&quot;PID: <span class="variable">$PIDS</span>&quot;</span></span><br><span class="line">    exit 1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line"><span class="attribute">CONSOLE_TXT</span>=<span class="string">&quot;Starting the <span class="variable">$SERVER_NAME</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">LIB_DIR</span>=<span class="variable">$DEPLOY_DIR</span>/lib</span><br><span class="line"><span class="attribute">APP_LIB_DIR</span>=<span class="variable">$DEPLOY_DIR</span>/app</span><br><span class="line"><span class="attribute">LIB_JARS</span>=<span class="variable">$LIB_DIR</span><span class="string">&quot;/*&quot;</span></span><br><span class="line"><span class="attribute">APP_LIB_JARS</span>=<span class="variable">$APP_LIB_DIR</span><span class="string">&quot;/*&quot;</span></span><br><span class="line"><span class="attribute">APP_JAR</span>=<span class="variable">$DEPLOY_DIR</span><span class="string">&quot;/*.jar&quot;</span></span><br><span class="line"><span class="comment">#Should put LIB_JARS ahead of the APP_LIB_JARS, so that the app folder&#x27;s jar files won&#x27;t override the lib folder&#x27;s jar files.</span></span><br><span class="line"><span class="attribute">JAVA_OPTS</span>=<span class="string">&quot; -Djava.awt.headless=true -Djava.net.preferIPv4Stack=true &quot;</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;true&quot;</span> = <span class="string">&quot;<span class="variable">$LOG_GC</span>&quot;</span> ]; then</span><br><span class="line">    <span class="attribute">JAVA_OPTS</span>=<span class="variable">$JAVA_OPTS</span><span class="string">&quot; -verbose:gc -Xloggc:logs/gc.log -XX:+PrintGCDetails &quot;</span></span><br><span class="line">fi</span><br><span class="line"><span class="attribute">JAVA_DEBUG_OPTS</span>=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$1</span>&quot;</span> = <span class="string">&quot;debug&quot;</span> ]; then</span><br><span class="line">    <span class="attribute">JAVA_DEBUG_OPTS</span>=<span class="string">&quot; -Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=<span class="variable">$&#123;DEBUG_PORT&#125;</span>,server=y,suspend=n &quot;</span></span><br><span class="line">    <span class="attribute">CONSOLE_TXT</span>=<span class="string">&quot;<span class="variable">$CONSOLE_TXT</span> in DEBUG mode, the debug port is <span class="variable">$&#123;DEBUG_PORT&#125;</span>.&quot;</span></span><br><span class="line">fi</span><br><span class="line"><span class="attribute">JAVA_JMX_OPTS</span>=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="string">&quot;<span class="variable">$1</span>&quot;</span> = <span class="string">&quot;jmx&quot;</span> ]; then</span><br><span class="line">    <span class="attribute">JAVA_JMX_OPTS</span>=<span class="string">&quot; -Dcom.sun.management.config.file=<span class="variable">$PROP_DIR</span>/jmx.properties &quot;</span></span><br><span class="line">    <span class="attribute">JMX_PORT</span>=`awk -F= <span class="string">&#x27;/com.sun.management.jmxremote.port=/ &#123;print $2&#125;&#x27;</span> bin/properties/jmx.properties`</span><br><span class="line">    <span class="attribute">CONSOLE_TXT</span>=<span class="string">&quot;<span class="variable">$CONSOLE_TXT</span> in JMX mode, the default jmx port is <span class="variable">$&#123;JMX_PORT&#125;</span>.&quot;</span></span><br><span class="line">fi</span><br><span class="line"><span class="attribute">JAVA_MEM_OPTS</span>=<span class="string">&quot; -server -Xmx<span class="variable">$&#123;HEAP_MAX&#125;</span> -Xms<span class="variable">$&#123;HEAP_INIT&#125;</span> -Xmn<span class="variable">$&#123;YOUNG_GEN_SIZE&#125;</span> -XX:PermSize=<span class="variable">$&#123;PERM_SIZE&#125;</span> -Xss<span class="variable">$&#123;STACK_SIZE&#125;</span> -XX:+DisableExplicitGC -XX:+UseConcMarkSweepGC -XX:+CMSParallelRemarkEnabled -XX:LargePageSizeInBytes=<span class="variable">$&#123;LARGE_PAGE_SIZE_IN_BYTES&#125;</span> -XX:+UseFastAccessorMethods -XX:+UseCMSInitiatingOccupancyOnly -XX:CMSInitiatingOccupancyFraction=70 &quot;</span></span><br><span class="line"></span><br><span class="line">echo <span class="variable">$CONSOLE_TXT</span></span><br></pre></td></tr></table></figure>
 <h5 id="start-sh"><a target="_blank" rel="noopener" href="http://start.sh">start.sh</a></h5>
 <p>启动</p>
@@ -578,7 +592,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#%E8%AE%B0%E5%BD%95%E4%B8%80%E4%BA%9B%E5%BA%94%E7%94%A8%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC%E6%A0%B7%E4%BE%8B"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">记录一些应用启动脚本样例</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#start-bases-sh"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">start_bases.sh</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#start-sh"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">start.sh</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#stop-sh"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">stop.sh</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#%E8%AE%B0%E5%BD%95%E4%B8%80%E4%BA%9B%E5%BA%94%E7%94%A8%E5%90%AF%E5%8A%A8%E8%84%9A%E6%9C%AC%E6%A0%B7%E4%BE%8B"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">记录一些应用启动脚本样例</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#start-bases-sh"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">start_bases.sh</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#start-sh"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">start.sh</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#stop-sh"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">stop.sh</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -708,7 +722,7 @@
         <p class="copyright text-muted">
           Copyright &copy;
           煦阳
-          2023
+          2024
           <br>
           Theme by
           <a target="_blank" rel="noopener" href="http://beantech.org">BeanTech</a>

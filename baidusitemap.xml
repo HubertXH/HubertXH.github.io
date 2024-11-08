@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite-url/Code/ImageUtils/</loc>
+    <lastmod>2024-06-28</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite-url/Code/ChinaURL/</loc>
+    <lastmod>2023-12-20</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite-url/Nginx/NgConfig/</loc>
+    <lastmod>2023-09-07</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite-url/Code/HugeFile/</loc>
+    <lastmod>2023-09-07</lastmod>
+  </url>
+  <url>
     <loc>http://yoursite-url/Linux/ApplicationMonitor/</loc>
     <lastmod>2023-07-05</lastmod>
   </url>
@@ -45,12 +61,24 @@
     <lastmod>2021-08-06</lastmod>
   </url>
   <url>
+    <loc>http://yoursite-url/JVM/G1LOG/</loc>
+    <lastmod>2021-06-28</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite-url/JVM/G1/</loc>
+    <lastmod>2021-06-25</lastmod>
+  </url>
+  <url>
     <loc>http://yoursite-url/JVM/JVM/</loc>
     <lastmod>2021-06-17</lastmod>
   </url>
   <url>
     <loc>http://yoursite-url/RocketMQ/BestConfig/</loc>
     <lastmod>2020-05-30</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite-url/Code/EncrDecr/</loc>
+    <lastmod>2020-05-06</lastmod>
   </url>
   <url>
     <loc>http://yoursite-url/Linux/CommonShell/</loc>
@@ -63,5 +91,13 @@
   <url>
     <loc>http://yoursite-url/Linux/BaseShell/</loc>
     <lastmod>2020-03-24</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite-url/DesignPattern/BridgePattern/</loc>
+    <lastmod>2018-03-01</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite-url/DesignPattern/AdapterPattern/</loc>
+    <lastmod>2018-03-01</lastmod>
   </url>
 </urlset> 
