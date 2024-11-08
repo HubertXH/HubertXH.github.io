@@ -9,11 +9,11 @@
     <lastmod>2023-12-20</lastmod>
   </url>
   <url>
-    <loc>http://yoursite-url/Nginx/NgConfig/</loc>
+    <loc>http://yoursite-url/Code/HugeFile/</loc>
     <lastmod>2023-09-07</lastmod>
   </url>
   <url>
-    <loc>http://yoursite-url/Code/HugeFile/</loc>
+    <loc>http://yoursite-url/Nginx/NgConfig/</loc>
     <lastmod>2023-09-07</lastmod>
   </url>
   <url>
@@ -93,11 +93,11 @@
     <lastmod>2020-03-24</lastmod>
   </url>
   <url>
-    <loc>http://yoursite-url/DesignPattern/BridgePattern/</loc>
+    <loc>http://yoursite-url/DesignPattern/AdapterPattern/</loc>
     <lastmod>2018-03-01</lastmod>
   </url>
   <url>
-    <loc>http://yoursite-url/DesignPattern/AdapterPattern/</loc>
+    <loc>http://yoursite-url/DesignPattern/BridgePattern/</loc>
     <lastmod>2018-03-01</lastmod>
   </url>
 </urlset> 
