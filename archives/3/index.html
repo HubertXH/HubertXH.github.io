@@ -209,17 +209,6 @@
           
           
           <li>
-            <a href="/archive/">
-              
-              ARCHIVES
-              
-              
-            </a>
-          </li>
-          
-          
-          
-          <li>
             <a href="/about/">
               
               ABOUT
@@ -231,9 +220,9 @@
           
           
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
@@ -245,6 +234,17 @@
             <a href="/tags/">
               
               TAGS
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              CATEGORIES
               
               
             </a>
@@ -583,29 +583,30 @@ reboot......
   <!-- top end -->
   
 
-  <a href="/DesignPattern/AdapterPattern/">
+  <a href="/DesignPattern/StrategyPattern/">
     <h2 class="post-title">
-      适配器模式
+      策略模式
     </h2>
     <h3 class="post-subtitle">
       
     </h3>
     <div class="post-content-preview">
-      适配器模式
-概念
-适配器模式（Adapter Pattern），也称为包装器模式（Wrapper Pattern），是一种结构型设计模式。
-它的主要目的是通过提供一个接口，使得不兼容的接口可以一起工作。适配器模式可以将一个类的接口转换为另一个接口，从而实现调用
-适配器模式的结构
-适配器模式通常由以下几个部分组成：
+      策略模式（Strategy Pattern）允许定义一系列算法，并将每一个算法封装起来，使它们可以相互替换使用。
+算法的变化不会影响到使用算法的客户代码，从而实现算法的独立和可扩展性。
+组成部分
+策略模式通常包括以下几个部分：
 
-目标接口（Target）：定义客户端使用的接口。
-需要适配的类（Adapte......
+
+策略定义接口（Strategy Interface）：定义了一组算法或行为的公共接口或抽象类。不同的算法需要实现这个接口。
+
+
+具体策略（Concrete Str......
     </div>
   </a>
   
   <p class="post-meta" style="margin: 10px 0;">
     Posted by 煦阳 on
-    2018-03-01
+    2018-03-08
   </p>
   <div class="tags">
     
@@ -622,28 +623,213 @@ reboot......
   <!-- top end -->
   
 
-  <a href="/DesignPattern/BridgePattern/">
+  <a href="/DesignPattern/Singleton/">
     <h2 class="post-title">
-      适配器模式
+      单例模式
     </h2>
     <h3 class="post-subtitle">
       
     </h3>
     <div class="post-content-preview">
-      桥接模式
-桥接模式（Bridge Pattern）是一种结构型设计模式，旨在将抽象部分与其实现部分分离，以便它们可以独立地变化。
-一个类存在两个（或多个）独立变化的维度，我们通过组合的方式，让这两个（或多个）维度可以独立进行扩展。这种模式有助于避免类爆炸现象，尤其是在涉及多维度变化的系统中。
-桥接模式的结构
-桥接模式主要涉及以下几个部分：
+      单例模式的定义
+单例模式（Singleton Pattern）是一种设计模式，它确保一个类只有一个实例，并提供全局访问点来访问这个实例。单例模式主要用于需要一个对象在整个系统中唯一的场景，比如配置类、日志类、线程池等。
+单例模式的作用
+单例模式有以下几个作用：
 
+控制实例数量：防止创建多个实例,保持实例的唯一性。
+全局访问：解决全局资源访问冲突的问题。
 
-抽象类（Abstraction）： 定义抽象类，......
+单例模式的实现方式
+1. 饿汉式（E......
     </div>
   </a>
   
   <p class="post-meta" style="margin: 10px 0;">
     Posted by 煦阳 on
-    2018-03-01
+    2018-03-07
+  </p>
+  <div class="tags">
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/DesignPattern/ProxyPattern/">
+    <h2 class="post-title">
+      代理模式
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      代理模式（Proxy Pattern）
+什么是代理模式？
+代理模式是一种结构型设计模式，它提供了一种对目标对象访问的间接方式。也就是说，我们通过一个代理对象来访问目标对象，而不是直接访问目标对象。代理对象可以在目标对象执行操作之前、之后或期间进行一些额外的操作，从而实现对目标对象的控制或增强。
+核心思想：
+
+间接访问： 通过代理对象来访问目标对象。
+增强功能： 代理对象可以在目标对象的基础上......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 煦阳 on
+    2018-03-06
+  </p>
+  <div class="tags">
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/DesignPattern/ObserverPattern/">
+    <h2 class="post-title">
+      观察者模式
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      观察者模式 (Observer Pattern)
+什么是观察者模式？
+观察者模式是一种行为型设计模式，它定义了一种一对多的依赖关系，当一个对象的状态发生改变时，其所有依赖者都会收到通知并自动更新。简单来说，就是多个对象之间存在一种订阅关系，当被观察者（Subject）的状态发生变化时，所有订阅它的观察者（Observer）都会收到通知，并执行相应的操作。
+核心角色：
+
+主题（Subject）......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 煦阳 on
+    2018-03-05
+  </p>
+  <div class="tags">
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/DesignPattern/FactoryPattern/">
+    <h2 class="post-title">
+      工厂模式
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      工厂模式（Factory Pattern）
+是一种创建型设计模式。在工厂模式中，我们不直接通过调用类的构造函数来创建对象，而是通过调用工厂方法，这样可以将对象创建的逻辑封装起来，提供更灵活和可扩展的对象创建机制。
+工厂模式的概念
+工厂模式主要包括三种形式：
+
+简单工厂模式（Simple Factory）
+工厂方法模式（Factory Method）
+抽象工厂模式（Abstract Facto......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 煦阳 on
+    2018-03-04
+  </p>
+  <div class="tags">
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/DesignPattern/FacadePattern/">
+    <h2 class="post-title">
+      门面模式
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      门面模式（Facade Pattern）
+门面模式 是一种常用的软件设计模式，它为子系统中的一组接口提供一个统一的接口，使得子系统更容易使用。我们可以把它想象成一个建筑的立面，它隐藏了建筑内部复杂的结构，只向外界展示一个简洁的界面。
+作用
+
+简化接口： 当一个系统变得越来越复杂时，客户端可能会需要和多个子系统中的多个类进行交互，这会增加系统的耦合度，也让客户端的代码变得复杂。门面模式通过提供......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 煦阳 on
+    2018-03-04
+  </p>
+  <div class="tags">
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/DesignPattern/CompositePattern/">
+    <h2 class="post-title">
+      组合模式
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      组合模式（Composite Pattern）
+组合模式 是一种结构型设计模式，它将对象组合成树形结构以表示“部分-整体”的层次结构。组合模式使得用户对单个对象和组合对象的使用具有一致性。
+核心思想
+
+部分-整体层次结构： 将对象组合成树状结构，形成一个整体。
+统一接口： 所有对象（无论是单个对象还是组合对象）都实现相同的接口，使得客户端代码可以一致地处理它们。
+递归组合： 组合对象可以包含......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 煦阳 on
+    2018-03-03
   </p>
   <div class="tags">
     
@@ -661,6 +847,10 @@ reboot......
       <a href="/archives/2/">&larr; Older Posts</a>
     </li>
     
+    
+    <li class="next">
+      <a href="/archives/4/">Newer Posts &rarr;</a>
+    </li>
     
   </ul>
 
@@ -689,19 +879,7 @@ reboot......
     
     
     
-    <a href="/tags/#IMAGE" title="IMAGE" rel="1">IMAGE</a>
-    
-    
-    
     <a href="/tags/#jvm" title="jvm" rel="3">jvm</a>
-    
-    
-    
-    <a href="/tags/#RocketMQ Config" title="RocketMQ Config" rel="1">RocketMQ Config</a>
-    
-    
-    
-    <a href="/tags/#RocketMQ" title="RocketMQ" rel="3">RocketMQ</a>
     
     
     
@@ -714,6 +892,18 @@ reboot......
     
     
     <a href="/tags/#IO Monitor Index" title="IO Monitor Index" rel="1">IO Monitor Index</a>
+    
+    
+    
+    <a href="/tags/#RocketMQ Config" title="RocketMQ Config" rel="1">RocketMQ Config</a>
+    
+    
+    
+    <a href="/tags/#RocketMQ" title="RocketMQ" rel="3">RocketMQ</a>
+    
+    
+    
+    <a href="/tags/#IMAGE" title="IMAGE" rel="1">IMAGE</a>
     
     
   </div>
@@ -818,7 +1008,7 @@ reboot......
 
 <h5><a href="/archives/">archives</a></h5>
 <div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../2024/06/">June 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/12/">December 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/09/">September 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/07/">July 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/06/">June 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/10/">October 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/09/">September 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/05/">May 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/04/">April 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/03/">March 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2021/08/">August 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2021/06/">June 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2020/05/">May 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2018/03/">March 2018</a><span class="archive-list-count">2</span></li></ul>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../2024/06/">June 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/12/">December 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/09/">September 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/07/">July 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/06/">June 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/10/">October 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/09/">September 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/05/">May 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/04/">April 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/03/">March 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2021/08/">August 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2021/06/">June 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2020/05/">May 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2018/03/">March 2018</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2018/02/">February 2018</a><span class="archive-list-count">1</span></li></ul>
 </div>
 
 
@@ -834,40 +1024,40 @@ reboot......
       <li>Canal</li>
     </a>
     
-    <a href="/categories/#CODE">
-      <li>CODE</li>
-    </a>
-    
-    <a href="/categories/#Code">
-      <li>Code</li>
-    </a>
-    
     <a href="/categories/#JAVA">
       <li>JAVA</li>
-    </a>
-    
-    <a href="/categories/#DesignPattern">
-      <li>DesignPattern</li>
-    </a>
-    
-    <a href="/categories/#NGINX">
-      <li>NGINX</li>
-    </a>
-    
-    <a href="/categories/#RocketMQ">
-      <li>RocketMQ</li>
     </a>
     
     <a href="/categories/#Linux">
       <li>Linux</li>
     </a>
     
-    <a href="/categories/#Message Queue">
-      <li>Message Queue</li>
+    <a href="/categories/#RocketMQ">
+      <li>RocketMQ</li>
+    </a>
+    
+    <a href="/categories/#CODE">
+      <li>CODE</li>
     </a>
     
     <a href="/categories/#Shell">
       <li>Shell</li>
+    </a>
+    
+    <a href="/categories/#Code">
+      <li>Code</li>
+    </a>
+    
+    <a href="/categories/#NGINX">
+      <li>NGINX</li>
+    </a>
+    
+    <a href="/categories/#DesignPattern">
+      <li>DesignPattern</li>
+    </a>
+    
+    <a href="/categories/#Message Queue">
+      <li>Message Queue</li>
     </a>
     
   </ul>
