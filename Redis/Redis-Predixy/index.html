@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head>
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+
+  <!-- Baidu Push -->
+  
+
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+  <meta name="google-site-verification" content="lxDfCplOZbIzjhG34NuQBgu2gdyRlAtMB4utP5AgEBc"/>
+  <meta name="baidu-site-verification" content="PpzM9WxOJU"/>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="随笔小记"/>
+  <meta name="keyword" content="IT"/>
+  <link rel="shortcut icon" href="/img/avatar/02.jpg"/>
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css"/>
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css"/>
+    <link rel="stylesheet" href="/css/widget.css"/>
+    <link rel="stylesheet" href="/css/rocket.css"/>
+    <link rel="stylesheet" href="/css/signature.css"/>
+    <link rel="stylesheet" href="/css/catalog.css"/>
+    <link rel="stylesheet" href="/css/livemylife.css"/>
+
+    
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css"/>
+      <!-- wave end -->
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css"/>
+      <!-- top end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/scroll.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+      <!-- viewer start (Picture preview) -->
+      <link rel="stylesheet" href="/css/viewer.min.css"/>
+      <!-- viewer end -->
+    
+
+    
+      <!-- Search start -->
+      <link rel="stylesheet" href="/css/search.css"/>
+      <!-- Search end -->
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css"/>
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- gitalk start -->
+      <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"> -->
+      <link rel="stylesheet" href="/css/gitalk.css"/>
+      <!-- gitalk end -->
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="http://yoursite-url/Redis/Redis-Predixy/">
+  <title>
+    
+      Redis-访问代理 - null
+    
+  </title>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--light">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'light';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+		<!-- Gitter -->
+<!-- Docs:https://gitter.im/?utm_source=left-menu-logo -->
+<script>
+  ((window.gitter = {}).chat = {}).options = {
+    room: 'your-community/your-room'
+  };
+</script>
+<script src="https://sidecar.gitter.im/dist/sidecar.v1.js" async defer></script>
+
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">风闲小聚</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">HOME</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              ABOUT
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              TAGS
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+          <li>
+            <a class="popup-trigger">
+              <span class="search-icon"></span>SEARCH</a>
+          </li>
+          
+
+          <!-- LangSelect -->
+          
+          
+          
+          
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/mountCloud.jpg');
+      --intro-header-background-image-url-post: url('/img/header_img/mountCloud.jpg');
+      --intro-header-background-image-url-page: url('//img/header_img/mountCloud.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/mountCloud.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/mountCloud.jpg');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('//img/header_img/mountCloud.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url('/img/header_img/mountCloud.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+            </div>
+            <h1>Redis-访问代理</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by 煦阳 on
+              2022-10-30
+            </span>
+
+
+            
+            <!-- WordCount start -->
+            <div class="blank_box"></div>
+            <span class="meta">
+              Estimated Reading Time <span class="post-count">15</span> Minutes
+            </span>
+            <div class="blank_box"></div>
+            <span class="meta">
+              Words <span class="post-count">4k</span> In Total
+            </span>
+            <div class="blank_box"></div>
+            <!-- WordCount end -->
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
+
+        <p>Predixy下载地址：<br>
+<a target="_blank" rel="noopener" href="https://github.com/joyieldInc/predixy">https://github.com/joyieldInc/predixy</a></p>
+<hr>
+<h1>Predixy配置文档说明</h1>
+<p>要正常运行predixy服务，一个配置文件是必不可少的，启动一个正常的predixy服务需执行以下命令：</p>
+<pre><code>$ predixy &lt;config-file&gt; [--ArgName=ArgValue]...
+</code></pre>
+<p>predixy首先读取config-file文件中的配置信息，如果有命令行参数指定的话，则会用命令行参数的值覆盖配置文件中定义的相应值。</p>
+<h2 id="配置文件格式说明">配置文件格式说明</h2>
+<p>配置文件是以行为单位的文本文件，每一行是以下几种类型之一</p>
+<ul>
+<li>空行或注释</li>
+<li>Key Value</li>
+<li>Key Value {</li>
+<li>}</li>
+</ul>
+<h3 id="规则">规则</h3>
+<ul>
+<li>以#开始的内容为注释内容</li>
+<li>Include是一个特殊的Key，表示引用Value指明的文件，如果不是绝对路径的话，则相对路径是当前这个文件所在的路径</li>
+<li>Value可以为空， 如果Value本身包括#，双引号的话，应该用双引号括起来，里面的双引号加反斜杠转义, 例如: “A &quot;#special#&quot; value”</li>
+<li>多个行定义同一个Key的话，最后出现的行会覆盖之前的定义</li>
+</ul>
+<h2 id="基本配置部分">基本配置部分</h2>
+<h3 id="Name">Name</h3>
+<p>定义predixy服务的名字，在用INFO命令的时候会输出这个内容</p>
+<p>例子：</p>
+<pre><code>Name PredixyUserInfo
+</code></pre>
+<h3 id="Bind">Bind</h3>
+<p>定义predixy服务监听的地址，支持ip:port以及unix socket</p>
+<p>例子:</p>
+<pre><code>Bind 0.0.0.0:7617
+Bind /tmp/predixy
+</code></pre>
+<p>未指定时为: 0.0.0.0:7617</p>
+<h3 id="WorkerThreads">WorkerThreads</h3>
+<p>指定工作线程数</p>
+<p>例子:</p>
+<pre><code>WorkerThreads 4
+</code></pre>
+<p>未指定时为: 1</p>
+<h3 id="MaxMemory">MaxMemory</h3>
+<p>指定predixy最大可申请分配的内存，可以带单位(G/M/K)指定，为0时表示不限制</p>
+<p>例子:</p>
+<pre><code>MaxMemory 1024000
+MaxMemory 1G
+</code></pre>
+<p>未指定时为: 0</p>
+<h3 id="ClientTimeout">ClientTimeout</h3>
+<p>指定客户端超时时间，以秒为单位，即客户端在空闲时间超过该时间以后将主动断开客户端连接，为0时表示禁止该功能，不主动断开客户端连接</p>
+<p>例子:</p>
+<pre><code>ClientTimeout 300
+</code></pre>
+<p>未指定时为: 0</p>
+<h3 id="BufSize">BufSize</h3>
+<p>IO Buffer大小，predixy内部分配BufSize大小的缓冲区用于接受客户端命令和服务端响应，完全零拷贝的转发给服务端或者客户端，该值太小的话影响性能，太大的话浪费空间也可能对性能无益。但是具体多少合适要看实际应用场景，predixy默认设该值为4096</p>
+<p>例子:</p>
+<pre><code>BufSize 8192
+</code></pre>
+<p>未指定时为: 4096</p>
+<h3 id="Log">Log</h3>
+<p>指定日志文件名</p>
+<p>例子:</p>
+<pre><code>Log /var/log/predixy.log
+</code></pre>
+<p>未指定时predixy的行为是将日志写向标准输出</p>
+<h3 id="LogRotate">LogRotate</h3>
+<p>日志自动切分选项，可以按时间指定，也可以按文件大小指定，还可以两者都指定。按时间指定支持如下格式：</p>
+<ul>
+<li>1d 一天</li>
+<li>nh 1&lt;= n &lt;= 24    n小时</li>
+<li>nm 1 &lt;= n &lt;= 1440 n分钟</li>
+</ul>
+<p>按文件大小指定支持G和M单位</p>
+<p>例子:</p>
+<pre><code>LogRotate 1d    #每天切分一次
+LogRotate 1h    #每小时切分一次
+LogRotate 10m   #每10分钟切分一次
+LogRotate 2G    #日志文件每2G切分一次
+LogRotate 200M  #日志文件每200M切分一次
+LogRotate 1d 2G #每天切分一次，且如果日志文件达到2G也切分一次
+</code></pre>
+<p>未定义时禁用该功能</p>
+<h3 id="LogXXXSample">LogXXXSample</h3>
+<p>日志输出采样率，表示每多少条该级别的日志输出一条到Log中，为0时则表示不输出该级别日志。支持的级别如下：</p>
+<ul>
+<li>LogVerbSample</li>
+<li>LogDebugSample</li>
+<li>LogInfoSample</li>
+<li>LogNoticeSample</li>
+<li>LogWarnSample</li>
+<li>LogErrorSample</li>
+</ul>
+<p>例子:</p>
+<pre><code>LogVerbSample 0
+LogDebugSample 0
+LogInfoSample 10000
+LogNoticeSample 1
+LogWarnSample 1
+LogErrorSample 1
+</code></pre>
+<p>这几个参数可以在线修改，像redis一样，通过config set命令:</p>
+<pre><code>CONFIG SET LogDebugSample 1
+</code></pre>
+<p>在predixy中，执行config命令需要管理权限</p>
+<h2 id="权限控制配置部分">权限控制配置部分</h2>
+<p>predixy扩展了redis中AUTH命令的功能，支持定义多个认证密码，可以为每个密码指定权限，权限包括读权限、写权限和管理权限，其中写权限包括读权限，管理权限又包括写权限。还可以指定每个密码所能读写的健空间，健空间的定义是指健具有某个前缀。</p>
+<p>权限控制的定义格式如下：</p>
+<pre><code>Authority &#123;
+    Auth [password] &#123;
+        Mode read|write|admin
+        [KeyPrefix Prefix...]
+        [ReadKeyPrefix Prefix...]
+        [WriteKeyPrefix Prefix...]
+    &#125;...
+&#125;
+</code></pre>
+<p>Authority里面可以定义多个Auth，每个Auth指定一个密码，可以为每个Auth定义权限和健空间。</p>
+<p>参数说明：</p>
+<ul>
+<li>Mode: 必须指定，只能是read、write、admin三者之一，分别表示读、写、管理权限</li>
+<li>KeyPrefix: 可选项，可以定义健空间，多个健空间用空格隔开</li>
+<li>ReadKeyPrefix: 可选项，可以定义可读的健空间，多个健空间用空格隔开</li>
+<li>WriteKeyPrefix: 可选项，可以定义可写的健空间，多个健空间用空格隔开</li>
+</ul>
+<p>对于可读的健空间，如果定义了ReadKeyPrefix,则由ReadKeyPrefix决定,否则由KeyPrefix决定，如果两者都没有，则不限制。可写的健空间解释也一样。需要注意的是，有写权限就表示有读权限，但是读写健空间是完全独立的，即WriteKeyPrefix不会默认包括ReadKeyPrefix的内容。</p>
+<p>例子:</p>
+<pre><code>Authority &#123;
+    Auth &#123;
+        Mode read
+        KeyPrefix Info
+    &#125;
+    Auth readonly &#123;
+        Mode read
+    &#125;
+    Auth modify &#123;
+        Mode write
+        ReadPrefix User Stats
+        WritePrefix User
+    &#125;
+&#125;
+</code></pre>
+<p>上面的例子定义了三个认证密码</p>
+<ul>
+<li>空密码，因为密码为空，所以这个认证是默认的认证，它具有读权限，由于指定了KeyPrefix，因此它最终的权限是只能读取具有前缀Info的key</li>
+<li>readonly密码，这个认证具有读权限，没有健空间限制，它可以读所有key</li>
+<li>modify密码，这个认证具有写权限，分别定义了可读健空间User和Stats,因此它能读取具有这两个前缀的key，而可写健空间定义为User,因此它能写具有前缀User的key，但是不能写具有前缀Stats的key</li>
+</ul>
+<p>缺省的predixy权限控制定义如下：</p>
+<pre><code>Authority &#123;
+    Auth &#123;
+        Mode write
+    &#125;
+    Auth &quot;#a complex password#&quot; &#123;
+        Mode admin
+    &#125;
+&#125;
+</code></pre>
+<p>它表示无需密码即可读写所有的key，但是管理权限要求输入密码#a complex password#</p>
+<h2 id="redis实例配置部分">redis实例配置部分</h2>
+<p>predixy支持Redis Sentinel和Redis Cluster来使用redis，一个配置里这两种形式只能出现一种。</p>
+<h3 id="Redis-Sentinel形式">Redis Sentinel形式</h3>
+<p>定义格式如下：</p>
+<pre><code>SentinelServerPool &#123;
+    [Password xxx]
+    [Databases number]
+    Hash atol|crc16
+    [HashTag &quot;xx&quot;]
+    Distribution modula|random
+    [MasterReadPriority [0-100]]
+    [StaticSlaveReadPriority [0-100]]
+    [DynamicSlaveReadPriority [0-100]]
+    [RefreshInterval number[s|ms|us]]
+    [ServerTimeout number[s|ms|us]]
+    [ServerFailureLimit number]
+    [ServerRetryTimeout number[s|ms|us]]
+    [KeepAlive seconds]
+    Sentinels &#123;
+        + addr
+        ...
+    &#125;
+    Group xxx &#123;
+        [+ addr]
+        ...
+    &#125;
+&#125;
+</code></pre>
+<p>参数说明：</p>
+<ul>
+<li>Password: 指定连接redis实例默认的密码，不指定的情况下表示redis不需要密码</li>
+<li>Databases: 指定redis db数量，不指定的情况下为1</li>
+<li>Hash: 指定对key算哈希的方法，当前只支持atol和crc16</li>
+<li>HashTag: 指定哈希标签，不指定的话为{}</li>
+<li>Distribution: 指定分布key的方法，当前只支持modula和random</li>
+<li>MasterReadPriority: 读写分离功能，从redis master节点执行读请求的优先级，为0则禁止读redis master，不指定的话为50</li>
+<li>StaticSlaveReadPriority: 读写分离功能，从静态redis slave节点执行读请求的优先级，所谓静态节点，是指在本配置文件中显示列出的redis节点，不指定的话为0</li>
+<li>DynamicSlaveReadPolicy: 功能见上，所谓动态节点是指在本配置文件中没有列出，但是通过redis sentinel动态发现的节点，不指定的话为0</li>
+<li>RefreshInterval: predixy会周期性的请求redis sentinel以获取最新的集群信息，该参数以秒为单位指定刷新周期，不指定的话为1秒</li>
+<li>ServerTimeout: 请求在predixy中最长的处理/等待时间，如果超过该时间redis还没有响应的话，那么predixy会关闭同redis的连接，并给客户端一个错误响应，对于blpop这种阻塞式命令，该选项不起作用，为0则禁止此功能，即如果redis不返回就一直等待，不指定的话为0</li>
+<li>ServerFailureLimit: 一个redis实例出现多少次才错误以后将其标记为失效，不指定的话为10</li>
+<li>ServerRetryTimeout: 一个redis实例失效后多久后去检查其是否恢复正常，不指定的话为1秒</li>
+<li>KeepAlive: predixy与redis的连接tcp keepalive时间，为0则禁止此功能，不指定的话为0</li>
+<li>Sentinels: 里面定义redis sentinel实例的地址</li>
+<li>Group: 定义一个redis组，Group的名字应该和redis sentinel里面的名字一致，Group里可以显示列出redis的地址，列出的话就是上面提到的静态节点</li>
+</ul>
+<p>一个例子：</p>
+<pre><code>SentinelServerPool &#123;
+    Databases 16
+    Hash crc16
+    HashTag &quot;&#123;&#125;&quot;
+    Distribution modula
+    MasterReadPriority 60
+    StaticSlaveReadPriority 50
+    DynamicSlaveReadPriority 50
+    RefreshInterval 1
+    ServerTimeout 1
+    ServerFailureLimit 10
+    ServerRetryTimeout 1
+    KeepAlive 120
+    Sentinels &#123;
+        + 10.2.2.2:7500
+        + 10.2.2.3:7500
+        + 10.2.2.4:7500
+    &#125;
+    Group shard001 &#123;
+    &#125;
+    Group shard002 &#123;
+    &#125;
+&#125;
+</code></pre>
+<p>这个Redis Sentinel集群定义指定了三个redis sentinel实例，分别是10.2.2.2:7500、10.2.2.3:7500、10.2.2.4:7500，定义了两组redis，分别是shard001、shard002。没有指定任何静态redis节点。所有redis实例都没有开启密码认证，它们都具有16个db。predixy用crc16计算key的哈希值，然后通过modula也就是求模的办法将key分布到shard001或shard002中去。由于MasterReadPriority为60,比DynamicSlaveReadPriority的50要大，所以读请求都会分发到redis master节点，RefreshInterval为1,每一秒钟向redis sentinel发送请求刷新集群信息。redis实例失败累计达到10次后将该redis实例标记失效，每间隔1秒钟后检查其是否恢复。</p>
+<h3 id="Redis-Cluster形式">Redis Cluster形式</h3>
+<p>定义格式如下：</p>
+<pre><code>ClusterServerPool &#123;
+    [Password xxx]
+    [MasterReadPriority [0-100]]
+    [StaticSlaveReadPriority [0-100]]
+    [DynamicSlaveReadPriority [0-100]]
+    [RefreshInterval seconds]
+    [ServerTimeout number[s|ms|us]]
+    [ServerFailureLimit number]
+    [ServerRetryTimeout number[s|ms|us]]
+    [KeepAlive seconds]
+    Servers &#123;
+        + addr
+        ...
+    &#125;
+&#125;
+</code></pre>
+<p>参数说明：</p>
+<ul>
+<li>可选的参数和Redis Sentinel模式同名参数含义一样</li>
+<li>Servers:在这里列出redis cluster里的redis实例，列出的为静态节点，未列出而是通过集群信息发现的则为动态节点</li>
+</ul>
+<p>一个例子：</p>
+<pre><code>ClusterServerPool &#123;
+    MasterReadPriority 0
+    StaticSlaveReadPriority 50
+    DynamicSlaveReadPriority 50
+    RefreshInterval 1
+    ServerTimeout 1
+    ServerFailureLimit 10
+    ServerRetryTimeout 1
+    KeepAlive 120
+    Servers &#123;
+        + 192.168.2.107:2211
+        + 192.168.2.107:2212
+    &#125;
+&#125;
+</code></pre>
+<p>该定义指定通过redis实例192.168.2.107:2211和192.168.2.107:2212来发现集群信息，指定MasterReadPriority为0，表示不要将读请求分发到redis master节点。</p>
+<h2 id="多数据中心配置部分">多数据中心配置部分</h2>
+<p>predixy支持多数据中心，在redis部署跨数据中心的时候，可以将读请求分发给本数据中心的redis实例，避免跨数据中心访问。套用数据中心的概念，实际上即便没有多数据中心，也可以在需要从节点来分担读请求的时候通过本配置来控制请求分配，此时比如可以认为一个机架就是一个数据中心。</p>
+<p>多数据中心配置格式:</p>
+<pre><code>LocalDC name
+DataCenter &#123;
+   DC name &#123;
+       AddrPrefix &#123;
+           + IpPrefix
+           ...
+       &#125;
+       ReadPolicy &#123;
+           name priority [weight]
+           other priority [weight]
+       &#125;
+   &#125;
+   ...
+&#125;
+</code></pre>
+<p>参数说明：</p>
+<ul>
+<li>LocalDC: 指定当前predixy所在的数据中心</li>
+<li>DC: 定义一个数据中心</li>
+<li>AddrPrefix: 定义该数据中心包括的ip前缀</li>
+<li>ReadPolicy: 定义从该数据中心读其它（包括自己）数据中心的优先级及权重</li>
+</ul>
+<p>如果不用数据中心功能，那么不提供LocalDC和DataCenter定义即可。</p>
+<p>一个多数据中心配置的例子:</p>
+<pre><code>DataCenter &#123;
+    DC bj &#123;
+        AddrPrefix &#123;
+            + 10.1
+        &#125;
+        ReadPolicy &#123;
+            bj 50
+            sh 20
+            sz 10
+        &#125;
+    &#125;
+    DC sh &#123;
+        AddrPrefix &#123;
+            + 10.2
+        &#125;
+        ReadPolicy &#123;
+            sh 50
+            bj 20 5
+            sz 20 2
+        &#125;
+    &#125;
+    DC sz &#123;
+        AddrPrefix &#123;
+            + 10.3
+        &#125;
+        ReadPolicy &#123;
+            sz 50
+            sh 20
+            bj 10
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>这个例子定义了三个数据中心，分别是bj、sh、sz。其中bj数据中心包括ip前缀为10.1的redis实例，这样predixy通过redis sentinel或者redis cluster发现节点的时候如果看到redis实例的地址前缀是10.1则会认为该实例在bj数据中心。predixy根据自身所在的数据中心来选择相应的读请求策略。</p>
+<p>假设predixy在bj数据中心，bj读bj的优先级为50,高于另外两个，所以predixy会优先选择bj数据中心进行读操作，如果bj数据中心没有可用的redis节点，则会是sh数据中心，如果sh还没有节点，才会选择sz。</p>
+<p>假设predixy在sh数据中心，predixy优先选择sh数据中心，如果sh数据中心没有可用的redis实例，因为bj和sh的优先级都为20,那么则会根据权重设置来分配流量，在这里，5份的请求去bj数据中心，2份的请求去sz。</p>
+<p>前面在定义集群的时候有说过可以定义主从节点的读优先级，数据中心这里又有读优先级的概念，那么它们是如何工作的？原则就是在启用了数据中心的功能之后，先根据数据中心读策略选取数据中心、然后再在数据中心内应用集群的主从读优先级选择最终的redis实例。</p>
+<h2 id="延迟监控配置部分">延迟监控配置部分</h2>
+<p>predixy提供了强大的延迟监控的功能，可以记录predixy处理请求的时间，对predixy来说，这个时间其实主要就是请求redis的时间。</p>
+<p>延迟监控定义格式如下：</p>
+<pre><code>LatencyMonitor name &#123;
+    Commands &#123;
+        + cmd
+        [- cmd]
+        ...
+    &#125;
+    TimeSpan &#123;
+        + TimeElapsedUS
+        ...
+    &#125;
+&#125;
+</code></pre>
+<p>参数说明:</p>
+<ul>
+<li>LatencyMonitor: 定义一个延迟监控</li>
+<li>Commands: 指定该延迟监控记录哪些redis命令，+ cmd表示监控该命令，- cmd表示不监控该命令，如果cmd为all则表示所有命令。</li>
+<li>TimeSpan: 定义延迟桶，以微秒为单位，必须是一个严格递增的序列。</li>
+</ul>
+<p>可以定义多个LatencyMonitor以便监控不同的命令。</p>
+<p>延迟监控配置例子：</p>
+<pre><code>LatencyMonitor all &#123;
+    Commands &#123;
+        + all
+        - blpop
+        - brpop
+        - brpoplpush
+    &#125;
+    TimeSpan &#123;
+        + 1000
+        + 1200
+        + 1400
+        + 1600
+        + 1700
+        + 1800
+        + 2000
+        + 2500
+        + 3000
+        + 3500
+        + 4000
+        + 4500
+        + 5000
+        + 6000
+        + 7000
+        + 8000
+        + 9000
+        + 10000
+    &#125;
+&#125;
+
+LatencyMonitor get &#123;
+    Commands &#123;
+        + get
+    &#125;
+    TimeSpan &#123;
+        + 100
+        + 200
+        + 300
+        + 400
+        + 500
+        + 600
+        + 700
+        + 800
+        + 900
+        + 1000
+    &#125;
+&#125;
+
+LatencyMonitor set &#123;
+    Commands &#123;
+        + set
+        + setnx
+        + setex
+    &#125;
+    TimeSpan &#123;
+        + 100
+        + 200
+        + 300
+        + 400
+        + 500
+        + 600
+        + 700
+        + 800
+        + 900
+        + 1000
+    &#125;
+&#125;
+</code></pre>
+<p>上面的例子定义了三个延迟监控，其中all监控除了blpop/brpop/brpoplpush外的所有命令，get监控get命令，set监控set/setnx/setex命令。这里的耗时桶定义并不适用与所有情况，在实际使用的时候需要调整以更精确的反应真实的耗时情况。</p>
+<p>查看耗时监控，通过INFO命令来查看，有三种使用方式：</p>
+<h3 id="查看所有延迟定义的整体信息">查看所有延迟定义的整体信息</h3>
+<p>命令：</p>
+<pre><code>redis&gt; INFO
+</code></pre>
+<p>此时看到的结果列在最后的就是整体的延迟信息。</p>
+<h3 id="查看单个延迟定义的信息">查看单个延迟定义的信息</h3>
+<p>命令：</p>
+<pre><code>redis&gt; INFO Latency &lt;name&gt;
+</code></pre>
+<p>其中<name>为延迟定义名称，结果会显示该定义的整体延迟信息，以及分后端redis实例的延迟信息。</p>
+<h3 id="查看某个后端redis实例延迟信息">查看某个后端redis实例延迟信息</h3>
+<p>命令：</p>
+<pre><code>redis&gt; INFO ServerLatency &lt;serv&gt; [name]
+</code></pre>
+<p>其中<serv>为redis实例地址，[name]为可选的延迟定义名称，如果忽略name，那么就会给出请求该redis实例所有延迟定义信息，否则只给出name的。</p>
+<p>延迟信息格式说明，下面是延迟定义all的整体信息一个例子：</p>
+<pre><code>LatencyMonitorName:all
+&lt;=          100              3769836            91339 91.34%
+&lt;=          200               777185             5900 97.24%
+&lt;=          300               287565             1181 98.42%
+&lt;=          400               185891              537 98.96%
+&lt;=          500               132773              299 99.26%
+&lt;=          600                85050              156 99.41%
+&lt;=          700                85455              133 99.54%
+&lt;=          800                40088               54 99.60%
+&lt;=         1000                67788               77 99.68%
+&gt;          1000               601012              325 100.00%
+T            60              6032643           100001
+</code></pre>
+<ul>
+<li>第一列为&lt;=，则第二列表示小于等于该耗时，第三列表示这个范围耗时的总和，第四列表示请求数，第五列表示累计的请求占总请求的百分比，</li>
+<li>第一列为&gt;，则第二列表示大于该耗时的请求，后两列含义同上。本行最多只会出现一次，如果位于本行的请求数过多，则说明延迟定义指定的耗时桶不够合适。</li>
+<li>第一列为T，这一行只会出现一次，且总在最后。第二列表示所有请求的平均耗时，第三列表示总的请求耗时之和，第四列表示总的请求数。</li>
+</ul>
+
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
+          
+          <li class="previous">
+            <a href="/Linux/SpringBootShell/" data-toggle="tooltip" data-placement="top" title="Spring应用常用脚本">&larr; Previous Post</a>
+          </li>
+          
+          
+          <li class="next">
+            <a href="/RocketMQ/MessageProces/" data-toggle="tooltip" data-placement="top" title="Broker端消息处理01">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=Redis-访问代理&body=Hi,I found this website and thought you might like it http://yoursite-url/Redis/Redis-Predixy/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+  <!-- gitalk start -->
+  <!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+  <div id="gitalk-container"></div>
+
+  
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+    <script src="/js/comment/gitalk.js"></script>
+  
+
+  <script>
+    var gitalk = new Gitalk({
+      clientID: '',
+      clientSecret: '',
+      repo: '',
+      owner: '',
+      admin: '',
+      id: 'Sun Oct 30 2022 16:29:33 GMT+0800', // Ensure uniqueness and length less than 50
+      distractionFreeMode: false, // Facebook-like distraction free mode
+      perPage: 10,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      language: 'en',
+      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
+    });
+    gitalk.render('gitalk-container');
+
+    var gtFolded = () => {
+      setTimeout(function () {
+        let markdownBody = document.getElementsByClassName("markdown-body");
+        let list = Array.from(markdownBody);
+        list.forEach(item => {
+          if (item.clientHeight > 250) {
+            item.classList.add('gt-comment-body-folded');
+            item.style.maxHeight = '250px';
+            item.title = 'Click to Expand';
+            item.onclick = function () {
+              item.classList.remove('gt-comment-body-folded');
+              item.style.maxHeight = '';
+              item.title = '';
+              item.onclick = null;
+            };
+          }
+        })
+      }, 800);
+    }
+  </script>
+
+  <!-- gitalk end -->
+
+
+<!-- 2. gitment comment -->
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+        <hr>
+        <h5>FRIENDS</h5>
+        <ul class="list-inline">
+
+          
+          <li>
+            <a href="https://v-vincen.life/" target="_blank">HubertXH</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+<!-- anchorjs start -->
+<!-- async load function -->
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script type="text/javascript">
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function(e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  };
+</script>
+<script type="text/javascript">
+  //anchor-js, Doc:http://bryanbraun.github.io/anchorjs/
+  async ("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js", function() {
+    anchors.options = {
+      visible: 'hover',
+      placement: 'left',
+      // icon: 'ℬ'
+      icon: '❡'
+    };
+    anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+  });
+</script>
+<style>
+  /* place left on bigger screen */
+  @media all and (min-width: 800px) {
+    .anchorjs-link {
+      position: absolute;
+      left: -0.75em;
+      font-size: 1.1em;
+      margin-top: -0.1em;
+    }
+  }
+</style>
+
+<!-- anchorjs end -->
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+
+          
+            <li>
+              <a target="_blank" href="https://github.com/HubertXH">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy;
+          煦阳
+          2024
+          <br>
+          Theme by
+          <a target="_blank" rel="noopener" href="http://beantech.org">BeanTech</a>
+          <span style="display: inline-block; margin: 0 5px;">
+            <i class="fa fa-heart"></i>
+          </span>
+          <!--
+          re-Ported by
+          <a target="_blank" rel="noopener" href="https://v-vincen.life/">Live My Life</a>
+          |
+          <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="91px" height="20px" src="https://ghbtns.com/github-btn.html?user=V-Vincen&repo=V-Vincen.github.io&type=star&count=true"></iframe> -->
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+    <!-- Scroll start -->
+    <script async="async" type="text/javascript" src="/js/scroll.js"></script>
+    <!-- Scroll end -->
+  
+
+  
+    <!-- LangSelect start -->
+    <script type="text/javascript" src="/js/langselect.js"></script>
+    <!-- LangSelect end -->
+  
+
+  
+    <!-- Mouseclick -->
+    <script type="text/javascript" src="/js/mouseclick.js" content='' color='#9933CC,#339933,#66CCCC,#FF99CC,#CCCCFF,#6666CC,#663399,#66CC99,#FF0033'></script>
+  
+
+  
+    <!-- ribbon -->
+    <script type="text/javascript" src="/js/ribbonDynamic.js"></script>
+  
+
+  
+
+
+
+
+
+
+  <!-- viewer start -->
+  <!-- viewer start (Picture preview) -->
+  
+    <script async="async" type="text/javascript" src="/js/viewer/viewer.min.js"></script>
+    <script async="async" type="text/javascript" src="/js/viewer/pic-viewer.js"></script>
+  
+
+  <!-- viewer end -->
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  async ("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("http://yoursite-url/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+		<div class="popup search-popup local-search-popup">
+  <span class="popup-btn-close">
+    ESC
+  </span>
+  <div class="container">
+    <div class="row">
+      <!-- <div class="col-md-9 col-md-offset-1"> -->
+      <div class="col-lg-9 col-lg-offset-1 col-md-10 col-md-offset-1 local-search-content">
+
+        <div class="local-search-header clearfix">
+
+          <div class="local-search-input-wrapper">
+            <span class="search-icon">
+              <i class="fa fa-search fa-lg" style="margin: 25px 10px 25px 20px;"></i>
+            </span>
+            <input autocomplete="off" placeholder="SEARCH..." type="text" id="local-search-input">
+          </div>
+        </div>
+        <div id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
+    <script src="/js/ziploader.js"></script>
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.json";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    // monitor main search box;
+    var onPopupClose = function (e) {
+      $('.popup').fadeOut(300);
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $('.popup').fadeIn(300);
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+    // get search zip version
+    $.get('/searchVersion.json?t=' + (+new Date()), function (res) {
+      if (localStorage.getItem('searchVersion') !== res) {
+        localStorage.setItem('searchVersion', res);
+        initSearchJson();
+      }
+    });
+
+    function initSearchJson() {
+      initLoad(['/search.flv'], {
+        loadOptions: {
+          success: function (obj) {
+            localStorage.setItem('searchJson', obj['search.json'])
+          },
+          error: function (e) {
+            return console.log(e)
+          }
+        },
+        returnOptions: {
+          'json': TYPE_TEXT
+        },
+        mimeOptions: {
+          'json': 'application/json'
+        }
+      })
+    }
+    // search function;
+    var searchFunc = function (search_id, content_id) {
+      'use strict';
+      isfetched = true;
+      var datas = JSON.parse(localStorage.getItem('searchJson'));
+      // console.log(search_id)
+      var input = document.getElementById(search_id);
+      var resultContent = document.getElementById(content_id);
+      var inputEventFunction = function () {
+        var searchText = input.value.trim().toLowerCase();
+        var keywords = searchText.split(/[\s\-]+/);
+        if (keywords.length > 1) {
+          keywords.push(searchText);
+        }
+        var resultItems = [];
+        if (searchText.length > 0) {
+          // perform local searching
+          datas.forEach(function (data) {
+            var isMatch = false;
+            var hitCount = 0;
+            var searchTextCount = 0;
+            var title = data.title
+              ? data.title.trim()
+              : '';
+            var titleInLowerCase = title.toLowerCase();
+            var content = data.content
+              ? data.content.trim().replace(/<[^>]+>/g, "")
+              : '';
+            var contentInLowerCase = content.toLowerCase();
+            var articleUrl = decodeURIComponent(data.url);
+
+            var date = data.date;
+            var dateTime = date.replace(/T/, " ").replace(/.000Z/, "");
+            var imgUrl = data.header_img;
+            
+
+
+            var indexOfTitle = [];
+            var indexOfContent = [];
+            // only match articles with not empty titles
+            keywords.forEach(function (keyword) {
+              function getIndexByWord(word, text, caseSensitive) {
+                var wordLen = word.length;
+                if (wordLen === 0) {
+                  return [];
+                }
+                var startPosition = 0,
+                  position = [],
+                  index = [];
+                if (!caseSensitive) {
+                  text = text.toLowerCase();
+                  word = word.toLowerCase();
+                }
+                while ((position = text.indexOf(word, startPosition)) > -1) {
+                  index.push({position: position, word: word});
+                  startPosition = position + wordLen;
+                }
+                return index;
+              }
+              indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+              indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+            });
+            if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+              isMatch = true;
+              hitCount = indexOfTitle.length + indexOfContent.length;
+            }
+            // show search results
+            if (isMatch) {
+              // sort index by position of keyword
+              [indexOfTitle, indexOfContent].forEach(function (index) {
+                index.sort(function (itemLeft, itemRight) {
+                  if (itemRight.position !== itemLeft.position) {
+                    return itemRight.position - itemLeft.position;
+                  } else {
+                    return itemLeft.word.length - itemRight.word.length;
+                  }
+                });
+              });
+              // merge hits into slices
+              function mergeIntoSlice(text, start, end, index) {
+                var item = index[index.length - 1];
+                var position = item.position;
+                var word = item.word;
+                var hits = [];
+                var searchTextCountInSlice = 0;
+                while (position + word.length <= end && index.length != 0) {
+                  if (word === searchText) {
+                    searchTextCountInSlice++;
+                  }
+                  hits.push({position: position, length: word.length});
+                  var wordEnd = position + word.length;
+                  // move to next position of hit
+                  index.pop();
+                  while (index.length != 0) {
+                    item = index[index.length - 1];
+                    position = item.position;
+                    word = item.word;
+                    if (wordEnd > position) {
+                      index.pop();
+                    } else {
+                      break;
+                    }
+                  }
+                }
+                searchTextCount += searchTextCountInSlice;
+                return {hits: hits, start: start, end: end, searchTextCount: searchTextCountInSlice};
+              }
+              var slicesOfTitle = [];
+              if (indexOfTitle.length != 0) {
+                slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+              }
+              var slicesOfContent = [];
+              while (indexOfContent.length != 0) {
+                var item = indexOfContent[indexOfContent.length - 1];
+                var position = item.position;
+                var word = item.word;
+                // cut out 100 characters
+                var start = position - 20;
+                var end = position + 80;
+                if (start < 0) {
+                  start = 0;
+                }
+                if (end < position + word.length) {
+                  end = position + word.length;
+                }
+                if (end > content.length) {
+                  end = content.length;
+                }
+                slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+              }
+              // sort slices in content by search text's count and hits' count
+              slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                  return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                  return sliceRight.hits.length - sliceLeft.hits.length;
+                } else {
+                  return sliceLeft.start - sliceRight.start;
+                }
+              });
+              // select top N slices in content
+              var upperBound = parseInt('1');
+              if (upperBound >= 0) {
+                slicesOfContent = slicesOfContent.slice(0, upperBound);
+              }
+              // highlight title and content
+              function highlightKeyword(text, slice) {
+                var result = '';
+                var prevEnd = slice.start;
+                slice.hits.forEach(function (hit) {
+                  result += text.substring(prevEnd, hit.position);
+                  var end = hit.position + hit.length;
+                  result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                  prevEnd = end;
+                });
+                result += text.substring(prevEnd, slice.end);
+                return result;
+              }
+              var resultItem = '';
+
+              // if (slicesOfTitle.length != 0) {   resultItem += "<li><a target='_blank' href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>"; } else {   resultItem += "<li><a target='_blank' href='" +
+              // articleUrl + "' class='search-result-title'>" + title + "</a>"; } slicesOfContent.forEach(function (slice) {   resultItem += "<a target='_blank' href='" + articleUrl + "'><p class=\"search-result\">" + highlightKeyword(content, slice) +
+              // "...</p></a>"; }); resultItem += "</li>";
+
+              if (slicesOfTitle.length != 0) {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              } else {
+                resultItem += "<a target='_blank' href='" + articleUrl + "' class='search-result'><div class='search-result-left'><div class='search-result-title'>" + title + "</div><time class='search-result-date'>" + dateTime + "</time>";
+              }
+              slicesOfContent.forEach(function (slice) {
+                resultItem += "<p class=\"search-result-content\">" + highlightKeyword(content, slice) + "...</p>";
+              });
+              resultItem += "</div><div class='search-result-right'><img class='media-image' src='" + imgUrl + "' width='64px' height='48px'></img></div></a>";
+
+              resultItems.push({item: resultItem, searchTextCount: searchTextCount, hitCount: hitCount, id: resultItems.length});
+            }
+          })
+        };
+
+        if (keywords.length === 1 && keywords[0] === "") {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else if (resultItems.length === 0) {
+          resultContent.innerHTML = '<div id="no-result"></div>'
+        } else {
+          resultItems.sort(function (resultLeft, resultRight) {
+            if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+              return resultRight.searchTextCount - resultLeft.searchTextCount;
+            } else if (resultLeft.hitCount !== resultRight.hitCount) {
+              return resultRight.hitCount - resultLeft.hitCount;
+            } else {
+              return resultRight.id - resultLeft.id;
+            }
+          });
+          var searchResultList = '<div class=\"search-result-list\">';
+          resultItems.forEach(function (result) {
+            searchResultList += result.item;
+          })
+          searchResultList += "</div>";
+          resultContent.innerHTML = searchResultList;
+        }
+      }
+      if ('auto' === 'auto') {
+        input.addEventListener('input', inputEventFunction);
+      } else {
+        $('.search-icon').click(inputEventFunction);
+        input.addEventListener('keypress', function (event) {
+          if (event.keyCode === 13) {
+            inputEventFunction();
+          }
+        });
+      }
+      // remove loading animation
+      $('body').css('overflow', '');
+      proceedsearch();
+    }
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function (e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc('local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function (e) {
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 && $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+
+    document.addEventListener('mouseup', (e) => {
+      var _con = document.querySelector(".local-search-content");
+      if (_con) {
+        if (!_con.contains(e.target)) {
+          onPopupClose();
+        }
+      }
+    });
+  </script>
+
+
+		
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

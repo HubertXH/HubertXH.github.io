@@ -17,12 +17,20 @@
     <lastmod>2023-09-07</lastmod>
   </url>
   <url>
+    <loc>http://yoursite-url/NFS/NFS%E8%BF%90%E7%BB%B4/</loc>
+    <lastmod>2023-08-27</lastmod>
+  </url>
+  <url>
     <loc>http://yoursite-url/Linux/ApplicationMonitor/</loc>
     <lastmod>2023-07-05</lastmod>
   </url>
   <url>
     <loc>http://yoursite-url/Linux/SpringBootShell/</loc>
     <lastmod>2023-06-04</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite-url/Redis/Redis-Predixy/</loc>
+    <lastmod>2022-10-30</lastmod>
   </url>
   <url>
     <loc>http://yoursite-url/RocketMQ/MessageProces/</loc>
@@ -91,6 +99,14 @@
   <url>
     <loc>http://yoursite-url/Linux/BaseShell/</loc>
     <lastmod>2020-03-24</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite-url/Redis/RDB/</loc>
+    <lastmod>2018-06-07</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite-url/Redis/DataStructure/</loc>
+    <lastmod>2018-06-02</lastmod>
   </url>
   <url>
     <loc>http://yoursite-url/DesignPattern/StrategyPattern/</loc>
