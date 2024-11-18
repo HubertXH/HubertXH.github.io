@@ -209,9 +209,9 @@
           
           
           <li>
-            <a href="/about/">
+            <a href="/categories/">
               
-              ABOUT
+              CATEGORIES
               
               
             </a>
@@ -231,9 +231,9 @@
           
           
           <li>
-            <a href="/categories/">
+            <a href="/about/">
               
-              CATEGORIES
+              ABOUT
               
               
             </a>
@@ -493,6 +493,41 @@ GC日志切换的大小(100M......
   <!-- top end -->
   
 
+  <a href="/Redis/Redis-con/">
+    <h2 class="post-title">
+      缓存一致性解决方案
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      缓存失效
+缓存失效指的是在真实数据源发生变化时，主动使过期的缓存条目失效的过程。如果缓存失效处理不当，可能会导致缓存中一直存在与真实数据源不同的值。
+这里所指的缓存失效是通过外部行为是已经失去作用的缓存被清理掉。 不是指缓存的有效期到了之后自动从缓存删除的行为。
+缓存一致性问题
+首先尝试从数据库中获取数据填充道缓存中a=10，但在“a=10”设置到缓存里之前，有另一个操作将 a 修改为 50......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 煦阳 on
+    2021-04-13
+  </p>
+  <div class="tags">
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
   <a href="/RocketMQ/BestConfig/">
     <h2 class="post-title">
       RocketMQ配置
@@ -711,9 +746,83 @@ reboot......
   <!-- top end -->
   
 
+  <a href="/Redis/Expire/">
+    <h2 class="post-title">
+      Redis过期键删除策略
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      Redis过期键删除策略
+Redis作为一款高性能的键值数据库，对内存的管理有着严格的要求。为了保证内存的有效利用，Redis设计了一套精巧的过期键删除机制，通过惰性删除和定期删除两种策略的结合，实现了对过期键的高效处理。
+过期键删除策略
+惰性删除（Lazy Deletion）
+
+原理： 只有当客户端请求访问一个已过期键时，Redis才会检查并删除该键。
+优点： 对CPU友好，仅在需要时才进......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 煦阳 on
+    2018-06-09
+  </p>
+  <div class="tags">
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/Redis/AOF/">
+    <h2 class="post-title">
+      Redis AOF持久话
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      Redis AOF持久话
+1. AOF持久化概述
+AOF(Append Only File)通过记录写命令来实现数据持久化，具有更高的数据安全性。
+1.1 工作原理示例
+AOF通过将所有写命令按顺序追加到一个文件中来记录数据库状态。当Redis重启时，会读取AOF文件并重新执行这些命令，从而恢复数据库状态。这种方式保证了数据的一致性，即使Redis异常退出，也能最大程度地恢复数据。
+例：
+1......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 煦阳 on
+    2018-06-08
+  </p>
+  <div class="tags">
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
   <a href="/Redis/RDB/">
     <h2 class="post-title">
-      RDB持久话
+      RDB持久化
     </h2>
     <h3 class="post-subtitle">
       
@@ -731,123 +840,6 @@ RDB持久化可以通过手动触发或者自动触发两种方式来进行。
   <p class="post-meta" style="margin: 10px 0;">
     Posted by 煦阳 on
     2018-06-07
-  </p>
-  <div class="tags">
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/DesignPattern/StrategyPattern/">
-    <h2 class="post-title">
-      策略模式
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      策略模式（Strategy Pattern）允许定义一系列算法，并将每一个算法封装起来，使它们可以相互替换使用。
-算法的变化不会影响到使用算法的客户代码，从而实现算法的独立和可扩展性。
-组成部分
-策略模式通常包括以下几个部分：
-
-
-策略定义接口（Strategy Interface）：定义了一组算法或行为的公共接口或抽象类。不同的算法需要实现这个接口。
-
-
-具体策略（Concrete Str......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 煦阳 on
-    2018-03-08
-  </p>
-  <div class="tags">
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/DesignPattern/Singleton/">
-    <h2 class="post-title">
-      单例模式
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      单例模式的定义
-单例模式（Singleton Pattern）是一种设计模式，它确保一个类只有一个实例，并提供全局访问点来访问这个实例。单例模式主要用于需要一个对象在整个系统中唯一的场景，比如配置类、日志类、线程池等。
-单例模式的作用
-单例模式有以下几个作用：
-
-控制实例数量：防止创建多个实例,保持实例的唯一性。
-全局访问：解决全局资源访问冲突的问题。
-
-单例模式的实现方式
-1. 饿汉式（E......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 煦阳 on
-    2018-03-07
-  </p>
-  <div class="tags">
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/DesignPattern/ProxyPattern/">
-    <h2 class="post-title">
-      代理模式
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      代理模式（Proxy Pattern）
-什么是代理模式？
-代理模式是一种结构型设计模式，它提供了一种对目标对象访问的间接方式。也就是说，我们通过一个代理对象来访问目标对象，而不是直接访问目标对象。代理对象可以在目标对象执行操作之前、之后或期间进行一些额外的操作，从而实现对目标对象的控制或增强。
-核心思想：
-
-间接访问： 通过代理对象来访问目标对象。
-增强功能： 代理对象可以在目标对象的基础上......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by 煦阳 on
-    2018-03-06
   </p>
   <div class="tags">
     
@@ -893,11 +885,15 @@ RDB持久化可以通过手动触发或者自动触发两种方式来进行。
   <div class="tags">
     
     
-    <a href="/tags/#IMAGE" title="IMAGE" rel="1">IMAGE</a>
+    <a href="/tags/#Canal" title="Canal" rel="1">Canal</a>
     
     
     
     <a href="/tags/#jvm" title="jvm" rel="3">jvm</a>
+    
+    
+    
+    <a href="/tags/#IMAGE" title="IMAGE" rel="1">IMAGE</a>
     
     
     
@@ -910,10 +906,6 @@ RDB持久化可以通过手动触发或者自动触发两种方式来进行。
     
     
     <a href="/tags/#IO Monitor Index" title="IO Monitor Index" rel="1">IO Monitor Index</a>
-    
-    
-    
-    <a href="/tags/#Canal" title="Canal" rel="1">Canal</a>
     
     
     
@@ -1026,7 +1018,7 @@ RDB持久化可以通过手动触发或者自动触发两种方式来进行。
 
 <h5><a href="/archives/">archives</a></h5>
 <div class="widget">
-  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../2024/06/">June 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/12/">December 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/09/">September 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/08/">August 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/07/">July 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/06/">June 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/10/">October 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/09/">September 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/05/">May 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/04/">April 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/03/">March 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2021/08/">August 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2021/06/">June 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2020/05/">May 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2018/06/">June 2018</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2018/03/">March 2018</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2018/02/">February 2018</a><span class="archive-list-count">1</span></li></ul>
+  <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="../2024/06/">June 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/12/">December 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/09/">September 2023</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/08/">August 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/07/">July 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2023/06/">June 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/10/">October 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/09/">September 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/05/">May 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/04/">April 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2022/03/">March 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2021/08/">August 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2021/06/">June 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2021/04/">April 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2020/05/">May 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2020/04/">April 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2020/03/">March 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2018/06/">June 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2018/03/">March 2018</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="../2018/02/">February 2018</a><span class="archive-list-count">1</span></li></ul>
 </div>
 
 
@@ -1038,36 +1030,32 @@ RDB持久化可以通过手动触发或者自动触发两种方式来进行。
 <div class="widget">
   <ul>
     
-    <a href="/categories/#CODE">
-      <li>CODE</li>
-    </a>
-    
-    <a href="/categories/#DesignPattern">
-      <li>DesignPattern</li>
-    </a>
-    
-    <a href="/categories/#Code">
-      <li>Code</li>
+    <a href="/categories/#Canal">
+      <li>Canal</li>
     </a>
     
     <a href="/categories/#JAVA">
       <li>JAVA</li>
     </a>
     
+    <a href="/categories/#CODE">
+      <li>CODE</li>
+    </a>
+    
+    <a href="/categories/#Code">
+      <li>Code</li>
+    </a>
+    
+    <a href="/categories/#DesignPattern">
+      <li>DesignPattern</li>
+    </a>
+    
     <a href="/categories/#Linux">
       <li>Linux</li>
     </a>
     
-    <a href="/categories/#Shell">
-      <li>Shell</li>
-    </a>
-    
     <a href="/categories/#NGINX">
       <li>NGINX</li>
-    </a>
-    
-    <a href="/categories/#Canal">
-      <li>Canal</li>
     </a>
     
     <a href="/categories/#Redis">
@@ -1076,6 +1064,10 @@ RDB持久化可以通过手动触发或者自动触发两种方式来进行。
     
     <a href="/categories/#RocketMQ">
       <li>RocketMQ</li>
+    </a>
+    
+    <a href="/categories/#Shell">
+      <li>Shell</li>
     </a>
     
     <a href="/categories/#Message Queue">
